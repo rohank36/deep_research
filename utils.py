@@ -61,6 +61,40 @@ def create_text_object(parsed_llm_res:dict[str,str]) -> Text:
     raise NotImplementedError
 
 
+def calculate_cost_of_inference(model:str, prompt_tokens:int, completion_tokens:int) -> Tuple[int,int,int]:
+    # $ cost per 1m tokens
+    model_costs = {
+        "gpt-4o": {
+            "input": 2.50,
+            "output": 10.00
+        },
+        "gpt-4.1": {
+            "input": 2.00,
+            "output": 8.00
+        },
+        "gpt-4.1-nano": {
+            "input": 0.10,
+            "output": 0.40
+        },
+        "gpt-4o-mini": {
+            "input": 0.15,
+            "output": 0.60
+        },
+        "gpt-4.1-mini": {
+            "input": 0.40,
+            "output": 1.60
+        }
+    }
+    if model not in model_costs:
+        raise ValueError(f"{model} not in Model Cost dict.")
+    onem = 1000000
+    input_cost = (prompt_tokens/onem) * model_costs[model]["input"]
+    completion_cost = (completion_tokens/onem) * model_costs[model]["output"]
+    total_cost = input_cost + completion_cost
+    return input_cost,completion_cost,total_cost
+
+
+
 if __name__ == "__main__":
     from prompts import system_prompt
     from openai import OpenAI
