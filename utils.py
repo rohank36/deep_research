@@ -1,7 +1,7 @@
 import tiktoken
-from dataclasses import dataclass
 from typing import List,Any,Tuple
 import re
+from definitions import Tool,Thinking,Text
 
 #### For testing LLM call, delete from here later
 from openai import OpenAI
@@ -9,26 +9,6 @@ import os
 from dotenv import load_dotenv
 ####
 
-@dataclass
-class Tool:
-    signature:str # similar signatures ==> similar tool calls ==> similar action taken
-                  # mabye use semantic hashing?
-    name:str
-    input:dict[str,Any]
-    datetime:str
-
-@dataclass
-class Thinking:
-    signature:str # have to think more about why Anthropic decided to use a signature instead of a raw ID.
-                  # maybe to store in long term memory semanticly? 
-    content:str
-    datetime:str
-    
-@dataclass
-class Text:
-    id:str
-    content:str
-    datetime:str
 
 """
 # Can probably just use token count from OpenAI api res
@@ -61,6 +41,12 @@ def parse_llm_response(llm_res:str) -> dict[str,str]:
             results[tag] = match.group(1).strip()
     
     return results
+
+def semantic_hash():
+    raise NotImplementedError
+
+def get_datetime():
+    raise NotImplementedError
 
 def create_tool_object(parsed_llm_res:dict[str,str]) -> Tool:
     content = parse_llm_response["tool_use"]
