@@ -1,21 +1,14 @@
 # Thoughts
 - when orhcestrator wants to give feedback/adjust trajectory of worker agent, it should take the agents most recent thought + tool call from memory and restart the agent from that context.
-- what is the better system design for trajectory communication?
-    1. Centralized: Orchestrator controls trajectory
-    2. Decentralized: Agents control their own trajectory and can see what all other agents are doing
 - worker agent conflict resolution, trajectory handling, feedback - all handled by the orchestrator agent by looking at the system memory?
     - When will orchestrator check memory? (every x seconds? every time a new entry is added? have to think whats best and economical)
 - for worker agent system prompts, have a generic part then a specialized part set by the orhcestrator (is this a good idea? could backfire if you need to change the task for the agent based on the orhcestrator re-thinking something)
-- How will the memory be structued. Probably vector db for semantic search...
-    - what do agents send to memory? 
 - Need to add a create_plan tool which saves the plan to memory
     - also need a read_memory_tool and a bunch of other tools LOL but those will make themselves apparent as you work.
 - What are the orchestrators tasks?
     - Plan (including sub tasks), subtask assignment, task management, agent monitoring, conflict resolution, re-plan to recover from errors etc
-- Have to think more about memory and how that will work. How can we best represent an agent's trajectory and ensure there are no conflicts?
 - cost optimization (use appropriate models at right times, context compression etc)
-- security again prompt injection from websites/mcp servers etc
-- guardrails (agents must assess actions for potential harm)
+- When building, initially first test the system separately, e.g. orchestrator agent can generate a good plan and extract the tasks etc and separately test the worker agent: give it a sample sub-task and see how well it does (This will be key)
 
 
 # System Design: Centralized Planning + Decentralized execution
@@ -46,14 +39,22 @@
 ### Eval Agent
 - Agent to evaluate worker performance and overall result. Output format using tags as well to parse and get decision.
 - How to evaluate worker performance
+    - Pass overall plan and worker subtask, and prompt eval agent to analyze whether the subgent is doing a good job
+    - Goal: see if worker agent is doing the right thing
 - How to evaluate overall result?
+    - 
 ### Worker Agent management 
-- trajectory handling, 
+- How will the orchestrator agent check the agent trajectories?
+- When will the orchestrator agent check the agent trajectories?
+
 ### Health
 - How to calculate health
+    - After each LLM call, the agent should divide its current input prompt count / model window count. 1 --> bad health because the context window is being full used. 
 - How to check health
+    - calling the agent heartbeat fn
 
-## Communication 
+## Citations
+- How to know if the source is trusted and/or high quality? 
 
 ## Memory
 - How to store thoughts + tool_use
@@ -67,3 +68,12 @@
 
 ## Observability
 - Logger statements 
+
+## System security
+- Security again prompt injection from websites/mcp servers etc
+- Guardrails (agents must assess actions for potential harm)
+
+## Tools
+- create_worker_agent(): creates a worker agent
+- web_search()
+- web_fetch(): get complete contents from web site 

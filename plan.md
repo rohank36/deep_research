@@ -29,6 +29,10 @@ Good Models (Planning, orchestrating, tool selection, multi step reasoning)
 - gpt-4o $2.50/$10 128k context
 - gpt-4.1 $2/$8 1m context
 
+Reasoning Models
+- gpt-o3 $2/$8 200k context
+- gpt-o4-mini $1.10/$4.40 200k context
+
 Weak Models (Summarization, file parsing, classification, answering from known documents)
 - gpt-4.1-nano $0.10/$0.40 1m context
 - gpt-4o-mini $0.15/$0.60 128k context

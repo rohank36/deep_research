@@ -1,7 +1,7 @@
 from typing import List,Any
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from definitions import AgentHealth
+from definitions import AgentHealth, Model
 
 @dataclass
 class Agent(ABC):
@@ -15,7 +15,8 @@ class Agent(ABC):
     total_cost: float
     total_prompt_tokens: int
     total_completion_tokens: int
-    model: str
+    model: Model
+    num_tool_calls: int
 
     @abstractmethod
     def run(self) -> None:
@@ -40,6 +41,9 @@ class Agent(ABC):
     
     def heartbeat(self) -> AgentHealth:
         return self.health
+    
+    def update_health(self) -> None:
+        self.health.health_score = self.total_prompt_tokens / self.model.context_window
     
     def restart(self)->None:
         # clear message history
