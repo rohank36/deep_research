@@ -7,10 +7,6 @@ Performance variance factors:
 
 multi agent systems are expensive. Only worth it to use for high value tasks. 
 
-Domains that require all agents to share the same context or involve many dependencies between agents are not a good fit for multi agent systems today.
-
-Multi agent systems excel at valuable tasks that involve heavy parallelization, information that exceeds single context windows and interfacing with numerous complex tools. 
-
 Orhcestrator-Worker pattern
 - Lead agent coordinates the process while delegating to specialized sub agents that operate in parallel 
 
@@ -26,31 +22,17 @@ tool calling:
     - input schema that describes as a JSON schema, what inputs this tool expects and in which form
     - a function that executes the tool with the input the model sends to us and returns the result
 
-General Idea for Agent:
-- main.py
-    - Functions:
-        - main
-        - NewAgent factory methods, returns Agent type
-
-- Agent.py
-    - Functions:
-        - run
-            - heartbeat of the program. User input -> add to conversation -> llm call -> add llm respones to conversation -> User input ...
-        - llm_call
-        - execute_tool
-
-
-- ToolDefinition.py
-    - @dataclass 
-
 
 Models
 
 Good Models (Planning, orchestrating, tool selection, multi step reasoning)
-- gpt-4o $2.50/$10 
-- gpt-4.1 $2/$8
+- gpt-4o $2.50/$10 128k context
+- gpt-4.1 $2/$8 1m context
 
 Weak Models (Summarization, file parsing, classification, answering from known documents)
-- gpt-4.1-nano $0.10/$0.40
-- gpt-4o-mini $0.15/$0.60
-- gpt-4.1-mini $0.4/$1.60
+- gpt-4.1-nano $0.10/$0.40 1m context
+- gpt-4o-mini $0.15/$0.60 128k context
+- gpt-4.1-mini $0.4/$1.60 1m context
+
+Good rule of thumb. 1 token ~= 0.75 words
+

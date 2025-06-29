@@ -94,8 +94,13 @@ def calculate_cost_of_inference(model:str, prompt_tokens:int, completion_tokens:
     return input_cost,completion_cost,total_cost
 
 
+def execute_tool():
+    raise NotImplementedError
+
+
 
 if __name__ == "__main__":
+    
     from prompts import system_prompt
     from openai import OpenAI
     messages = [
@@ -108,7 +113,9 @@ if __name__ == "__main__":
     load_dotenv()  
     openai_api_key = os.getenv("OPENAI_API_KEY")
     client = OpenAI(api_key=openai_api_key)
-    response, token_usage = llm_call(client,"gpt-4o",messages)
+    model = "gpt-4.1-nano"
+    #model = "gpt-4o"
+    response, token_usage = llm_call(client,model,messages)
 
     print(f"\n{response}\n")
 
@@ -119,3 +126,6 @@ if __name__ == "__main__":
     print("")
 
     print(parse_llm_response(response))
+    
+    print(calculate_cost_of_inference(model,token_usage["prompt_tokens"],token_usage["completion_tokens"]))
+    

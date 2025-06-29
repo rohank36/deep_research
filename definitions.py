@@ -26,4 +26,17 @@ class Text:
 @dataclass
 class AgentHealth:
     context_length: int
-    health_score: float # [0,1]
+    health_score: float # [0,1], basically just how much of their context window they've used. 0 --> None, 1 --> full
+
+@dataclass
+class System:
+    total_active_agents: int
+    total_agents_created: int
+    total_token_usage: int 
+    total_cost: float
+    task_start_time: Any
+    task_end_time: Any
+
+
+#@dataclass
+#class Message:
