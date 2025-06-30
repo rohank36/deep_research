@@ -1,14 +1,28 @@
 from agent import Agent
 from typing import List,Any
+from datetime import datetime
+from definitions import AgentHealth, Model
+from format_prompts import format
 
 class OrchestratorAgent(Agent):
-    def __init__(self):
-        name = "Orchestrator"
-        description = "Generate plan to solve user query, assign tasks to worker agents, monitor agents, compile final answer."
+    def __init__(self,model:Model):
+
+        super().__init__(
+            type = "orchestrator",
+            description = "Generate plan to solve user query, assign tasks to worker agents, monitor agents, compile final answer.",
+            datetime_created = str(datetime.today()),
+            health = AgentHealth(0.0),
+            total_cost = 0.0,
+            total_prompt_tokens = 0,
+            total_completion_tokens = 0,
+            model = model,
+            num_tool_calls = 0
+        )
+        # have to define the tools available to the agent before you initialize the prompt
+        self.system_prompt = format(self)
+
+        # must call super init with required parameters as defined in agent abstract interface
         
-        #super().__init__( # args ) # must call super init with required parameters as defined in agent abstract interface
-        
-        raise NotImplementedError
     
     def run(self) -> str:
         """

@@ -23,7 +23,7 @@ tool calling:
     - a function that executes the tool with the input the model sends to us and returns the result
 
 
-Models
+Models (cost is per 1m tokens)
 
 Good Models (Planning, orchestrating, tool selection, multi step reasoning)
 - gpt-4o $2.50/$10 128k context

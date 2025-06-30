@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List,Any,Tuple
+from typing import List,Any,Tuple, Union
 
 @dataclass
 class Tool:
@@ -41,9 +41,9 @@ class System:
 
 @dataclass
 class Model:
-    name:str
-    context_window:str
-    description: str # e.g. Large model execellent for reasoning and long horizon planning
+    name: str
+    context_window: int
+    description: Union[str,None] # e.g. Large model execellent for reasoning and long horizon planning
     input_cost: float
     output_cost: float
 

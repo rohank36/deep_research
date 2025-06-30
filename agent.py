@@ -1,14 +1,12 @@
-from typing import List,Any
+from typing import List,Any, Union
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from definitions import AgentHealth, Model
 
 @dataclass
 class Agent(ABC):
-    name: str
     type: str 
     description: str
-    system_prompt: str #describe task here
     datetime_created:str
     health: AgentHealth
     total_cost: float
@@ -16,6 +14,7 @@ class Agent(ABC):
     total_completion_tokens: int
     model: Model
     num_tool_calls: int
+    system_prompt: Union[str,None] = None #describe task here
     terminate: bool = False
     messages:List[dict[str,str]] = field(default_factory=list) # ensures each instance has its own separate list
     tools_available: List[str] = field(default_factory=list)
@@ -24,7 +23,7 @@ class Agent(ABC):
     def run(self) -> Any:
         raise NotImplementedError
     
-    def terminate(self) -> dict[str,Any]:
+    def terminate_agent(self) -> dict[str,Any]:
         self.terminate = True
         raise NotImplementedError
 

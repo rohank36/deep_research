@@ -1,5 +1,5 @@
 from jinja2 import Template
-from datetime import date
+from datetime import datetime
 from agent import Agent
 from typing import List
 
@@ -14,14 +14,16 @@ def format(agent:Agent):
     
     elif agent.type == 'orchestrator':
         orchestrator_template = get_template("prompts/orchestrator_agent_prompt.md")
-        orchestrator_prompt = orchestrator_template.render(current_date=str(date.today()),general_instructions=general_instructions)
+        orchestrator_prompt = orchestrator_template.render(current_date=str(datetime.today()),general_instructions=general_instructions)
         #print(orchestrator_prompt)
+        return orchestrator_prompt
 
     elif agent.type == 'eval':
         raise NotImplementedError
     else:
         raise ValueError(f"Cannot format prompt as Incorrect Agent Type: {agent.type} was given.")
 
+  
 def get_template(filepath:str):
     with open(filepath,encoding="utf-8") as f:
         raw_md = f.read()
