@@ -2,6 +2,7 @@ import tiktoken
 from typing import List,Any,Tuple
 import re
 from definitions import Tool,Thinking,Text
+import uuid
 
 #### For testing LLM call, delete from here later
 from openai import OpenAI
@@ -42,8 +43,9 @@ def parse_llm_response(llm_res:str) -> dict[str,str]:
     
     return results
 
-def semantic_hash():
-    raise NotImplementedError
+def agent_uid_hash()->str:
+    return uuid.uuid4().hex  # 32-character hexadecimal string
+
 
 def get_datetime():
     raise NotImplementedError

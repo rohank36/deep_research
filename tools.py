@@ -1,23 +1,7 @@
 from typing import List, Union, Callable
-from agent import AgentType
-
+from agent import AgentType, Agent
 
 # TOOL SCHEMAS
-
-general_tool_schema = {
-    "name":str,
-    "description":str,
-    "parameters":{
-        "type":"object",
-        "properties":{
-            "property1":{
-                "type":"str,etc",
-                "description":str
-            }
-        },
-        "required":[""] #list of required properties
-    }
-}
 
 # for reading and writing filepaths you should handle that
 read_plan_schema = {
@@ -48,11 +32,17 @@ create_plan_schema = {
 edit_plan_schema = {}
 
 # TOOL FUNC DEFINITIONS
-def read_plan():
-    raise NotImplementedError
+def read_plan(agent:Agent) -> str:
+    filepath = f"/agent_plans/{agent.uid}_plan.md"
+    with open(filepath,encoding="utf-8") as f:
+        raw_md = f.read()
+    return raw_md
 
-def create_plan():
-    raise NotImplementedError
+def create_plan(agent:Agent,content:str) -> None:
+    filepath = f"/agent_plans/{agent.uid}_plan.md"
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(content)
+    
 
 """
 Example:
