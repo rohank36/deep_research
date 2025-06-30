@@ -1,11 +1,17 @@
-from typing import List,Any, Union
+from typing import List,Any,Union,Callable
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from definitions import AgentHealth, Model
+from enum import Enum
+
+class AgentType(Enum):
+    ORCHESTRATOR = "orchestrator"
+    WORKER = "worker"
+    EVALUATOR = "evaluator"
 
 @dataclass
 class Agent(ABC):
-    type: str 
+    type: AgentType 
     description: str
     datetime_created:str
     health: AgentHealth
@@ -16,8 +22,8 @@ class Agent(ABC):
     num_tool_calls: int
     system_prompt: Union[str,None] = None #describe task here
     terminate: bool = False
+    tools_available: dict[str,dict[str,Union[Callable,str]]] = field(default_factory=dict)
     messages:List[dict[str,str]] = field(default_factory=list) # ensures each instance has its own separate list
-    tools_available: List[str] = field(default_factory=list)
 
     @abstractmethod
     def run(self) -> Any:

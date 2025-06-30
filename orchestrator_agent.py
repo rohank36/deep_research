@@ -1,14 +1,15 @@
-from agent import Agent
-from typing import List,Any
+from agent import Agent, AgentType
+from typing import List,Any, Union, Callable
 from datetime import datetime
 from definitions import AgentHealth, Model
 from format_prompts import format
+from tools import TOOLS
 
 class OrchestratorAgent(Agent):
     def __init__(self,model:Model):
 
         super().__init__(
-            type = "orchestrator",
+            type = AgentType.ORCHESTRATOR,
             description = "Generate plan to solve user query, assign tasks to worker agents, monitor agents, compile final answer.",
             datetime_created = str(datetime.today()),
             health = AgentHealth(0.0),
@@ -19,6 +20,7 @@ class OrchestratorAgent(Agent):
             num_tool_calls = 0
         )
         # have to define the tools available to the agent before you initialize the prompt
+        self.tools_available.update(TOOLS[self.type])
         self.system_prompt = format(self)
 
         # must call super init with required parameters as defined in agent abstract interface

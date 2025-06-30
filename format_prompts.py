@@ -1,24 +1,24 @@
 from jinja2 import Template
 from datetime import datetime
-from agent import Agent
+from agent import Agent, AgentType
 from typing import List
 
 def format(agent:Agent):
-    available_tools:List[str] = agent.tools_available
-    available_tools_formatted = "\n".join(f"    {tool}" for tool in available_tools)
+    available_tools:dict = agent.tools_available
+    available_tools_formatted = "\n".join(f"    {available_tools[tool]["func"]}\n{available_tools[tool]["schema"]}" for tool in available_tools)
     general_instructions_template = get_template("prompts/general_instructions.md")
     general_instructions = general_instructions_template.render(tools_available=available_tools_formatted)
 
-    if agent.type == 'worker':
+    if agent.type == AgentType.WORKER:
         raise NotImplementedError
     
-    elif agent.type == 'orchestrator':
+    elif agent.type == AgentType.ORCHESTRATOR:
         orchestrator_template = get_template("prompts/orchestrator_agent_prompt.md")
         orchestrator_prompt = orchestrator_template.render(current_date=str(datetime.today()),general_instructions=general_instructions)
         #print(orchestrator_prompt)
         return orchestrator_prompt
 
-    elif agent.type == 'eval':
+    elif agent.type == AgentType.EVALUATOR:
         raise NotImplementedError
     else:
         raise ValueError(f"Cannot format prompt as Incorrect Agent Type: {agent.type} was given.")
