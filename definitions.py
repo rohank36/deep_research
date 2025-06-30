@@ -32,7 +32,8 @@ class AgentHealth:
 class System:
     total_active_agents: int
     total_agents_created: int
-    total_token_usage: int 
+    total_prompt_tokens: int 
+    total_completion_tokens: int
     total_cost: float
     total_tool_calls: int
     task_start_time: Any

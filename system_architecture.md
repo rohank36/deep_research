@@ -9,6 +9,7 @@
     - Plan (including sub tasks), subtask assignment, task management, agent monitoring, conflict resolution, re-plan to recover from errors etc
 - cost optimization (use appropriate models at right times, context compression etc)
 - When building, initially first test the system separately, e.g. orchestrator agent can generate a good plan and extract the tasks etc and separately test the worker agent: give it a sample sub-task and see how well it does (This will be key)
+- multi thread vs async system design.
 
 
 # System Design: Centralized Planning + Decentralized execution
@@ -45,7 +46,9 @@
     - 
 ### Worker Agent management 
 - How will the orchestrator agent check the agent trajectories?
+    - Using a separate thread that runs a health monitoring loop.
 - When will the orchestrator agent check the agent trajectories?
+    - 
 
 ### Health
 - How to calculate health
