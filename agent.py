@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from definitions import AgentHealth, Model
 from enum import Enum
-from utils import agent_uid_hash
+from utils import uid_hash, calculate_cost_of_inference
 
 class AgentType(Enum):
     ORCHESTRATOR = "orchestrator"
@@ -21,7 +21,7 @@ class Agent(ABC):
     total_completion_tokens: int
     model: Model
     num_tool_calls: int
-    uid:str = agent_uid_hash()
+    uid:str = uid_hash()
     system_prompt: Union[str,None] = None #describe task here
     terminate: bool = False
     tools_available: dict[str,dict[str,Union[Callable,str]]] = field(default_factory=dict)
@@ -56,21 +56,22 @@ class Agent(ABC):
     def update_health(self) -> None:
         self.health.health_score = self.total_prompt_tokens / self.model.context_window
 
-    def update_total_cost(self):
-        raise NotImplementedError
+    def update_total_cost(self,prompt_tokens:int,completion_tokens:int):
+        input_cost, completion_cost, total_cost = calculate_cost_of_inference(prompt_tokens,completion_tokens)
+        self.total_cost += total_cost
     
-    def update_total_prompt_tokens(self):
-        raise NotImplementedError
+    def update_total_prompt_tokens(self,prompt_tokens:int):
+        self.total_prompt_tokens += prompt_tokens
     
-    def update_total_completion_tokens(self):
-        raise NotImplementedError
+    def update_total_completion_tokens(self,completion_tokens:int):
+        self.total_completion_tokens += completion_tokens
     
-    def update_total_tool_calls(self):
-        raise NotImplementedError
+    def update_total_tool_calls(self, tool_calls:int):
+        self.num_tool_calls += tool_calls
     
-    def update_snapshot(self) -> None:
-        self.update_total_cost()
-        self.update_total_prompt_tokens()
-        self.update_total_completion_tokens()
-        self.update_total_tool_calls()
+    def update_snapshot(self,prompt_tokens_used,completion_tokens_used,tool_calls) -> None:
+        self.update_total_prompt_tokens(prompt_tokens=prompt_tokens_used)
+        self.update_total_completion_tokens(completion_tokens=completion_tokens_used)
+        self.update_total_tool_calls(tool_calls=tool_calls)
+        self.update_total_cost(prompt_tokens=prompt_tokens_used,completion_tokens=completion_tokens_used)
 
