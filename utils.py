@@ -1,7 +1,7 @@
 import tiktoken
 from typing import List,Any,Tuple
 import re
-from definitions import Tool,Thinking,Text
+from definitions import Tool,Thinking,Text,Model
 import uuid
 
 #### For testing LLM call, delete from here later
@@ -24,7 +24,7 @@ def count_tokens(model:str,messages:List[dict[str,str]]) -> int:
     return token_count
 """
 
-def llm_call(openai_client,model:str,messages:List[dict[str,str]]) -> Tuple[str,dict[str:int]]:
+def llm_call(openai_client,model:str,messages:List[dict[str,str]]) -> Tuple[str,dict[str,int]]:
     response = openai_client.chat.completions.create(
         model=model,
         messages=messages
@@ -43,7 +43,12 @@ def parse_llm_response(llm_res:str) -> dict[str,str]:
     
     return results
 
-def agent_uid_hash()->str:
+def parse_tools(tool_use:str) -> List[dict]:
+    #convert string json to dict using json.loads
+    #
+    raise NotImplementedError
+
+def uid_hash()->str:
     return uuid.uuid4().hex  # 32-character hexadecimal string
 
 
@@ -63,8 +68,9 @@ def create_text_object(parsed_llm_res:dict[str,str]) -> Text:
     raise NotImplementedError
 
 
-def calculate_cost_of_inference(model:str, prompt_tokens:int, completion_tokens:int) -> Tuple[int,int,int]:
+def calculate_cost_of_inference(model:Model, prompt_tokens:int, completion_tokens:int) -> Tuple[int,int,int]:
     # $ cost per 1m tokens
+    """
     model_costs = {
         "gpt-4o": {
             "input": 2.50,
@@ -89,9 +95,10 @@ def calculate_cost_of_inference(model:str, prompt_tokens:int, completion_tokens:
     }
     if model not in model_costs:
         raise ValueError(f"{model} not in Model Cost dict.")
+    """
     onem = 1000000
-    input_cost = (prompt_tokens/onem) * model_costs[model]["input"]
-    completion_cost = (completion_tokens/onem) * model_costs[model]["output"]
+    input_cost = (prompt_tokens/onem) * model.input_cost
+    completion_cost = (completion_tokens/onem) * model.output_cost
     total_cost = input_cost + completion_cost
     return input_cost,completion_cost,total_cost
 

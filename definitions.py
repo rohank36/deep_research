@@ -42,6 +42,7 @@ class System:
 @dataclass
 class Model:
     name: str
+    client: Any
     context_window: int
     description: Union[str,None] # e.g. Large model execellent for reasoning and long horizon planning
     input_cost: float
