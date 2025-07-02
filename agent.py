@@ -3,7 +3,9 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from definitions import AgentHealth, Model
 from enum import Enum
-from utils import uid_hash, calculate_cost_of_inference
+from utils import uid_hash, get_datetime
+from llm_utils import calculate_cost_of_inference
+from datetime import datetime
 
 class AgentType(Enum):
     ORCHESTRATOR = "orchestrator"
@@ -14,14 +16,14 @@ class AgentType(Enum):
 class Agent(ABC):
     type: AgentType 
     description: str
-    datetime_created:str
     health: AgentHealth
     total_cost: float
     total_prompt_tokens: int
     total_completion_tokens: int
     model: Model
     num_tool_calls: int
-    uid:str = uid_hash()
+    datetime_created:str = field(default_factory=get_datetime)
+    uid:str = field(default_factory=uid_hash)
     system_prompt: Union[str,None] = None #describe task here
     terminate: bool = False
     tools_available: dict[str,dict[str,Union[Callable,str]]] = field(default_factory=dict)

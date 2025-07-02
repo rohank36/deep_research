@@ -2,6 +2,7 @@ from jinja2 import Template
 from datetime import datetime
 from agent import Agent, AgentType
 from typing import List
+from utils import get_datetime
 
 def format(agent:Agent):
     available_tools:dict = agent.tools_available
@@ -14,7 +15,7 @@ def format(agent:Agent):
     
     elif agent.type == AgentType.ORCHESTRATOR:
         orchestrator_template = get_template("prompts/orchestrator_agent_prompt.md")
-        orchestrator_prompt = orchestrator_template.render(current_date=str(datetime.today()),general_instructions=general_instructions)
+        orchestrator_prompt = orchestrator_template.render(current_date=get_datetime(),general_instructions=general_instructions)
         #print(orchestrator_prompt)
         return orchestrator_prompt
 
