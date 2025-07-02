@@ -31,7 +31,10 @@ def run_system():
     )
     oa = OrchestratorAgent(model=model)
     oa.run()
-    
+
+def system_snapshot():
+    """ Function to get snapshot of whole system. so OA + workers"""
+    raise NotImplementedError
 
 def print_oa_init(oa:OrchestratorAgent):
     print(f"UID ({type(oa.uid)}): {oa.uid}\n\n")
