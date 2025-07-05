@@ -1,5 +1,5 @@
 from agent import Agent, AgentType
-from typing import List,Any, Union, Callable
+from typing import List,Any, Union, Callable, override
 from definitions import AgentHealth, Model, Thinking, Tool
 from format_prompts import format
 from tools import TOOLS
@@ -31,7 +31,7 @@ class OrchestratorAgent(Agent):
             {"role":"system","content":self.system_prompt}
         ]
 
-        
+    @override
     def run(self) -> str:
         """
         read user input 
@@ -132,7 +132,7 @@ class OrchestratorAgent(Agent):
     
     def monitor_worker_agent_health(self):
         """
-        
+        agent health should be < 0.7 else terminate 
         """
         raise NotImplementedError
 
