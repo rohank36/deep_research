@@ -6,12 +6,14 @@ from utils import get_datetime
 
 def format(agent:Agent):
     available_tools:dict = agent.tools_available
-    available_tools_formatted = "\n".join(f"    {available_tools[tool]["func"]}\n{available_tools[tool]["schema"]}" for tool in available_tools)
+    available_tools_formatted = "\n".join(f"    {available_tools[tool]["schema"]}" for tool in available_tools)
     general_instructions_template = get_template("prompts/general_instructions.md")
     general_instructions = general_instructions_template.render(tools_available=available_tools_formatted)
 
     if agent.type == AgentType.WORKER:
-        raise NotImplementedError
+        worker_template = get_template("prompts/worker_agent.prompt.md")
+        worker_prompt = worker_template.render(current_date=get_datetime(),general_instructions=general_instructions)
+        return worker_prompt
     
     elif agent.type == AgentType.ORCHESTRATOR:
         orchestrator_template = get_template("prompts/orchestrator_agent_prompt.md")
@@ -21,6 +23,7 @@ def format(agent:Agent):
 
     elif agent.type == AgentType.EVALUATOR:
         raise NotImplementedError
+        
     else:
         raise ValueError(f"Cannot format prompt as Incorrect Agent Type: {agent.type} was given.")
 
