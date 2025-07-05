@@ -55,25 +55,26 @@ class Agent(ABC):
         }
         return ss
     
-    def update_health(self) -> None:
+    def _update_health(self) -> None:
         self.health.health_score = self.total_prompt_tokens / self.model.context_window
 
-    def update_total_cost(self,prompt_tokens:int,completion_tokens:int):
-        input_cost, completion_cost, total_cost = calculate_cost_of_inference(prompt_tokens,completion_tokens)
+    def _update_total_cost(self,prompt_tokens:int,completion_tokens:int):
+        input_cost, completion_cost, total_cost = calculate_cost_of_inference(self.model,prompt_tokens,completion_tokens)
         self.total_cost += total_cost
     
-    def update_total_prompt_tokens(self,prompt_tokens:int):
+    def _update_total_prompt_tokens(self,prompt_tokens:int):
         self.total_prompt_tokens += prompt_tokens
     
-    def update_total_completion_tokens(self,completion_tokens:int):
+    def _update_total_completion_tokens(self,completion_tokens:int):
         self.total_completion_tokens += completion_tokens
     
-    def update_total_tool_calls(self, tool_calls:int):
+    def _update_total_tool_calls(self, tool_calls:int):
         self.num_tool_calls += tool_calls
     
     def update_snapshot(self,prompt_tokens_used,completion_tokens_used,tool_calls) -> None:
-        self.update_total_prompt_tokens(prompt_tokens=prompt_tokens_used)
-        self.update_total_completion_tokens(completion_tokens=completion_tokens_used)
-        self.update_total_tool_calls(tool_calls=tool_calls)
-        self.update_total_cost(prompt_tokens=prompt_tokens_used,completion_tokens=completion_tokens_used)
+        self._update_total_prompt_tokens(prompt_tokens=prompt_tokens_used)
+        self._update_total_completion_tokens(completion_tokens=completion_tokens_used)
+        self._update_total_tool_calls(tool_calls=tool_calls)
+        self._update_total_cost(prompt_tokens=prompt_tokens_used,completion_tokens=completion_tokens_used)
+        self._update_health()
 
