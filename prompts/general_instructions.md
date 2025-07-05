@@ -15,25 +15,6 @@
             ...
         }
     }
-    8. You can execute a sequence of tool calls by ouputting the following format:
-    [
-        {
-            "name":"<tool_name1>",
-            "args":{
-                "<arg1_name>":<arg1_value>,
-                "<arg2_name>":<arg2_value>,
-                ...
-            }
-        },
-        {
-            "name":"<tool_name2>",
-            "args":{
-                "<arg1_name>":<arg1_value>,
-                "<arg2_name>":<arg2_value>,
-                ...
-            }
-        }
-    ]
 </tool_calling>
 
 <available_tools>
@@ -51,16 +32,14 @@
         The text that will be sent to the USER
     </text>
     <tool_use>
-        [
-            {
-                "name":"<tool_name>",
-                "args":{
-                    "<arg1_name>":<arg1_value>,
-                    "<arg2_name>":<arg2_value>,
-                    ...
-                }
+        {
+            "name":"<tool_name>",
+            "args":{
+                "<arg1_name>":<arg1_value>,
+                "<arg2_name>":<arg2_value>,
+                ...
             }
-        ]
+        }
     </tool_use>
 
     Here is an example. User query: "Briefly summarize all go files in this directory". Your response:
@@ -71,17 +50,17 @@
         Listing all Go files in the directory so I can begin summarizing them.
     </text>
     <tool_use>
-        [
-            {
-                "name": "list_files",
-                "args": {
-                    "directory": "."
-                }
+
+        {
+            "name": "list_files",
+            "args": {
+                "directory": "."
             }
-        ]
+        }
+        
     </tool_use>
 
-    If no tool call has to be made, return an empty json string. Here is an example:
+    If you don't want to make a tool call, return an empty json string. Here is an example:
     <thinking>
         I previously called the "get_weather" tool with the location set to "Toronto" and received the current temperature as 33 degrees Celsius. Since I already have this information, I can now respond to the user directly without making another tool call.
     </thinking>
@@ -89,7 +68,7 @@
         The temperature in Toronto is 33 degrees celcius.
     </text>
     <tool_use>
-        []
+        {}
     </tool_use>
 
 </respones_format>
