@@ -18,9 +18,11 @@ def count_tokens(model:str,messages:List[dict[str,str]]) -> int:
 """
 
 
-def llm_call(openai_client,model:str,messages:List[dict[str,str]]) -> Tuple[str,dict[str,int]]:
+def llm_call(model:Model,messages:List[dict[str,str]]) -> Tuple[str,dict[str,int]]:
+    openai_client = model.client
+    model_name = model.name
     response = openai_client.chat.completions.create(
-        model=model,
+        model=model_name,
         messages=messages
     )
     return response.choices[0].message.content, {"prompt_tokens":response.usage.prompt_tokens, "completion_tokens":response.usage.completion_tokens, "total_tokens":response.usage.total_tokens}
