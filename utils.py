@@ -7,9 +7,6 @@ def uid_hash()->str:
 def get_datetime()->str:
     return str(datetime.today())
 
-def execute_tool():
-    raise NotImplementedError
-
 if __name__ == "__main__":
     pass
     
