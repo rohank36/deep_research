@@ -1,0 +1,40 @@
+# Observations
+
+## July 7th 2025
+- Corrects itself well when it gets the correct format wrong. Though gpt-4.1-nano often gets the format wrong, still recovers well which means feedback loop is working.
+    - update: it messes up the format quite a bit.
+- When given 5 links, it was able to tell that the first link (etsy) wasn't something factual. Was looking for newspaper articles and archive/databases. **Shows that the agent was able to reason about which links to select**
+- is able to accurately use the links provided by the search result.
+- When it was terminated, it reasoned about the information it had and gave an answer (non-hallucinated) which is hopeful.
+- tough to get quality search results on DuckDuckGo. re: etsy always coming up first. Very diff results when tested with google search
+    - future soln: source quality checker.
+- the raw fetch_content is noisy and long. Might be useful to extract key information anchored on the task using another cheap llm?
+- not sure if the trajectory of its reasoning and process is good enough
+    - may require further prompt eng
+- It doesn't go through all the links in a search result. not even 2. always just 1 then fetches the content.
+    - prompt eng worker agent instructions more.
+    - fixed wa sys prompt. works better now.
+        - fetched link it wanted, but the site was blocked, so it acknowledged that and tried another link from the same search results. then tried the last reasonable link from the search results. Prompt eng fixed it. good.
+- maybe for general instructions give few shot examples that are relevant to search?
+- the search component of the MAS is hard lol
+- tried w/ gpt-4.1 and it overall felt a bit better but still made mistakes. 
+    - notably it kept messing up the dictionary brackets for the tool_use. it missed the final closing bracket across 2 calls.
+- 4.1-mini
+    - good answer formatting. good reasoning about links. doesn't just auto try new search after 1 link (seems that the prompt eng rlly was the key to fixing this). 
+    - when it tried all relevant links and none worked out, it tried a new search. Exactly what i wanted it to do.
+    - when it found a reasonable answer it followed the proper protocol (e.g. proper formatting with no tool call)
+    - answer it found was reasonable given the search results it got.
+    - happy with it.
+- ### Summary:
+    - 4.1-nano really gets the format wrong a lot of times. wastes a lot of steps being told its missing a tag and making the same mistake repeatedly
+        - need to make format simpler? or is it cause the model isn't that good?
+        - maybe think about a way to remove preivous error traces? this might posion the context and confuse the model.
+        - 4.1-mini on one run worked exactly as expected.
+    - **quality of sources is an issue (duckduckgo surfacing bad sites, e.g. crosswords and etsy)**
+    - **site content not having anything good is an issue**
+    - **site content just being rlly noisy is also an issue**
+    - models tested:
+        - 4.1-nano: not great, not bad. makes a lot of formatting mistakes but still works-ish.
+        - 4.1: works well when it works, but makes formatting mistakes as well. most $$ out of the 3.
+        - 4.1-mini: worked exactly as wanted. On 1 run, it completed the task well with no formatting errors and is a good price. 
+        - **tldr. Use 4.1-mini for worker agent**

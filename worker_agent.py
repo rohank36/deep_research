@@ -1,9 +1,11 @@
 from agent import Agent, AgentType
 from typing import List,Any,override
 from definitions import Model, AgentHealth
-from tools import TOOLS
+from tools import TOOLS,execute_tool
 from format_prompts import format
-from llm_utils import llm_call,parse_llm_response
+from llm_utils import llm_call,parse_llm_response, check_llm_response
+import json
+import time
 
 class WorkerAgent(Agent):
     def __init__(self, model:Model, task:str):
@@ -28,30 +30,69 @@ class WorkerAgent(Agent):
 
     @override
     def run(self) -> str:
-        max_step_limit = 20
-        for _ in range(max_step_limit):
-            res,tokens = llm_call(self.model.client,self.model.name,self.messages)
+        max_step_limit = 15
+        for step in range(max_step_limit):
+ 
+            if step == max_step_limit - 1 or self.heartbeat() > 0.6 or self.terminate:
+                # last step or bad health or orchestrator terminated agent so just give an answer 
+                final_ans = self.terminate_agent()
+                print(f"Agent {self.uid} terminated....")
+                return final_ans
+                
+            res,tokens = llm_call(self.model,self.messages)
             print(f"\n\nLLM RESULT:\n{res}\n\n")
             llm_results = parse_llm_response(res)
+            llm_check_res,ok = check_llm_response(llm_results)
+
+            if not ok:
+                self.update_snapshot(tokens["prompt_tokens"],tokens["completion_tokens"],0)
+                print(f"\n\nLLM CHECK RESULT:\n{llm_check_res}\n\n")
+                self.messages += [
+                    {"role":"user","content":llm_check_res}
+                ]
+                continue 
+
             thinking_and_tool = f"{llm_results["thinking"]}\n\n{llm_results["tool_use"]}" 
+
             # only add thinking and tool use to context to optimize prompt token usage. 
             self.messages += [
                 {"role":"assistant","content": thinking_and_tool}
             ]
-            
-            self.update_snapshot(tokens["prompt_tokens"],tokens["completion_tokens"],1)
 
-            if llm_results["tool_use"] == {}:
+            tools_called = json.loads(llm_results["tool_use"])
+            if tools_called == {}:
+                self.update_snapshot(tokens["prompt_tokens"],tokens["completion_tokens"],0)
                 return llm_results['text']
             
-            # execute tool use here
+            tool_call_res,ok = execute_tool(self,tools_called)
+            print(f"\n\nTOOL CALL RES:\n{tool_call_res}\n\n")
 
-            break # temp 
+            self.messages += [
+                {"role":"user","content":str(tool_call_res)}
+            ]
+
+            self.update_snapshot(tokens["prompt_tokens"],tokens["completion_tokens"],1)
+
+            time.sleep(5) # for openai api rate limiting
+
+        return "None"
             
 
     @override
-    def terminate_agent(self):
-        return NotImplementedError
+    def terminate_agent(self) -> str:
+        self.messages += [
+            {"role":"user","content":"You have run out of time. Based on your research, give your final answer:\n"}
+        ]
+        res,tokens = llm_call(self.model,self.messages)
+        self.update_snapshot(tokens["prompt_tokens"],tokens["completion_tokens"],0)
+        llm_results = parse_llm_response(res)
+       
+        llm_check_res,ok = check_llm_response(llm_results)
+        if not ok:
+            return res # if a tag is missing something just return the whole answer.
+        
+        return llm_results['text']
+    
 
 if __name__ == "__main__":
     """

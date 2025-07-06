@@ -38,7 +38,7 @@ class Agent(ABC):
         raise NotImplementedError
 
     def heartbeat(self) -> AgentHealth:
-        return self.health
+        return self.health.health_score
     
     def snapshot(self) -> dict[str,Any]:
         """ returns a logistics snapshot of the agent """

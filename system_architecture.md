@@ -1,4 +1,6 @@
 # Thoughts
+- maybe mess around with a Thread class with an Events sub class. Have class functions like thread_to_prompt or event_to_prompt etc.
+    - if you can label events like "bad_tool_call" later after it self-heals you can remove that from the context so it doesn't dilute it.
 - when orhcestrator wants to give feedback/adjust trajectory of worker agent, it should take the agents most recent thought + tool call from memory and restart the agent from that context.
 - worker agent conflict resolution, trajectory handling, feedback - all handled by the orchestrator agent by looking at the system memory?
     - When will orchestrator check memory? (every x seconds? every time a new entry is added? have to think whats best and economical)
