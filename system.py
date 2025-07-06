@@ -60,12 +60,13 @@ def run_system():
 
     #oa = OrchestratorAgent(model=model)
     #oa.run()
-
-    wa_task = "Research school mergers in the 1990s that involved combining a girls' and a boys' school to form a coeducational school, given a Latin name, in a town with a history reaching back to the second half of the 19th century. Specifically, identify the name of the original girls' school that was part of this merger."
-    wa = WorkerAgent(gpt_41_mini,wa_task)
+    wa_task_rlly_easy = "How many Ballon d'Ors does Lionel Messi have?"
+    wa_task_med = "Which American president had a vice president who later became president, and also signed a major civil rights act during their own presidency?"
+    wa_task_hard = "Research school mergers in the 1990s that involved combining a girls' and a boys' school to form a coeducational school, given a Latin name, in a town with a history reaching back to the second half of the 19th century. Specifically, identify the name of the original girls' school that was part of this merger."
+    wa = WorkerAgent(gpt_41_mini,wa_task_med)
     res = wa.run()
     print(f"\n\nWA res in System:\n{res}\n\n")
-    print(f"\n\n{wa.messages}\n\n")
+    #print(f"\n\n{wa.messages}\n\n")
     print(wa.snapshot())
 
 def system_snapshot():
