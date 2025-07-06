@@ -1,6 +1,6 @@
 # Observations
 
-## July 7th 2025
+## July 5th 2025
 - Corrects itself well when it gets the correct format wrong. Though gpt-4.1-nano often gets the format wrong, still recovers well which means feedback loop is working.
     - update: it messes up the format quite a bit.
 - When given 5 links, it was able to tell that the first link (etsy) wasn't something factual. Was looking for newspaper articles and archive/databases. **Shows that the agent was able to reason about which links to select**
@@ -31,6 +31,7 @@
         - maybe think about a way to remove preivous error traces? this might posion the context and confuse the model.
         - 4.1-mini on one run worked exactly as expected.
     - **quality of sources is an issue (duckduckgo surfacing bad sites, e.g. crosswords and etsy)**
+        - possible soln: brave search api
     - **site content not having anything good is an issue**
     - **site content just being rlly noisy is also an issue**
     - models tested:
@@ -38,3 +39,31 @@
         - 4.1: works well when it works, but makes formatting mistakes as well. most $$ out of the 3.
         - 4.1-mini: worked exactly as wanted. On 1 run, it completed the task well with no formatting errors and is a good price. 
         - **tldr. Use 4.1-mini for worker agent**
+    - I wonder if you run it for wayyy more steps, how it will adjust its search trajectory. will it just keep searching for roughly the same thing? just with a few things changed? thus yielding similar search results and it the agent just hitting a wall? will have to test and see i guess.
+
+- ### Learnings:
+    - have to test and play around a lot to craft a good prompt. a good prompt is essential as it powers the brain of the agent.
+    - ai engineering is rlly just a new paradigm of swe. instead of if-else control flow, the program control flow is done by the LLM and the conditional statements are defined in plain english by your prompt.
+    - sometimes the best model isn't always best for the job, try diff models (re: 4.1-mini working better than 4.1, while being cheaper)
+        - most general open source models (e.g. llama) aren't that good for agent brains.
+
+## July 6th 2025
+- Right now ur working with hard queries. lets try a simple query and see how the agent performs.
+    - tried with "How many Ballon d'Ors does Lionel Messi have?"
+        - it answered correctly with one tool call. Too easy. try harder task.
+        - in the system prompts its important to include the current date, because if the user asks a query in regards to time (explicitly or implicitly) like this one, the agent needs to be aware.
+    - "Which American president had a vice president who later became president, and also signed a major civil rights act during their own presidency?"
+        - Exhibited strong reasoning aligned with the prompt.  
+        - Came up with a correct answer. Question was badly worded, but it did what it could.
+        - Followed the prompt and built its factual knowledge based on the task and continued searching so it could fill its gaps.
+- gpt-4.1-mini is so good with the formatting, the workflow goes smoothly with it.
+- right now oa run code == wa run code. see if you need to make any modifications to oa code. if not then implement run in Agent. same for terminate_agent. 
+- gpt-4.1-mini, for fn args that are more not just str, when it goes through json.loads() it turns to the correct objects like int and List[str]. Refer to sample_oa_plan.md. The tool call types are correct after json.loads()
+- ### Summary
+    - rewrote oa prompt and run(). Now need to implement the functions to run the subagents then can test full pipeline.
+    - need to be thoughtful about how to execute the subagents in parallel.
+- ### Learnings
+    - when building from scratch, start as simple as possible and build from there. This is especially true for prompts.
+    - gpt-4.1-mini is good
+
+## 
