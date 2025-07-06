@@ -54,9 +54,9 @@ complete_task_schema = {
     }
 }
 
-run_blocking_subagent_schema = {
-    "name":"run_blocking_subagent",
-    "description":"Create and run a single worker subagent",
+run_subagent_schema = {
+    "name":"run_subagent",
+    "description":"Create and run a single subagent to accomplish a task",
     "parameters":{
         "type":"object",
         "properties":{
@@ -69,9 +69,9 @@ run_blocking_subagent_schema = {
     }
 }
 
-run_blocking_subagents_parallel_schema = {
-    "name":"run_blocking_subagents_parallel",
-    "description":"Create multiple worker subagents to run in parallel",
+run_subagents_parallel_schema = {
+    "name":"run_subagents_parallel",
+    "description":"Create multiple subagents to run in parallel",
     "parameters":{
         "type":"object",
         "properties":{
@@ -134,10 +134,10 @@ def create_plan(agent:Agent,content:str) -> None:
 def complete_task():
     raise NotImplementedError
 
-def run_blocking_subagent(prompt:str):
+def run_subagent(prompt:str):
     raise NotImplementedError
 
-def run_blocking_subagents_parallel(num_agents:int, prompts:List[str]):
+def run_subagents_parallel(num_agents:int, prompts:List[str]):
     raise NotImplementedError
 
 
@@ -232,6 +232,7 @@ def fetch_content(args:dict) -> str:
 # TOOL REGISTRY
 TOOLS: dict[AgentType,dict[str,dict[str,Union[Callable,str]]]] = {
     AgentType.ORCHESTRATOR:{
+        """
         "read_plan":{
             "func":read_plan,
             "schema":read_plan_schema
@@ -244,13 +245,14 @@ TOOLS: dict[AgentType,dict[str,dict[str,Union[Callable,str]]]] = {
             "func":complete_task,
             "schema":complete_task_schema
         },
+        """
         "run_blocking_subagent":{
-            "func":run_blocking_subagent,
-            "schema":run_blocking_subagent_schema
+            "func":run_subagent,
+            "schema":run_subagent_schema
         },
         "run_blocking_subagents_parallel":{
-            "func":run_blocking_subagents_parallel,
-            "schema":run_blocking_subagents_parallel_schema
+            "func":run_subagents_parallel,
+            "schema":run_subagents_parallel_schema
         }
     },
     AgentType.WORKER: {
