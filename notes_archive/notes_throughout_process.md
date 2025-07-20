@@ -62,8 +62,10 @@
 - ### Summary
     - rewrote oa prompt and run(). Now need to implement the functions to run the subagents then can test full pipeline.
     - need to be thoughtful about how to execute the subagents in parallel.
+    - you should try asking it AskMcGill type questions (e.g. list all currently available 1 credit computer science courses at McGill)
+        - easily verifiable 
 - ### Learnings
     - when building from scratch, start as simple as possible and build from there. This is especially true for prompts.
     - gpt-4.1-mini is good
 
-## 
+## July 
