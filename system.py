@@ -17,10 +17,6 @@ class System:
         res,ss = oa.run()
         print(f"\n\nOA res in System:\n{res}\n\n")
         print(ss)
-
-    def system_snapshot(self):
-        """ Function to get snapshot of whole system. so OA + workers"""
-        raise NotImplementedError
     
 def print_agent_init(oa:Agent):
     print(f"ID ({type(oa.uid)}): {oa.uid}\n\n")
