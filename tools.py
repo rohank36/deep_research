@@ -110,7 +110,7 @@ def run_subagents_parallel(args:dict):
     for i, prompt in enumerate(prompts, start=1):
         sa = Agent(AgentType.WORKER, ModelType.MINI.value,2, prompt)
         ans, ss = sa.run()
-        answers.append(f"Sub‑agent {i}: {ans}")
+        answers.append(f"Subagent {i}: {ans}")
 
         total_cost += ss["total_cost"]
         total_tool_calls += ss["num_tool_calls"]
