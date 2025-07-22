@@ -9,6 +9,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 # TOOL SCHEMAS
 
 run_subagent_schema = {
@@ -102,27 +104,31 @@ def run_subagents_parallel(args:dict):
     if num_agents != len(prompts):
         raise ValueError(f"num_agents {num_agents} != len(prompts) {len(prompts)}")
     
-    # not actually parallel. done like this to easily debug first.
-    answers: list[str] = []
+    def launch(prompt: str):
+        sa = Agent(AgentType.WORKER, ModelType.MINI.value, 15, prompt)
+        return sa.run() # (answer, snapshot)
+
+    answers = [""] * num_agents      
     total_cost = 0.0
-    total_tool_calls = 0
+    total_calls = 0
 
-    for i, prompt in enumerate(prompts, start=1):
-        sa = Agent(AgentType.WORKER, ModelType.MINI.value,15, prompt)
-        ans, ss = sa.run()
-        answers.append(f"Subagent {i}: {ans}")
-
-        total_cost += ss["total_cost"]
-        total_tool_calls += ss["num_tool_calls"]
+    with ThreadPoolExecutor(max_workers=num_agents) as pool:
+        futures = {pool.submit(launch, p): idx for idx, p in enumerate(prompts)}
+        for fut in as_completed(futures):
+            idx = futures[fut]
+            ans, ss = fut.result()
+            answers[idx] = f"Subagent {idx+1}: {ans}"
+            total_cost += ss["total_cost"]
+            total_calls += ss["num_tool_calls"]
 
     combined_answer = "\n\n".join(answers)
     combined_snapshot = {
-        "uid": uid_hash(),            
+        "uid": uid_hash(),
         "type": "worker_group",
-        "model": "many",       
-        "health": 0.0,                
+        "model": "many",
+        "health": 0.0,
         "total_cost": total_cost,
-        "num_tool_calls": total_tool_calls,
+        "num_tool_calls": total_calls,
     }
     return combined_answer, combined_snapshot
 

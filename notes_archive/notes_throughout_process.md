@@ -74,7 +74,7 @@
 - Tried prompt injecting and the agent new it was bad stuff. Continued properly
 - Huge bottleneck is how bad your search tools are. Low quality sources + hard to scrape a lot of times. 
 - orchestrator showed signs of good reasoning. Ran 2 subagents in parallel then thought a bit more info needed to be found so ran one subagent. Good.
-- for production would also need a citations agent.
+- for production would also need a citations agent, context engineering/trajectory management
 
 - ### Summary
     - 
