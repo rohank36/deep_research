@@ -1,7 +1,9 @@
-from system import run_system
+from system import System
 
 def main():
-    run_system()
+    sys = System()
+    print("System starting...")
+    sys.run()
 
 if __name__ == "__main__":
     main()

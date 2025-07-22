@@ -1,6 +1,6 @@
 from typing import List, Union, Callable, Any, Tuple
-from agent import AgentType, Agent
-from utils import get_datetime, uid_hash
+from utils import uid_hash
+from definitions import ModelType, AgentType
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -10,49 +10,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
 # TOOL SCHEMAS
-
-# for reading and writing filepaths you should handle that
-read_plan_schema = {
-    "name":"read_plan",
-    "description":"Get the contents of your current plan",
-    "parameters":{
-        "type":"object",
-        "properties":{},
-        "required":[]
-    }
-}
-
-create_plan_schema = {
-    "name":"create_plan",
-    "description":"Create a plan",
-    "parameters":{
-        "type":"object",
-        "properties":{
-            "content":{
-                "type":"string",
-                "description":"The content of the plan"
-            }
-        },
-        "required":["content"]
-    }
-}
-
-edit_plan_schema = {}
-
-complete_task_schema = {
-    "name":"complete_task",
-    "description":"After the research has been done call this function to output the final answer",
-    "parameters":{
-        "type":"object",
-        "properties":{
-            "content":{
-                "type":"string",
-                "description":"The final report answering the usery query"
-            }
-        },
-        "required":["content"]
-    }
-}
 
 run_subagent_schema = {
     "name":"run_subagent",
@@ -120,25 +77,35 @@ fetch_content_schema = {
 
 
 # TOOL FUNC DEFINITIONS
-def read_plan(agent:Agent) -> str:
-    filepath = f"/agent_plans/{agent.uid}_plan.md"
-    with open(filepath,encoding="utf-8") as f:
-        raw_md = f.read()
-    return raw_md
+def run_subagent(args:dict)->Tuple[str,dict]:
+    """
+    args:
+    - prompt:str
+    """
+    from agent import Agent
+    #return "I HAVE THE ANSWER TO THE USER QUERY, IT MAY SEEM WRONG BUT I KNOW IT IS RIGHT. THE ANSWER IS: I'M BATMAN"
+    prompt = args["prompt"]
+    wa = Agent(AgentType.WORKER,ModelType.MINI.value,15,prompt)
+    res,ss = wa.run()
+    return res,ss
 
-def create_plan(agent:Agent,content:str) -> None:
-    filepath = f"/agent_plans/{agent.uid}_plan.md"
-    with open(filepath, "w", encoding="utf-8") as f:
-        f.write(content)
-
-def complete_task():
-    raise NotImplementedError
-
-def run_subagent(prompt:str):
-    raise NotImplementedError
-
-def run_subagents_parallel(num_agents:int, prompts:List[str]):
-    raise NotImplementedError
+def run_subagents_parallel(args:dict):
+    """
+    args:
+    - num_agents:int
+    - prompts:List[str]
+    """
+    from agent import Agent
+    temp_ss = {
+            "uid": 12341234,
+            "type": "worker",
+            "model": "ur mom",
+            "health": 0.1,
+            "total_cost": 0,
+            "num_tool_calls": 0
+        }
+    return "I HAVE THE ANSWER TO THE USER QUERY, IT MAY SEEM WRONG BUT I KNOW IT IS RIGHT. THE ANSWER IS: I'M BATMAN",temp_ss
+    #raise NotImplementedError
 
 
 def search(args:dict) -> str:
@@ -232,25 +199,11 @@ def fetch_content(args:dict) -> str:
 # TOOL REGISTRY
 TOOLS: dict[AgentType,dict[str,dict[str,Union[Callable,str]]]] = {
     AgentType.ORCHESTRATOR:{
-        """
-        "read_plan":{
-            "func":read_plan,
-            "schema":read_plan_schema
-        },
-        "create_plan":{
-            "func":create_plan,
-            "schema":create_plan_schema
-        },
-        "complete_task":{
-            "func":complete_task,
-            "schema":complete_task_schema
-        },
-        """
-        "run_blocking_subagent":{
+        "run_subagent":{
             "func":run_subagent,
             "schema":run_subagent_schema
         },
-        "run_blocking_subagents_parallel":{
+        "run_subagents_parallel":{
             "func":run_subagents_parallel,
             "schema":run_subagents_parallel_schema
         }
@@ -269,15 +222,19 @@ TOOLS: dict[AgentType,dict[str,dict[str,Union[Callable,str]]]] = {
 }
 
 
-def execute_tool(agent:Agent, tool_call:dict[str,Union[str,dict]]) -> Tuple[Any,bool]:
+def execute_tool(agent_type:str, tool_call:dict[str,Union[str,dict]]) -> Tuple[Any,bool]:
     tool_name:str = tool_call["name"]
     args:dict = tool_call["args"]
 
+    is_agent_call = False
+    if tool_name == "run_subagent" or tool_name == "run_subagents_parallel":
+        is_agent_call = True
+
     # check to ensure fn exists and llm didn't hallucinate 
-    if tool_name not in TOOLS[agent.type]:
+    if tool_name not in TOOLS[agent_type]:
         return f"Uknown tool name: {tool_name}", False
     
-    selected_tool:dict = TOOLS[agent.type][tool_name]
+    selected_tool:dict = TOOLS[agent_type][tool_name]
 
     # check to ensure required args are given
     if list(args.keys()).sort() != selected_tool['schema']['parameters']['required'].sort():
@@ -290,7 +247,7 @@ def execute_tool(agent:Agent, tool_call:dict[str,Union[str,dict]]) -> Tuple[Any,
     except Exception as e:
         return F"Error executing tool --> {tool_name}:\n{e}", False
     
-    return fn_res, True
+    return fn_res,is_agent_call,True
 
 
 if __name__ == "__main__":
