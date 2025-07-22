@@ -185,11 +185,6 @@ def fetch_content(args:dict) -> str:
         body_text = body.get_text(separator="\n", strip=True) if body else ""
         final_str =  f"Here is the text content for {url}:\n\n{body_text}"
 
-        ############ Just for observability during testing
-        with open(f"site_content/{uid_hash()}.txt","w",encoding="utf-8") as f:
-            f.write(final_str)
-        ############
-
         return final_str
     
     finally:
@@ -232,20 +227,20 @@ def execute_tool(agent_type:str, tool_call:dict[str,Union[str,dict]]) -> Tuple[A
 
     # check to ensure fn exists and llm didn't hallucinate 
     if tool_name not in TOOLS[agent_type]:
-        return f"Uknown tool name: {tool_name}", False
+        return f"Uknown tool name: {tool_name}",False,False
     
     selected_tool:dict = TOOLS[agent_type][tool_name]
 
     # check to ensure required args are given
     if list(args.keys()).sort() != selected_tool['schema']['parameters']['required'].sort():
-        return f"Missing required arguments from tool call: {tool_name}", False
+        return f"Missing required arguments from tool call: {tool_name}",False,False
     
     try:
         fn_res = selected_tool["func"](args)
     
     # catch exception from func call
     except Exception as e:
-        return F"Error executing tool --> {tool_name}:\n{e}", False
+        return F"Error executing tool --> {tool_name}:\n{e}",False,False
     
     return fn_res,is_agent_call,True
 

@@ -38,7 +38,7 @@ class Agent:
                 return final_ans,self.snapshot()
                 
             res,tokens = llm_call(self.model,self.messages)
-            print(f"\n\nLLM RESULT:\n{res}\n\n")
+            print(f"\n\nLLM RESULT ({self.type}):\n{res}\n\n")
             llm_results = parse_llm_response(res)
             llm_check_res,ok = check_llm_response(llm_results)
 
@@ -62,7 +62,7 @@ class Agent:
                 self.update_cost_and_health(tokens["prompt_tokens"],tokens["completion_tokens"])
                 return llm_results['text'],self.snapshot()
             
-            tool_call_res,is_agent_call,ok = execute_tool(self.type,tools_called)
+            tool_call_res,is_agent_call,_= execute_tool(self.type,tools_called)
             if is_agent_call:
                 #tool_call_res: Tuple[str,dict]
                 # this agent called a subagent so we aggregate subagents work as part of this agents work
