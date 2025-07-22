@@ -1,0 +1,1800 @@
+System starting...
+
+
+LLM RESULT (AgentType.ORCHESTRATOR):
+<thinking>
+The query asks for the most notable reinforcement learning professor at McGill University and the University of Toronto, respectively. This involves identifying key faculty members known specifically for their work in reinforcement learning from these two universities. Since this requires distinct and independent sub-questions about each university's notable RL professor, a breadth-first-search approach is appropriate. I will run two parallel subagents: one to find the most notable reinforcement learning professor at McGill University, and another to find the most notable reinforcement learning professor at the University of Toronto.
+</thinking>
+<text>
+I will look for the most notable reinforcement learning professor at McGill University and the University of Toronto, respectively.
+</text>
+<tool_use>
+{
+  "name": "run_subagents_parallel",
+  "args": {
+    "num_agents": 2,
+    "prompts": [
+      "Identify the most notable professor specializing in reinforcement learning at McGill University.",
+      "Identify the most notable professor specializing in reinforcement learning at the University of Toronto."
+    ]
+  }
+}
+</tool_use>
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+To identify the most notable professor specializing in reinforcement learning at McGill University, I will start by searching for reinforcement learning experts or faculty members at McGill University. Usually, faculty pages, lab websites, or relevant academic profiles will list notable professors and their research focus areas. I will first perform a web search for "reinforcement learning professor McGill University" to locate relevant webpages such as department or lab pages. Then, I will fetch the content of the key URLs to confirm the professor's name and details.
+</thinking>
+<text>
+I will start by searching for reinforcement learning professors at McGill University to find the most notable expert in that field.
+</text>
+<tool_use>
+{
+  "name": "search",
+  "args": {
+    "query": "reinforcement learning professor McGill University"
+  }
+}
+</tool_use>
+
+
+
+DevTools listening on ws://127.0.0.1:54121/devtools/browser/4b25cee8-e8ad-4493-8032-af27271ba70e
+
+
+TOOL CALL RES:
+Link 1: https://rl.cs.mcgill.ca/people/doina-precup/
+Description: Doina Precup is an associate professor at McGill University and head of the Montreal office of Deepmind. She conducts fundamental research on reinforcement learning, working in particular on AI applications in areas that have a social impact, such as health care.
+
+Link 2: https://www.mcgill.ca/brittlab/lab-members
+Description: Jonathan Britt started the Britt Lab for Neural Circuits, Motivation, and Reinforcement Learning when he became an Assistant Professor at McGill University in 2014.
+
+Link 3: https://mila.quebec/en/directory/doina-precup
+Description: Doina Precup combines teaching at McGill University with fundamental research on reinforcement learning, in particular AI applications in areas of significant social impact, such as health care. She is interested in machine decision-making in situations where uncertainty is high. In addition to heading the Montreal office of Google DeepMind, Precup is a Senior Fellow of the Canadian Institute ...
+
+Link 4: https://scholar.google.com/citations?user=j54VcVEAAAAJ&hl=en
+Description: ‪DeepMind and McGill University‬ - ‪‪Cited by 41,871‬‬ - ‪Artificial Intelligence‬ - ‪machine learning‬ - ‪reinforcement learning‬
+
+Link 5: https://coursecatalogue.mcgill.ca/courses/comp-579/
+Description: Prerequisite: A university level course in machine learning such as COMP 451 or COMP 551. Background in calculus, linear algebra, probability at the level of MATH 222, MATH 223, MATH 323, respectively.
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+From the search results and descriptions, Doina Precup stands out clearly as a highly notable professor specializing in reinforcement learning at McGill University. She is an associate professor there, heads the Montreal office of DeepMind, and is involved in fundamental research on reinforcement learning with impactful AI applications. Additionally, her academic and research profile shows a significant influence in the field, supported by her Senior Fellowship and high citation count. While Jonathan Britt is another professor working in reinforcement learning, the prominence, leadership, and recognition of Doina Precup indicate that she is the most notable in the discipline at McGill University.
+</thinking>
+<text>
+The most notable professor specializing in reinforcement learning at McGill University is Doina Precup. She is an associate professor at McGill, heads the Montreal office of DeepMind, and is recognized for her fundamental research in reinforcement learning with important applications, particularly in socially impactful areas like health care.
+</text>
+<tool_use>
+{}
+</tool_use>
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+To identify the most notable professor specializing in reinforcement learning at the University of Toronto, I will start by searching for "reinforcement learning professor University of Toronto" to find relevant URLs or official university pages, faculty profiles, or notable mentions. Then, I will fetch the content of the top URLs to gather detailed information and verify the reputation or notability of any named professor in the field of reinforcement learning at U of T.
+</thinking>
+<text>
+I will begin by searching for professors specializing in reinforcement learning at the University of Toronto.
+</text>
+<tool_use>
+{
+  "name": "search",
+  "args": {
+    "query": "reinforcement learning professor University of Toronto"
+  }
+}
+</tool_use>
+
+
+
+DevTools listening on ws://127.0.0.1:54149/devtools/browser/b955b281-70af-41ba-b1fa-6e48798be0ba
+
+
+TOOL CALL RES:
+Link 1: https://cglee.mie.utoronto.ca/
+Description: In particular, he is tackling Markov decision processes involving high dimensional state space, multiple agents making decisions, reinforcement learning and deep reinforcement learning. Applications of his interest have been diverse from finance to supply chain management and to revenue management.
+
+Link 2: https://jimmylba.github.io/
+Description: I am also broadly interested in reinforcement learning, natural language processing, and artificial intelligence. For future students interested in learning algorithms and theory: Please apply through the department admission. Short bio: I completed PhD under the supervision of Geoffrey Hinton.
+
+Link 3: https://discover.research.utoronto.ca/6262-chiguhn-lee
+Description: In particular, he is currently active in reinforcement learning, inverse reinforcement learning, and deep reinforcement learning. Professor Lee holds positions as associate editor - Enterprise Information System and International Journal of Industrial Engineering - and serves as a member in a few editorial boards.
+
+Link 4: https://tcairem.utoronto.ca/faculty/brokoslaw-laschowski
+Description: Location University of Toronto Address Toronto, Ontario Canada Clinical Interests Artificial intelligence, Neural networks, Brain-machine interfaces, Deep learning, Computational neuroscience, Machine learning, Computer vision, Reinforcement learning Dr. Brokoslaw Laschowski is a computational neuroscientist.
+
+Link 5: https://web.cs.toronto.edu/people/faculty-directory
+Description: Directory of current faculty at the University of Toronto's Department of Computer Science
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+The search results show several individuals affiliated with University of Toronto who are involved in reinforcement learning or related fields such as deep reinforcement learning. Key people mentioned are:
+
+- Chiguhn Lee (cglee.mie.utoronto.ca and research profile) who specializes in Markov decision processes, multiple agents, reinforcement learning, deep reinforcement learning with applications in finance, supply chain management, and revenue management.
+- Jimmy Ba (jimmylba.github.io), who has an interest in reinforcement learning, natural language processing, and AI and completed a PhD under Geoffrey Hinton.
+- Brokoslaw Laschowski (tcairem.utoronto.ca) with interests including reinforcement learning, AI, neural networks, deep learning, and computational neuroscience.
+
+I will next fetch the faculty directory page from the University of Toronto's Department of Computer Science to check for reinforcement learning faculty listing and verify any highly notable professors. Also, I will gather more detailed information on Jimmy Ba, Chiguhn Lee, and Brokoslaw Laschowski from their respective pages to determine who is considered most notable regarding reinforcement learning. Jimmy Ba's connection to Geoffrey Hinton is notable in AI.
+
+First, I will fetch the University of Toronto Computer Science faculty directory page to get a broader view of reinforcement learning experts there.
+</thinking>
+<text>
+Fetching the University of Toronto Computer Science faculty directory to identify professors specializing in reinforcement learning and to verify their notability.
+</text>
+<tool_use>
+{
+  "name": "fetch_content",
+  "args": {
+    "url": "https://web.cs.toronto.edu/people/faculty-directory"
+  }
+}
+</tool_use>
+
+
+
+DevTools listening on ws://127.0.0.1:54176/devtools/browser/a8504a51-cce8-4bee-bc1c-ef28fa59cb12
+
+
+TOOL CALL RES:
+Here is the text content for https://web.cs.toronto.edu/people/faculty-directory:
+
+Skip to Content
+Top
+Home
+About
+Welcome from the Chair
+Our Department
+Our Faculty
+Employment Opportunities
+Groups, Clubs & Communities
+Alumni
+Safety & Support
+Using Generative AI at U of T
+Undergraduate
+Prospective Students
+Current Students
+How to Apply to a CS Program
+Courses
+Mentorship, Work & Research Opportunities
+Scholarships & Awards
+Graduate
+Our Graduate Programs
+Prospective Students
+Current Students
+Research
+Research Areas
+Faculty Research Interests
+Partner with Us
+News & Events
+News
+Events
+Distinguished Lecture Series
+People
+Chair's Office
+Faculty Directory
+Staff Directory
+In Memoriam
+Contact Us
+Home
+About
+Welcome from the Chair
+Our Department
+Our Faculty
+Employment Opportunities
+Groups, Clubs & Communities
+Alumni
+Safety & Support
+Using Generative AI at U of T
+Undergraduate
+Prospective Students
+Current Students
+How to Apply to a CS Program
+Courses
+Mentorship, Work & Research Opportunities
+Scholarships & Awards
+Graduate
+Our Graduate Programs
+Prospective Students
+Current Students
+Research
+Research Areas
+Faculty Research Interests
+Partner with Us
+News & Events
+News
+Events
+Distinguished Lecture Series
+People
+Chair's Office
+Faculty Directory
+Staff Directory
+In Memoriam
+Contact Us
+People
+Chair's Office
+Faculty Directory
+Staff Directory
+In Memoriam
+Directories:
+Research Stream Faculty
+Teaching Stream Faculty
+Professors Emeriti
+Cross-Appointed Faculty
+Status-Only Faculty
+Adjunct Faculty
+Office Legend:
+BA
+|
+Bahen Centre
+40 St. George Street
+UY
+|
+700 University
+700 University Avenue
+PT
+|
+D.L. Pratt Building
+6 King’s College Road
+SF
+|
+Sandford Fleming
+10 King’s College Road
+Research Stream Faculty
+Name & Position
+Contact
+Research
+Tarek Abdelrahman
+Professor
+tsa@eecg.utoronto.ca
+416-978-4690
+Room: SF 2002C
+Research Areas:
+Systems
+Research Interests:
+Parallel systems (e.g., multicores or GPUs) and their associated software.
+Ishtiaque Ahmed
+Associate Professor
+ishtiaque@cs.toronto.edu
+416-946-8528
+Room: BA 5262
+Research Areas:
+human-computer interaction, ICTD
+Research Interests:
+computing for marginalized communities, critical computing, social
+                                        justice, sustainability
+Ashton Anderson
+Associate Professor
+ashton@cs.toronto.edu
+416-946-5714
+Room: PT 398C
+Research Areas:
+computational social science
+Research Interests:
+empirical analysis of large-scale social data, social media analysis,
+                                        social networks, large-scale community dynamics, algorithmic fairness and bias
+Alán Aspuru-Guzik
+Professor
+aspuru@cs.toronto.edu
+416-946-8514
+Room: SF 3306
+Research Areas:
+machine learning, quantum computing, robotics, high-performance computing
+Research Interests:
+machine learning for molecular and materials discovery, autonomous
+                                        robotic laboratories, quantum computing algorithms, accurate numerical solutions for the quantum
+                                        many-body problem
+Jimmy Ba
+Associate Professor
+jba@cs.toronto.edu
+416-978-7564
+Room: PT 290D
+Research Areas:
+machine learning
+Research Interests:
+deep learning, neural networks, deep reinforcement learning, optimization
+Ravin Balakrishnan
+Professor
+ravin@cs.toronto.edu
+416-978-2980
+Room: BA 7204
+Research Areas:
+human-computer interaction, interactive computer graphics
+Research Interests:
+most aspects of HCI and interactive graphics
+Anthony Bonner
+Associate Professor
+bonner@cs.toronto.edu
+416-978-7441
+Room: PT 396B
+Research Areas:
+machine learning
+Research Interests:
+deep learning, generative models, learning representations
+Allan Borodin
+University Professor
+bor@cs.toronto.edu
+416-978-6416
+Room: SF 2303B
+Research Areas:
+theoretical computer science
+Research Interests:
+design and analysis of algorithms, algorithmic paradigms, online
+                                        algorithms, algorithmic game theory, social choice theory
+Angela Brown
+Professor
+Associate Chair, Graduate Operations
+demke@cs.toronto.edu
+416-946-8080
+Room: BA 5228
+Research Areas:
+systems
+Research Interests:
+file and storage systems, distributed data processing, dynamic
+                                        instrumentation, performance and reliability
+Michael Brudno
+Professor
+brudno@cs.toronto.edu
+416-978-2589
+Room: BA 7264
+Research Areas:
+computational medicine, computational biology, human-computer interaction
+Research Interests:
+machine learning for clinical human-computer interaction, medical natural
+                                        language processing, mobile devices in medicine, rare disease genomics and epigenomics
+Jessica Burgner-Kahrs
+Professor
+jbk@cs.toronto.edu
+Room: DH 3064 (UTM)
+Research Areas:
+robotics
+Research Interests:
+continuum robots, robot modelling, motion planning and control, human-robot interaction, surgical robotics, robot design
+Marsha Chechik
+Professor
+chechik@cs.toronto.edu
+416-978-3820
+Room: BA 3259
+Research Areas:
+software engineering, programming languages & formal methods
+Research Interests:
+analysis of software, automotive safety, model-driven engineering,
+                                        software product lines, model-checking
+Fanny Chevalier
+Associate Professor
+fanny@cs.toronto.edu
+416-978-4391
+Room: BA 5226
+Research Areas:
+information visualization, human-computer interaction
+Research Interests:
+visual analytics, visualization and statistical literacy, visualization
+                                        of machine learning, sketch-based interfaces
+Christina Christara
+Professor
+ccc@cs.toronto.edu
+416-978-7360
+Room: BA 4226
+Research Areas:
+numerical analysis and computing, high performance computing
+Research Interests:
+numerical methods, analysis and computation of PDEs, solution of large
+                                        sparse linear systems, high performance and parallel scientific computing, computational finance
+Niv Dayan
+Assistant Professor
+nivdayan@cs.toronto.edu
+Room: BA 5230
+Research Areas:
+data management, databases, systems
+Research Interests:
+storage engines, key-value stores, NoSQL, data structures, probabilistic filters
+Eyal de Lara
+Professor & Chair
+delara@cs.toronto.edu
+416-946-8656
+Room: BA 7202
+Research Areas:
+systems
+Research Interests:
+mobile, pervasive, cloud, and edge computing
+Sven Dickinson
+Professor
+sven@cs.toronto.edu
+416-978-3853
+Room: PT 283B
+Research Areas:
+computer vision
+Research Interests:
+segmentation and grouping, shape representation and perception, object
+                                        recognition, language-vision integration, human vision, scene perception
+David Duvenaud
+Associate Professor
+duvenaud@cs.toronto.edu
+416-946-8483
+Room: PT 384
+Research Areas:
+machine learning
+Research Interests:
+probabilistic models, neural networks
+Steve Easterbrook
+Professor
+sme@cs.toronto.edu
+416-978-3610
+Room: BA 3259
+Research Areas:
+sustainability informatics
+Research Interests:
+climate modelling, verification and validation of scientific models,
+                                        decision support for sustainability, machine learning for climate data
+Faith Ellen
+Professor
+Associate Chair, Graduate Students
+faith@cs.toronto.edu
+416-978-6183
+Room: SF 2302C
+Research Areas:
+theoretical computer science
+Research Interests:
+theory of distributed computing, complexity of data structures
+Murat Erdogdu
+Assistant Professor
+erdogdu@cs.toronto.edu
+416-978-7726
+Room: PT 286B
+Research Areas:
+machine learning
+Research Interests:
+optimization algorithms, machine learning theory, graphical models,
+                                        statistics
+Azadeh Farzan
+Professor
+Vice Chair
+azadeh@cs.toronto.edu
+416-946-3983
+Room: BA 3252
+Research Areas:
+programming languages, formal methods, software engineering
+Research Interests:
+program synthesis (automated programming), program verification, parallel
+                                        computing, concurrency, distributed computing
+Sanja Fidler
+Associate Professor
+fidler@cs.toronto.edu
+416-978-8737
+Room: PT 386
+Research Areas:
+computer vision, machine learning
+David Fleet
+Professor
+fleet@cs.toronto.edu
+416-946-8485
+Room: PT 396A
+Research Areas:
+computer vision, machine learning, computational biology
+Research Interests:
+generative models, transfer learning, video understanding, physics-based
+                                        vision, cryo-EM reconstruction of macromolecules
+Yashar Ganjali
+Professor
+ganjali7@cs.toronto.edu
+416-978-2952
+Room: BA 5238
+Research Areas:
+computer networks, systems
+Research Interests:
+software-defined networking, data centers, packet switching systems,
+                                        network measurements, social networking
+Igor Gilitschenski
+Assistant Professor
+gilitschenski@cs.toronto.edu
+UTM
+Research Areas:
+robotics, computer vision, machine learning
+Research Interests:
+robot learning, multi-modal perception, scene understanding, robust interactive autonomy, geometric and probabilistic deep learning
+Anna Goldenberg
+Professor
+anna.goldenberg@utoronto.ca
+Room: PT 286C
+Research Areas:
+computational biology
+Research Interests:
+developing machine learning models for clinical decision tasks, drug response predictions, disease heterogeneity deconvolution (both from clinical and biological perspective)
+Eitan Grinspun
+Professor
+Associate Chair, Communications, Mentoring and Inclusion
+eitan@cs.toronto.edu
+Room: BA 5252
+Research Areas:
+computer graphics
+Research Interests:
+discrete differential geometry, physics based animation, computational mechanics, contact mechanics
+Roger Grosse
+Associate Professor
+rgrosse@cs.toronto.edu
+416-978-7391
+Room: PT 290F
+Research Areas:
+machine learning
+Research Interests:
+neural networks, bayesian learning
+Tovi Grossman
+Associate Professor
+tovi@cs.toronto.edu
+416-978-6763
+Room: BA 5270
+Research Areas:
+human-computer interaction
+Research Interests:
+3D UIs, AR/VR, wearable and mobile interaction, technology-assisted
+                                        learning, sketch-based input, interactive fabrication, physical crowdsourcing, human-robot
+                                        interaction
+Arvind Gupta
+Professor
+Academic Director, Professional Programs
+arvind@cs.toronto.edu
+416-946-3480
+Room: UY 9022 (Floor 9)
+Research Areas:
+innovation policy; modeling physiological and health-care systems
+Research Interests:
+role of academia in stimulating innovation; non-invasive techniques for detecting physiological and psychological stresses, time series, mathematical and computational modeling
+Vassos Hadzilacos
+Professor
+vassos@cs.toronto.edu
+416-978-6028
+Room: SF 2304B
+Research Areas:
+theoretical computer science
+Research Interests:
+distributed computing
+Anwar Hithnawi
+Assistant Professor
+anwar.hithnawi@cs.toronto.edu
+Research Areas:
+system security, data privacy, applied cryptography
+Research Interests:
+privacy-preserving systems, secure computation, differential privacy
+Alec Jacobson
+Associate Professor
+Associate Chair, Academic Recruiting
+jacobson@cs.toronto.edu
+416-946-8630
+Room: BA 5266
+Research Areas:
+computer graphics
+Research Interests:
+geometry processing, computer animation, computational fabrication, user
+                                        interfaces
+Zhijing Jin
+Assistant Professor
+Starting July 1, 2025
+zjin@cs.toronto.edu
+Research Areas:
+natural language processing, large language models, computational social science, machine learning, AI safety, causal inference
+Research Interests:
+causal methods for natural language processing, AI safety, responsible AI, causal effects from text, LLM evaluation, AI for science, epistemology
+Swastik Kopparty
+Professor
+swastik@cs.toronto.edu
+Room: SF 3324
+Research Areas:
+theoretical computer science
+Research Interests:
+error-correcting codes, complexity theory, finite fields, randomness and pseudorandomness
+Nick Koudas
+Professor
+koudas@cs.toronto.edu
+416-946-5819
+Room: BA 5240
+Research Areas:
+data management systems
+Research Interests:
+data management, query processing, scalable machine learning on massive
+                                        data sets, video and image query processing, approximate query processing with deep learning models,
+                                        machine learning applications in neuroscience
+Rahul G. Krishnan
+Assistant Professor
+rahulgk@cs.toronto.edu
+Room: PT 286A
+Research Areas:
+machine learning, computational medicine
+Research Interests:
+machine learning for healthcare, deep generative modeling, probabilistic inference, time series modeling, causal inference
+Kyros Kutulakos
+Professor
+kyros@cs.toronto.edu
+416-946-8045
+Room: BA 7270
+Research Areas:
+computer vision, computer graphics
+Research Interests:
+physics-based computer vision, shape from video, advanced 3D sensors,
+                                        computational cameras, computational photography, computational light transport
+David Levin
+Associate Professor
+diwlevin@cs.toronto.edu
+416-978-2052
+Room: BA 5268
+Research Areas:
+computer graphics
+Research Interests:
+physics-based animation, computational fabrication, numerical methods for
+                                        graphics, computer-aided design
+Aviad Levis
+Assistant Professor
+alevis@cs.toronto.edu
+Room: BA 7250
+Research Areas:
+computer vision, computer graphics, machine learning
+Research Interests:
+scientific imaging, inverse problems, AI4Science
+David Lindell
+Assistant Professor
+lindell@cs.toronto.edu
+Room: BA7228
+Research Areas:
+computer graphics, computer vision, machine learning
+Research Interests:
+computational imaging, 3D computer vision, time-of-flight imaging, physics-based machine learning
+Fan Long
+Assistant Professor
+fanl@cs.toronto.edu
+416-978-6055
+Room: BA 3250
+Research Areas:
+programming languages, software engineering, systems
+Research Interests:
+software reliability, system security, blockchain
+Chris Maddison
+Assistant Professor
+cmaddis@cs.toronto.edu
+416-978-6209
+Room: PT 398A
+Research Areas:
+machine learning
+Research Interests:
+deep learning, Bayesian inference, optimization
+Peter Marbach
+Professor
+marbach@cs.toronto.edu
+416-978-1680
+Room: BA 5224
+Research Areas:
+social networks, theoretical computer science, information networks,    computational social science
+Research Interests:
+theory of social networks, user behavior and interactions in social networks, game theory and social choice, information networks and machine learning, algorithms for social networks analysis, online auctions and bidding algorithms, optimal design of online social networks, social networks and economic theory
+Alex Mariakakis
+Assistant Professor
+mariakakis@cs.toronto.edu
+416-978-5359
+Room: BA 7266
+Research Areas:
+human-computer interaction
+Research Interests
+: mobile health, ubiquitous computing, interaction methods, wearables, context-aware computing, sensing applications
+Sheila McIlraith
+Professor
+sheila@cs.toronto.edu
+416-946-8484
+Room: PT 398D
+Research Areas:
+knowledge representation and reasoning
+Research Interests:
+AI planning and reinforcement learning, program synthesis (automated
+                                        programming), human-compatible AI, cognitive robotics, commonsense reasoning
+Kuldeep Meel
+Associate Professor
+meel@cs.toronto.edu
+Room: PT 398B
+Research Areas:
+formal methods, design automation, databases, AI
+Research Interests:
+automated reasoning, synthesis, streaming, probabilistic reasoning, distribution testing
+Maryam Mehri Dehnavi
+Associate Professor
+Associate Chair, Research
+mmehride@cs.toronto.edu
+416-978-4158
+Room: BA 3254
+Research Areas:
+systems, scientific and high-performance computing, machine learning,
+                                        programming languages
+Research Interests:
+high-performance computing, parallel algorithms, compilers, systems for
+                                        machine learning, cloud computing, computer architecture, numerical analysis and optimization, graph
+                                        theory
+Michael Molloy
+Professor
+molloy@cs.toronto.edu
+416-978-1932
+Room: SF 3314
+Research Areas:
+theoretical computer science, graph theory
+Research Interests:
+graph colouring, random graphs, probabilistic methods
+Aleksandar Nikolov
+Associate Professor
+anikolov@cs.toronto.edu
+416-946-8672
+Room: SF 2301B
+Research Areas:
+theoretical computer science, algorithms, differential privacy
+Research Interests:
+differential privacy, combinatorial optimization, computational
+                                        high-dimensional geometry, discrepancy theory
+Carolina Nobre
+Assistant Professor
+cnobre@cs.toronto.edu
+Room: BA 5264
+Research Areas:
+information visualization, human-computer interaction
+Research Interests:
+user-adaptive visualizations, interactive visualizations, active learning, crowdsourced user studies for visualization
+Gennady Pekhimenko
+Associate Professor
+pekhimenko@cs.toronto.edu
+416-946-0250
+Room: BA 5232
+Research Areas:
+computer architecture, systems, machine learning
+Research Interests:
+computer architecture, memory designs, hardware acceleration, systems for machine learning, stream processing, compilers, cloud computing, approximate computing
+Gerald Penn
+Professor
+gpenn@cs.toronto.edu
+416-978-7390
+Room: PT 283A
+Research Areas:
+computational linguistics and natural language processing
+Research Interests:
+spoken language processing, mathematical linguistics
+Toniann Pitassi
+Professor
+toni@cs.toronto.edu
+416-978-3695
+Room: SF 2305A
+Research Areas:
+theoretical computer science
+Research Interests:
+complexity theory, proof complexity, differential privacy and fairness, machine learning theory
+Colin Raffel
+Associate Professor
+craffel@cs.toronto.edu
+Room: PT 390
+Research Areas:
+machine learning
+Research Interests:
+collaborative machine learning, large language models, learning from limited data
+Sushant Sachdeva
+Associate Professor
+sachdeva@cs.toronto.edu
+416-978-6237
+Room: SF 3324
+Research Areas:
+theoretical computer science, algorithms, optimization
+Research Interests:
+design of fast algorithms, particularly for graph problems and
+                                        optimization, approximation algorithms, numerical linear algebra, algorithmic problems from
+                                        statistics and machine learning
+Gururaj Saileshwar
+Assistant Professor
+gururaj@cs.toronto.edu
+Room: BA 5234
+Research Areas:
+computer architecture, hardware security, system security
+Research Interests:
+security for computer systems and hardware, micro-architectural security, side-channel attacks, fault-injection attacks, trusted execution environments (TEEs), privacy-preserving computations, memory safety, fuzzing
+Shubhangi Saraf
+Professor
+shubhangi@cs.toronto.edu
+Room: SF 3320
+Research Areas:
+theoretical computer science
+Research Interests:
+complexity theory, algebraic complexity theory,
+error correcting codes, discrete geometry
+Bianca Schroeder
+Professor
+bianca@cs.toronto.edu
+416-946-0309
+Room: BA 5236
+Research Areas:
+computer systems, applied machine learning
+Research Interests:
+file and storage systems, system reliability, machine learning for
+                                        systems, field studies, resource allocation and scheduling
+Kirill Serkh
+Assistant Professor
+kserkh@cs.toronto.edu
+Research Areas:
+numerical analysis, mathmatical analysis
+Research Interests:
+numerical analysis, scientific computing, partial
+differential equations, numerical linear algebra, quadrature and
+approximation theory, special functions
+Nisarg Shah
+Associate Professor
+nisarg@cs.toronto.edu
+416-946-8477
+Room: SF 3312
+Research Areas:
+theoretical computer science, game theory & social choice
+Research Interests:
+computational economics, voting theory, resource allocation, fair
+                                        algorithmic decision-making, incentives in multi-agent systems including blockchain and machine
+                                        learning environments
+Florian Shkurti
+Assistant Professor
+florian@cs.toronto.edu
+UTM
+Research Areas:
+robotics, machine learning, computer vision
+Research Interests:
+imitation learning for robot control, active semi-supervised learning,
+                                        decision-making under uncertainty, perception and semantic video understanding, shared autonomy,
+                                        visual exploration, field robotics, human-robot interaction
+Xujie Si
+Assistant Professor
+six@cs.toronto.edu
+Room: BA 3248
+Research Areas:
+programming languages, machine learning
+Research Interests:
+static analysis, program verification, program synthesis, logic programming, neuro-symbolic learning and reasoning, AI safety and robustness
+Karan Singh
+Professor
+karan@cs.toronto.edu
+416-978-7201
+Room: BA 5258
+Research Areas:
+computer graphics, human- computer interaction
+Research Interests:
+interactive graphics, shape modelling, character animation, facial
+                                        animation, artistic rendering and fabrication, shape perception, sketch interfaces, mobile
+                                        interfaces, AR/VR
+Robert Soden
+Assistant Professor
+soden@cs.toronto.edu
+416-946-8514
+Room: BA 7200
+Research Areas:
+crisis Informatics, human-computer interaction (HCI), computer supported cooperative work (CSCW), infrastructure studies, critical design, participatory sensing, civic technology, environmental justice
+Akshayaram Srinivasan
+Assistant Professor
+akshayaram@cs.toronto.edu
+Room: SF 3322
+Research Areas:
+theoretical computer science, cryptography
+Research Interests:
+foundations of cryptography, secure multiparty computation, pseudorandomness.
+Suzanne Stevenson
+Professor
+suzanne@cs.toronto.edu
+416-978-6277
+Room: PT 283D
+Research Areas:
+computational linguistics and natural language processing
+Research Interests:
+cognitive modelling of language acquisition and processing, lexical
+                                        semantics and ambiguity, cross-linguistic semantic typology, bilingualism
+Lisa Strug
+Professor
+lisa.strug@utoronto.ca
+Research Areas:
+statistical genetics
+Babak Taati
+Associate Professor, (Status-Only)
+taati@cs.toronto.edu
+Toronto Rehabilitation Institute
+Research Areas:
+health & assistive technology
+Research Interests:
+computer vision for health monitoring, assistive and rehabilitation technologies, machine learning for medicine and health informatics
+Roei Tell
+Assistant Professor
+roei@cs.toronto.edu
+Room: SF 3310
+Research Areas:
+theoretical computer science
+Research Interests:
+complexity theory, pseudorandomness and derandomization, circuit complexity
+Sam Toueg
+Professor
+sam@cs.toronto.edu
+416-946-3510
+Room: SF 2304C
+Research Areas:
+theoretical computer science
+Research Interests:
+distributed computing: algorithms and lower bounds for distributed computing problems
+Khai Truong
+Professor
+khai@cs.toronto.edu
+416-978-4761
+Room: BA 7268
+Research Areas:
+human-computer interaction
+Research Interests:
+interactive mobile, wearable & ubiquitous technologies, assistive technology, ubicomp applications, context-aware computing, IoT, input sensors, interaction methods, user studies, social implications of technologies
+Raquel Urtasun
+Professor
+urtasun@cs.toronto.edu
+416-946-8482
+Room: PT 290E
+Research Areas:
+computer vision, machine learning, robotics
+Research Interests:
+autonomous driving, machine learning, computer vision, robotics
+Nandita Vijaykumar
+Assistant Professor
+nandita@cs.toronto.edu
+416-946-8864
+Room: BA 5251
+Research Areas:
+computer architecture,
+computer systems, compilers
+Research Interests:
+computer architecture,
+accelerators, GPUs, compilers, systems for machine learning,
+memory systems, programmability, cross-layer optimization
+Bo Wang
+Assistant Professor
+bwang@cs.toronto.edu
+Research Areas:
+machine learning, computational biology
+Nathan Wiebe
+Associate Professor
+nawiebe@cs.toronto.edu
+Room: SF 3318
+Research Areas:
+quantum computing, quantum algorithms
+Research Interests:
+quantum simulation, quantum machine learning, quantum characterization, quantum optimization algorithm
+Daniel Wigdor
+Professor
+Associate Chair, Strategic Partnerships
+daniel@dgp.toronto.edu
+416-978-7777
+Room: BA 5260
+Research Areas:
+human-computer interaction
+Research Interests:
+input sensors, output devices, interaction methods (including all form factors: mobile,
+room scale, AR/VR), computational fabrication methods, interaction methods, ethnographic studies of broad trends in HCI, designing for societal and environmental impact
+Joseph Jay Williams
+Assistant Professor
+williams@cs.toronto.edu
+416-946-8867
+Room: BA 5254
+Research Areas:
+computer science & education, human-computer interaction
+Research Interests:
+education, health behavior change, mental health, randomized A/B experimentation, applications of statistics & machine learning to HCI and A/B experimentation, crowdsourcing & human computation, computer science education
+Ningning Xie
+Assistant Professor
+ningningxie@cs.toronto.edu
+Room: BA 3256
+Research Areas:
+programming languages
+Research Interests:
+language design, functional programming, type theory, logics, compilers, program verification, machine learning programming
+Yang Xu
+Associate Professor
+yangxu@cs.toronto.edu
+416-976-0857
+Room: PT 283C
+Research Areas:
+computational linguistics and NLP
+Research Interests:
+semantic change, lexical evolution, lexical composition, cross-linguistic semantic typology, NLP for social science
+Richard Zemel
+Professor
+zemel@cs.toronto.edu
+416-978-7497
+Room: PT 290G
+Research Areas:
+machine learning
+Research Interests:
+representation learning, learning & vision, generative models, algorithmic fairness
+Qizhen Zhang
+Assistant Professor
+qz@cs.toronto.edu
+Room: BA 5222
+Research Areas:
+data management, systems/networks
+Research Interests:
+data-intensive applications, large-scale data processing, databases, distributed systems, data center networks, cloud computing, interactions between machine learning and computer systems
+Teaching Stream Faculty
+Name
+Position
+Email
+Phone Number
+Office
+Bahar Aameri
+Assistant Professor,
+Teaching Stream
+bahar@cs.toronto.edu
+BA 4231
+Mario Badr
+Assistant Professor,
+Teaching Stream
+mbadr@cs.toronto.edu
+416-978-1712
+BA 4270
+Gary Baumgartner
+Associate Professor,
+Teaching Stream
+gfb@cs.toronto.edu
+416-978-5181
+BA 4232
+Jonathan Calver
+Assistant Professor,
+Teaching Stream
+calver@cs.toronto.edu
+BA 4222
+Jennifer Campbell
+Professor,
+Teaching Stream
+campbell@cs.toronto.edu
+416-978-6320
+BA 4268
+Steven Coyne
+Assistant Professor,
+Teaching Stream
+steven.coyne@mail.utoronto.ca
+Michelle Wahl Craig
+Professor,
+Teaching Stream
+mcraig@cs.toronto.edu
+416-946-8488
+BA 4258
+Steve Engels
+Professor,
+Teaching Stream
+sengels@cs.toronto.edu
+416-946-5454
+BA 4266
+Tom Fairgrieve
+Associate Professor,
+Teaching Stream
+tff@cs.toronto.edu
+416-978-3965
+BA 4230
+Alice Gao
+Assistant Professor,
+Teaching Stream
+axgao@cs.toronto.edu
+BA 4240
+Paul Gries
+Professor,
+Teaching Stream
+pgries@cs.toronto.edu
+416-978-6322
+BA 4234
+Paul He
+Assistant Professor,
+Teaching Stream
+paulhe@cs.toronto.edu
+BA 4238
+Diane Horton
+Professor,
+Teaching Stream
+dianeh@cs.toronto.edu
+416-978-6024
+BA 4236
+David Liu
+Associate Professor,
+Teaching Stream
+Associate Chair, Undergraduate Studies
+david@cs.toronto.edu
+416-978-6026
+BA 4260
+François Pitt
+Associate Professor,
+Teaching Stream
+fpitt@cs.toronto.edu
+416-978-3707
+BA 4264
+Karen Reid
+Professor,
+Teaching Stream
+reid@cs.toronto.edu
+416-978-7797
+BA 4224
+Sadia Sharmin
+Assistant Professor,
+Teaching Stream
+sharmin@cs.toronto.edu
+BA 4228
+Lindsey Shorser
+Assistant Professor,
+Teaching Stream
+BA 4202A
+Jacqueline Smith
+Associate Professor,
+Teaching Stream
+jsmith@cs.toronto.edu
+416-978-1981
+BA 4262
+Kuei (Jack) Sun
+Assistant Professor,
+Teaching Stream
+sunk@cs.toronto.edu
+BA 4202A
+Professors Emeriti
+Name, Position
+Contact Info
+Research
+Ronald Baecker
+Professor Emeritus
+rmb@cs.toronto.edu
+Research Areas:
+human-computer interaction, health & assistive technologies
+Professor Baecker is not accepting any new graduate students.
+Jim Clarke
+Senior Lecturer Emeritus
+clarke@cs.toronto.edu
+Research Areas:
+education
+Professor Clarke is not accepting any new graduate students.
+Stephen Cook
+University Professor Emeritus
+sacook@cs.toronto.edu
+Research Areas:
+theoretical computer science
+Professor Cook is not accepting any new graduate students.
+Derek Corneil
+Professor Emeritus
+dgc@cs.toronto.edu
+Research Areas:
+theoretical computer science
+Professor Corneil is not accepting any new graduate students.
+Wayne Enright
+Professor Emeritus
+enright@cs.toronto.edu
+416-978-5474
+Room: BA 4202B
+Research Areas:
+numerical analysis and computing, domain-specific computing, high-performance computing
+Research Interests:
+development and analysis of reliable and effective numerical methods for        systems of differential equations, sensitivity analysis of ODE methods, verifying and reproducing simulations
+Professor Enright is not accepting any new graduate students.
+Eugene Fiume
+Professor Emeritus
+elf@cs.toronto.edu
+Research Areas:
+computer graphics
+Research Interests:
+realistic visual depiction, illumination, interactive graphics, character animation, facial animation, computational physics and biomechanics
+Professor Fiume is not accepting any new graduate students.
+Dan Heap
+Associate Professor, Teaching Stream Emeritus
+heap@cs.toronto.edu
+Rick Hehner
+Professor Emeritus
+hehner@cs.toronto.edu
+Research Areas:
+software engineering
+Professor Hehner is not accepting any new graduate students.
+Geoffrey Hinton
+University Professor Emeritus
+Research Areas:
+machine learning, deep neural networks
+Professor Hinton is not accepting any new graduate students.
+Graeme Hirst
+Professor Emeritus
+gh@cs.toronto.edu
+Research Areas:
+computational linguistics and natural language processing
+Research Interests:
+lexical semantics, applications in health and medicine, applications in the social sciences and humanities
+Professor Hirst is not accepting any new graduate students.
+Ken Jackson
+Professor Emeritus
+krj@cs.toronto.edu
+Research Areas:
+numerical analysis and computing, high performance computing
+Research Interests:
+numerical methods, analysis and computation – particularly numerical    methods for ODEs and PDEs, computational finance, stochastic models, medical imaging
+Professor Jackson is not accepting any new graduate students.
+Allan Jepson
+Professor Emeritus
+jepson@cs.toronto.edu
+Research Areas:
+computer vision
+Professor Jepson is not accepting any new graduate students.
+Hector Levesque
+Professor Emeritus
+hector@cs.toronto.edu
+Research Areas:
+knowledge representation, cognitive robotics
+Professor Levesque is not accepting any new graduate students.
+Renée Miller
+Professor Emerita
+miller@cs.toronto.edu
+Research Areas:
+data management
+Research Interests:
+data science, data integration and exchange, data curation, data cleaning, human-in-the-loop data management (improving human productivity when using data), foundations of next generation data analytics, combining logical and statistical reasoning in data systems
+Professor Miller is not accepting any new graduate students.
+John Mylopoulos
+Professor Emeritus
+jm@cs.toronto.edu
+Research Areas:
+software engineering
+Professor Mylopoulos is not accepting any new graduate students.
+Charles Rackoff
+Professor Emeritus
+rackoff@cs.toronto.edu
+Research Areas:
+theoretical computer science
+Research Interests:
+computational complexity; cryptography
+Professor Rackoff is not accepting any new graduate students.
+David Wortman
+Professor Emeritus
+dw@cs.toronto.edu
+Research Areas:
+software engineering
+Professor Wortman is not accepting any new graduate students.
+Cross-Appointed Faculty
+Name
+Position
+Research
+Gary Bader
+Professor
+Donnelly Centre for Cellular & Biomolecular Research
+Research Areas:
+computational biology
+Research Interests:
+machine learning and NLP of biomedical text, data integration/fusion
+                                        methods
+                                        for precision medicine, causal inference
+Tim Barfoot
+Professor
+University of Toronto Institute for Aerospace Studies
+Research Areas:
+robotics, AI, human-computer interaction
+Chris Beck
+Professor
+Mechanical & Industrial Engineering
+Research Areas:
+AI - knowledge representation
+James Bremer Jr.
+Professor
+Mathematics
+Research Areas:
+numerical methods and analysis, scientific computing
+Joseph Cafazzo
+Professor
+Dalla Lana School of Public Health
+Research Areas:
+software as a medical device, digital therapeutics, and human computer interaction design in healthcare
+Kieran Campbell
+Assistant Professor
+Molecular Genetics/Lunenfeld-Tannebaum
+Research Areas:
+AI
+Mark Chignell
+Professor
+Mechanical & Industrial Engineering
+Research Areas:
+human-computer interaction
+Melanie Courtot
+Assistant Professor
+Medical Biophysics
+Research Areas:
+knowledge representation
+William Cunningham
+Professor
+Psychology
+Research Areas:
+AI - Cognitive Science
+Ewan Dunbar
+Assistant Professor
+French
+Research Areas:
+computational cognitive science
+Natalie Enright Jerger
+Professor
+Electrical & Computer Engineering
+Research Areas:
+computer architecture
+Research Interests:
+interconnection networks, memory system, approximate computing, IoT
+Mark Fox
+Professor
+Mechanical & Industrial Engineering
+Research Areas:
+AI -knowledge representation
+Brendan Frey
+Professor
+Electrical & Computer Engineering
+Research Areas:
+AI - machine learning, computational biology
+Tristan Glatard
+Professor, Status-Only
+Department of Psychiatry
+Research Areas:
+big data analytics
+Ashvin Goel
+Professor
+Electrical & Computer Engineering
+Research Areas:
+systems: operating systems
+Michael Gruninger
+Professor
+Mechanical & Industrial Engineering
+Research Areas:
+AI - knowledge representation
+Shion Guha
+Assistant Professor
+Faculty of Information
+Research Areas:
+human-centered data science, AI - public policy, algorithmic bias
+Michael Hoffman
+Associate Professor, Status-Only
+Medical Biophysics/Princess Margaret Cancer Centre
+Research Areas:
+computational biology, computational medicine, machine learning
+Research Interests:
+developing machine learning techniques to better understand chromatin
+                                        biology, transforming high-dimensional functional genomics data into interpretable patterns and lead
+                                        to
+                                        new biological insight
+Hans-Arno Jacobsen
+Professor
+Electrical & Computer Engineering
+Research Areas:
+systems - mobile computing
+Mark Jeffrey
+Assistant Professor
+Electrical & Computer Engineering
+Research Interests:
+computer architecture, computer systems, parallel computing, parallel programming models, speculative execution, data-centric execution, compilers, irregular algorithms, reconfigurable hardware
+Igor Jurisica
+Professor, Status-Only
+Medical Biophysics
+Research Areas:
+integrative computational biology, data mining, machine learning, AI and explainable models in chronic diseases
+Lueder Kahrs
+Assistant Professor
+Math and Computational Sciences, UTM
+Research Areas:
+computational science
+Jonathan Kelly
+Assistant Professor
+University of Toronto Institute for Aerospace Studies
+Research Areas:
+robotics
+Farzad Khalvati
+Associate Professor
+Department of Medical Imaging
+Research Areas:
+medical imaging
+Vera Khovanskaya
+Assistant Professor
+Faculty of Information
+Research Areas:
+human-computer interaction, computer-supported cooperative work
+Philip Kim
+Associate Professor
+Donnelly Centre for Cellular & Biomolecular Research
+Research Areas:
+computational biology
+Anastasia Kuzminykh
+Assistant Professor
+Faculty of Information
+Research Areas:
+human-computer interaction (HCI)
+Baochun Li
+Professor
+Electrical & Computer Engineering
+Research Areas:
+networks
+David Lie
+Professor
+Electrical & Computer Engineering
+Research Areas:
+networks
+Michael Liut
+Assistant Professor, Teaching Stream
+Department of Mathematical and Computational Sciences, University of Toronto Mississauga
+Research Areas:
+adaptive systems, algorithms, computing education, education technology, generative artificial intelligence
+Kelly Lyons
+Professor
+Faculty of Information
+Research Areas:
+databases
+Research Interests:
+social media and collaborative work, service science, data-driven knowledge mobilization
+Amin Madani
+Assistant Professor
+Department of Medicine, Surgery
+Research Areas:
+surgical AI
+Tegan Maharaj
+Assistant Professor
+Faculty of Information
+Research Areas:
+AI, machine learning, robotics, vision,
+Rhonda McEwan
+Professor
+Institute of Communication, Culture, Information and Technology, University of Toronto Mississauga
+Research Areas:
+social/new media; network analysis; mobile communication; information practices
+Chris McIntosh
+Assistant Professor
+Medical Biophysics
+Research Areas:
+computational biology, machine learning, computer vision
+Research Interests:
+Development and application of machine learning and computer vision in healthcare
+Alex Mihailidis
+Professor
+Occupational Science & Occupational Therapy
+Research Areas:
+AI - knowledge representation
+Quaid Morris
+Professor, Status-Only
+Department of Molecular Genetics
+Research Areas:
+computational biology, machine learning, computational medicine
+Research Interests:
+cancer genomics, precision medicine, gene regulation, functional genomics, electronic health records, biological image analysis
+Alan Moses
+Professor
+Cell & Systems Biology
+Research Areas:
+computational biology, machine learning
+Research Interests:
+data analysis and integration for molecular biology, automated microscopy
+                                        image analysis, gene regulatory networks, molecular evolution
+Andreas Moshovos
+Professor
+Electrical & Computer Engineering
+Research Areas:
+software engineering
+Cosmin Munteanu
+Assistant Professor
+Institute for Communication, Culture, Information and Technology, University
+                                        of
+                                        Toronto Mississauga
+Research Areas:
+human-computer interaction, health and assistive technology
+Research Interests:
+speech and language interaction, mobile interaction for older adults, participatory design methods, intelligent user interfaces, multimodal interaction
+Nicolas Papernot
+Assistant Professor
+Electrical & Computer Engineering
+Research Areas:
+AI - machine learning
+Vardan Papyan
+Assistant Professor
+Department of Mathematics
+Research Areas:
+deep learning, machine learning, data science, signal processing
+Andrew Petersen
+Professor, Teaching Stream
+Mathematical and Computational Sciences, University of Toronto Mississauga
+Research Areas:
+computing education
+Research Interests:
+programming exercises, CS1 assessment, student perspectives on and experiences in computing, applications of LLMs to education
+Nicholas Rhinehart
+Assistant Professor
+Institute of Aerospace Studies
+Research Areas:
+robotics
+Hannes Rӧst
+Assistant Professor
+Donnelly Centre for Cellular & Biomolecular Research
+Research Areas:
+computational biology
+Research Interests:
+precision and personalized medicine, biostatistics, functional genomics,
+                                        computational proteomics and metabolomics, systems biology, algorithms for mass spectrometry
+Daniel Roy
+Professor
+Department of Computer and Mathematical Science, UTSC
+Research Areas:
+machine learning, machine learning theory, theoretical computer science
+Research Interests:
+foundations of machine learning and statistics, statistical learning
+                                        theory,
+                                        deep learning, online learning, non-convex optimization, PAC-Bayes, information theory, monte carlo,
+                                        game theory
+Scott Sanner
+Associate Professor
+Mechanical & Industrial Engineering
+Research Areas:
+machine learning, knowledge representation and reasoning, computational
+                                        social
+                                        science
+Research Interests:
+applied machine learning, (conversational) recommender systems, social
+                                        media
+                                        analysis, probabilistic modeling and inference, sequential decision optimization, smart cities
+                                        applications
+Devin Singh
+Assistant Professor
+Department of Paediatrics;
+The Hospital for Sick Children
+Research Areas:
+AI, machine learning, robotics, vision
+Michael Stumm
+Professor
+Electrical & Computer Engineering
+Research Areas:
+systems: operating systems
+Qiang Sun
+Associate Professor
+Department of Statistical Sciences
+Research Areas:
+generative AI, trustworthy AI, next-generation statistics
+Yu Sun
+Professor
+Mechanical & Industrial Engineering
+Research Areas:
+robotics, AI
+Tony Tang
+Associate Professor
+Faculty of Information
+Research Areas:
+human-computer interaction
+Andreas Veneris
+Professor
+Electrical & Computer Engineering
+Research Areas:
+software engineering
+Michael Wainberg
+Assistant Professor
+Psychiatry
+Research Areas:
+computational biology, machine learning, computational medicine
+Research Interests:
+human genetics, single-cell transcriptomics, brain diseases, network biology, gene-editing screens, therapeutic target discovery
+Eric Yu
+Professor Emeritus
+Faculty of Information
+Research Areas:
+software engineering
+Research Interests:
+requirements engineering, social modeling, enterprise computing,
+                                        enterprise
+                                        AI, enterprise architecture, knowledge management, information systems engineering
+William Yu
+Assistant Professor
+Computer & Mathematical Sciences, UTSC
+Research Areas:
+computational biology
+Zhaolei Zhang
+Professor
+Donnelly Centre for Cellular & Biomolecular Research
+Research Areas:
+computational biology
+Shurui Zhou
+Assistant Professor
+Electrical & Computer Engineering
+Research Areas:
+software engineering
+Daniel Zingaro
+Associate Professor, Teaching Stream
+Mathematical and Computational Sciences, University of Toronto Mississauga
+Research Areas:
+computing education, educational technology, assistive technology
+Status-Only Faculty
+Name
+Position
+Research
+Oana Balmau
+Assistant Professor, Status-Only
+McGill University
+Research Areas:
+networks, operating systems
+Dominick Berry
+Associate Professor, Status-Only
+Macquarie University
+Research Areas:
+quantum information, quantum optics
+Marcus Brubaker
+Assistant Professor, Status-Only
+York University
+Research Areas:
+AI
+Konstantinos Derpanis
+Associate Professor, Status-Only
+York University
+Research Areas:
+computer vision
+Amir-massoud Farahmand
+Associate Professor, Status-Only
+Polytechnique Montréal
+Research Areas:
+AI: machine learning
+Research Interests:
+reinforcement learning, statistical learning theory
+Lea Frermann
+Assistant Professor, Status-Only
+University of Melbourne
+Research Areas:
+AI - computational linguistics
+Marzyeh Ghassemi
+Assistant Professor, Status-Only
+Massachusetts Institute of Technology
+Research Areas:
+machine learning, machine learning for health, computational medicine
+Research Interests:
+developing and applying machine learning models in health areas including representation learning, reinforcement learning and inverse reinforcement learning, prediction, risk stratification, and model interpretability
+Huaxiong Huang
+Professor, Status-Only
+York University
+Research Areas:
+mathematics
+Charles Kemp
+Professor, Status-Only
+University of Melbourne
+Research Areas:
+computational models of language
+Gerhard Lakemeyer
+Associate Professor, Status-Only
+Aachen University
+Research Areas:
+AI
+En-Shuin (Annie) Lee
+Assistant Professor, Status-Only
+Ontario Tech University
+Research Areas:
+AI, computational linguistics, natural language processing
+Research Interests:
+low-resource language, applied NLP and IR, data mining and pattern recognition, AI education
+Ben Rossman
+Associate Professor, Status-Only
+Duke University
+Research Areas:
+theory, computational complexity
+Frank Rudzicz
+Associate Professor, Status-Only
+Dalhousie University
+Research Areas:
+AI: computational linguistics
+Research Interests:
+natural language processing for health applications, machine learning for health applications, dialogue, speech recognition, brain-computer interfaces, ethics of AI, surgical safety
+Andrea Tagliasacchi
+Assistant Professor, Status-Only
+Simon Fraser University
+Research Areas:
+AI - machine learning
+Rick Valenzano
+Assistant Professor, Status Only
+Toronto Metropolitan University
+Research Areas:
+AI
+Henry Yuen
+Assistant Professor, Status-Only
+Columbia University
+Research Areas:
+quantum computing, theoretical computer science
+Research Interests:
+quantum complexity theory, quantum cryptography, quantum algorithms, quantum information theory
+Adjunct Faculty
+Name
+Position
+Research
+Bill Buxton
+Adjunct Professor
+Microsoft Research
+Research Areas:
+human-computer interaction
+Paul Dietz
+Adjunct Professor
+Distinguished Engineer in Residence
+Research Areas:
+human-computer interaction
+Mario Grech
+Adjunct Professor
+Director and co-founder, Department of Computer Science Innovation Lab (DCSIL)
+Research Areas:
+entrepreneurship and commercialization of applied research
+Danny Kaufman
+Adjunct Professor
+Adobe
+Research Areas:
+graphics
+Helen Kontozopoulos
+Adjunct Professor
+ODAIA.ai
+Research Areas:
+entrepreneurship
+Alex Kreinin
+Adjunct Professor
+Risk Analytics, IBM Canada
+Research Areas:
+numerical analysis
+Karthik Kuber
+Adjunct Professor
+Yelp
+Research Areas:
+data science, machine learning
+Vadym Kliuchnikov
+Adjunct Professor
+Microsoft Quantum
+Research Areas:
+computational theory
+Mike McCarthy
+Adjunct Professor
+Distinguished Executive in Residence
+Matt Medland
+Adjunct Professor
+BlueCat
+Research Areas:
+software engineering, networks, distributed systems
+Back to Top
+Acorn
+U of T Main
+Quercus
+Student Support
+Website Feedback
+© 2025 Department of Computer Science, University of Toronto
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+From the University of Toronto's Department of Computer Science faculty directory content, I noted that Jimmy Ba is listed as an Associate Professor specializing in machine learning with research interests including deep learning, neural networks, and deep reinforcement learning. Sheila McIlraith, a Professor, also includes reinforcement learning among her research interests, particularly in AI planning and reinforcement learning.
+
+Additionally, Richard Zemel is a Professor whose research areas include machine learning, though reinforcement learning is not explicitly mentioned in his summary. Other notable professors associated with reinforcement learning or close fields include Ravin Balakrishnan and Sanja Fidler, but Jimmy Ba's focus explicitly includes deep reinforcement learning and he completed his PhD under Geoffrey Hinton, a highly notable AI figure.
+
+Among the results found initially for reinforcement learning at U of T, Chiguhn Lee works on reinforcement learning but appears from Mechanical and Industrial Engineering, not directly from Computer Science, and Brokoslaw Laschowski, focused more on computational neuroscience, AI, and brain-machine interfaces.
+
+Thus, considering prominence, specific mention of reinforcement learning focus, and departmental affiliation, Jimmy Ba stands out as the most notable professor specializing in reinforcement learning at University of Toronto's Computer Science Department.
+</thinking>
+<text>
+The most notable professor specializing in reinforcement learning at the University of Toronto is Jimmy Ba. He is an Associate Professor in the Department of Computer Science whose research includes deep learning and deep reinforcement learning. He is also notable for completing his PhD under Geoffrey Hinton, a pioneer in deep learning.
+</text>
+<tool_use>
+  {}
+</tool_use>
+
+
+
+
+TOOL CALL RES:
+('Subagent 1: The most notable professor specializing in reinforcement learning at McGill University is Doina Precup. She is an associate professor at McGill, heads the Montreal office of DeepMind, and is recognized for her fundamental research in reinforcement learning with important applications, particularly in socially impactful areas like health care.\n\nSubagent 2: The most notable professor specializing in reinforcement learning at the University of Toronto is Jimmy Ba. He is an Associate Professor in the Department of Computer Science whose research includes deep learning and deep reinforcement learning. He is also notable for completing his PhD under Geoffrey Hinton, a pioneer in deep learning.', {'uid': '063f0d1fa93e4c258e8b91bda87a084a', 'type': 'worker_group', 'model': 'many', 'health': 0.0, 'total_cost': 0.0087048, 'num_tool_calls': 3})
+
+
+
+
+LLM RESULT (AgentType.ORCHESTRATOR):
+<thinking>
+I have received the names and brief credentials of the most notable reinforcement learning professors at McGill University and the University of Toronto from the subagents. At McGill, it is Doina Precup, known for her fundamental research in RL and leadership at DeepMind's Montreal office. At the University of Toronto, it is Jimmy Ba, an associate professor focused on deep learning and RL, trained under Geoffrey Hinton. This information sufficiently answers the user's query.
+</thinking>
+<text>
+The most notable reinforcement learning professor at McGill University is Doina Precup, who is known for her fundamental research in reinforcement learning and heads the Montreal office of DeepMind. At the University of Toronto, the most notable reinforcement learning professor is Jimmy Ba, an associate professor known for his research in deep learning and reinforcement learning.
+</text>
+<tool_use>
+{}
+</tool_use>
+
+
+
+
+OA res in System:
+The most notable reinforcement learning professor at McGill University is Doina Precup, who is known for her fundamental research in reinforcement learning and heads the Montreal office of DeepMind. At the University of Toronto, the most notable reinforcement learning professor is Jimmy Ba, an associate professor known for his research in deep learning and reinforcement learning.
+
+
+{'uid': '5339aa45a8764fd691a56584445fed99', 'type': <AgentType.ORCHESTRATOR: 'orchestrator'>, 'model': 'gpt-4.1-mini', 'health': 0.001637, 'total_cost': 0.01049, 'num_tool_calls': 4}
