@@ -9,7 +9,7 @@ from format_prompts import format
 
 class Agent:
     def __init__(self, type:AgentType, model:Model, max_steps:int, task:str):
-        self.id = uid_hash()
+        self.uid = uid_hash()
         self.type = type
         self.model = model
         self.max_steps = max_steps
@@ -112,7 +112,7 @@ class Agent:
     def snapshot(self) -> dict[str,Any]:
         """ returns a logistics snapshot of the agent """
         ss = {
-            "uid": self.id,
+            "uid": self.uid,
             "type": self.type,
             "model": self.model.name,
             "health": self.health,

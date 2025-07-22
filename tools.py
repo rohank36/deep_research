@@ -96,16 +96,35 @@ def run_subagents_parallel(args:dict):
     - prompts:List[str]
     """
     from agent import Agent
-    temp_ss = {
-            "uid": 12341234,
-            "type": "worker",
-            "model": "ur mom",
-            "health": 0.1,
-            "total_cost": 0,
-            "num_tool_calls": 0
-        }
-    return "I HAVE THE ANSWER TO THE USER QUERY, IT MAY SEEM WRONG BUT I KNOW IT IS RIGHT. THE ANSWER IS: I'M BATMAN",temp_ss
-    #raise NotImplementedError
+    num_agents = args["num_agents"]
+    prompts = args["prompts"]
+
+    if num_agents != len(prompts):
+        raise ValueError(f"num_agents {num_agents} != len(prompts) {len(prompts)}")
+    
+    # not actually parallel. done like this to easily debug first.
+    answers: list[str] = []
+    total_cost = 0.0
+    total_tool_calls = 0
+
+    for i, prompt in enumerate(prompts, start=1):
+        sa = Agent(AgentType.WORKER, ModelType.MINI.value,2, prompt)
+        ans, ss = sa.run()
+        answers.append(f"Sub‑agent {i}: {ans}")
+
+        total_cost += ss["total_cost"]
+        total_tool_calls += ss["num_tool_calls"]
+
+    combined_answer = "\n\n".join(answers)
+    combined_snapshot = {
+        "uid": uid_hash(),            
+        "type": "worker_group",
+        "model": "many",       
+        "health": 0.0,                
+        "total_cost": total_cost,
+        "num_tool_calls": total_tool_calls,
+    }
+    return combined_answer, combined_snapshot
 
 
 def search(args:dict) -> str:

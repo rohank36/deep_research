@@ -72,6 +72,7 @@
 - Refactored a ton of the code to make it way simpler. 
 - You fell into the classic trap of building top down, building for things you thought you'd need making it way more complex then it needed to be. Build lean then add later if needed. Don't try to overcompliate things.
 - Tried prompt injecting and the agent new it was bad stuff. Continued properly
+- Huge bottleneck is how bad your search tools are. Low quality sources + hard to scrape a lot of times. 
 
 - ### Summary
     - 
