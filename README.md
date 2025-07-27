@@ -8,7 +8,7 @@ My writing: https://rohankanti.substack.com/p/ai-agent-system-from-scratch
 
 The system follows a orchestrator-worker design.
 
-Note that this system isn't production ready. I implemented it to better understand agentic systems.
+Note that this system isn't production ready. I implemented it from scratch to better understand agentic systems.
 
 To make production ready:
 - the search() and fetch_content() tools would need to be improved
