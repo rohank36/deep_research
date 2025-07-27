@@ -4,9 +4,9 @@
 
 Inspired by: https://www.anthropic.com/engineering/built-multi-agent-research-system.
 
-My writing: 
+My writing: https://rohankanti.substack.com/p/ai-agent-system-from-scratch
 
-I implement a orchestrator-worker architecture to answer hard questions.
+The system follows a orchestrator-worker design.
 
 Note that this system isn't production ready. I implemented it to better understand agentic systems.
 
