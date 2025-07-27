@@ -79,6 +79,8 @@ class Agent:
             self.update_cost_and_health(tokens["prompt_tokens"],tokens["completion_tokens"])
             self.update_tool_calls(1)
 
+            # can deterministically save to memory here if needed 
+
             time.sleep(5) # for openai api rate limiting
 
         return "None",self.snapshot()

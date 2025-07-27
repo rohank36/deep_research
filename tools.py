@@ -270,18 +270,3 @@ def execute_tool(agent_type:str, tool_call:dict[str,Union[str,dict]]) -> Tuple[A
     return fn_res,is_agent_call,True
 
 
-if __name__ == "__main__":
-    #results = search("how transformers work in deep learning")
-    #print(results)
-    url_results = [{'url': 'https://www.datacamp.com/tutorial/how-transformers-work', 'snippet': 'Jan 9, 2024The deep learning field has been experiencing a seismic shift, thanks to the emergence and rapid evolution of Transformer models. These groundbreaking architectures have not just redefined the standards in Natural Language Processing (NLP) but have broadened their horizons to revolutionize numerous facets of artificial intelligence. Characterized by their unique attention mechanisms and ...'}, {'url': 'https://www.geeksforgeeks.org/deep-learning/architecture-and-working-of-transformers-in-deep-learning-/', 'snippet': 'May 29, 2025Transformers are a type of deep learning model that utilizes self-attention mechanisms to process and generate sequences of data efficiently. They capture long-range dependencies and contextual relationships making them highly effective for tasks like language modeling, machine translation and text generation.'}, {'url': 'https://theaisummer.com/transformer/', 'snippet': 'An intuitive understanding on Transformers and how they are used in Machine Translation. After analyzing all subcomponents one by one such as self-attention and positional encodings , we explain the principles behind the Encoder and Decoder and why Transformers work so well'}, {'url': 'https://www.turing.com/kb/brief-introduction-to-transformers-and-their-power', 'snippet': 'Transformers are neural networks that learn context & understanding through sequential data analysis. Know more about its powers in deep learning, NLP, & more.'}, {'url': 'https://towardsdatascience.com/transformers-explained-visually-part-1-overview-of-functionality-95a6dd460452/', 'snippet': 'The article visually explains the functionality of transformers in deep learning, covering their key components and how they work.'}]
-    """
-    for d in url_results:
-        print(f"url:{d["url"]}")
-        print(f"description:{d["snippet"]}")
-        print("\n\n")
-    """
-    #body = fetch_content(url_results[0]["url"])
-    args = {"url":url_results[0]["url"]}
-    fetch_content(args)
-    #print(body)
-

@@ -7,7 +7,5 @@ def uid_hash()->str:
 def get_datetime()->str:
     return str(datetime.today())
 
-if __name__ == "__main__":
-    pass
     
     
