@@ -11,7 +11,7 @@ class System:
         oa_task_med = "Who was Alan Belchers first BJJ loss to and what did he lose by?" #Alexandre Souza, Armbar
         oa_task_easy= "what is the name of the gym of the guy who gordan ryan beat in the adcc 2022 super fight and where it is located?" #Andre Galvao, San Diego
         # Write query here
-        q = "Im free august 15 to september 15, tell me the best holiday I could take in dubrovnik croatia and also tell me the best flights I could get from toronto and give the recommendation of 5 hotels"
+        q = "List all professors at McGill university currently working/researching on AI alignment"
 
         oa = Agent(AgentType.ORCHESTRATOR,ModelType.MINI.value,5,q)
         print(f"Q: {oa.task}")

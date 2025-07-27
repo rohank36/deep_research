@@ -1,0 +1,1996 @@
+System starting...
+Q: List all professors at McGill university currently working/researching on AI alignment
+
+
+LLM RESULT (AgentType.ORCHESTRATOR):
+<thinking>
+The query asks for a list of professors at McGill University who are currently working or researching AI alignment. This is a specific and focused topic requiring depth-first search: gathering detailed information on a particular subject within a defined university.
+
+To answer this:
+1. I need to find the professors at McGill University involved with or researching AI alignment.
+2. AI alignment is a specialized subfield in AI research, so these professors may belong to departments such as computer science, cognitive science, or related interdisciplinary centers.
+3. I should search for recent faculty research interests, recent publications, or affiliations linked to AI alignment.
+4. Since the query is specific and the topic might be niche, I will run a subagent tasked with compiling a current list of McGill professors actively researching AI alignment.
+
+I will instruct a subagent to find and list the professors at McGill University who are currently working in AI alignment, including their department and relevant research interests.
+</thinking>
+<text>
+I am gathering a list of all professors at McGill University who are currently working or researching in the field of AI alignment.
+</text>
+<tool_use>
+{
+  "name": "run_subagent",
+  "args": {
+    "prompt": "Identify all professors at McGill University who are currently working or researching on AI alignment. Provide their names, departments, and relevant research interests or projects related to AI alignment."
+  }
+}
+</tool_use>
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+To identify professors at McGill University who are currently working or researching on AI alignment, I will first search for relevant information on McGill professors involved with AI alignment. This will include looking for faculty pages, research group pages, and any AI-related institutes or labs within McGill University. I will look for mentions of AI alignment specifically, or strongly related research topics such as AI safety, ethical AI, robust AI, or similar concepts that indicate alignment focus. Once I identify relevant professors, I will compile their names, departments, and research interests/projects relevant to AI alignment.
+</thinking>
+<text>
+I am starting by searching for McGill University professors working on AI alignment or closely related AI safety topics.
+</text>
+<tool_use>
+{
+  "name": "search",
+  "args": {
+    "query": "McGill University professors AI alignment research"
+  }
+}
+</tool_use>
+
+
+
+DevTools listening on ws://127.0.0.1:59134/devtools/browser/c14414ee-b46d-414b-a745-60ab4f934e2d
+
+
+TOOL CALL RES:
+Link 1: https://ismart.ece.mcgill.ca/team/
+Description: She holds the position of Associate Professor (tenured) in the Department of Electrical and Computer Engineering at McGill University, as well as at Mila - Quebec AI Institute.
+
+Link 2: https://www.mcgill.ca/cim/
+Description: Since 1985, CIM has been a world leader in research on intelligent systems. Formed as an inter-departmental, inter-faculty research group between members of Electrical and Computer Engineering, Mechanical Engineering and Computer Science, our members seek to advance the state of knowledge across domains.
+
+Link 3: https://mila.quebec/en/directory/blake-richards
+Description: Blake Richards is an associate professor at the School of Computer Science and in the Department of Neurology and Neurosurgery at McGill University, and a core academic member of Mila - Quebec Artificial Intelligence Institute. Richards' research lies at the intersection of neuroscience and AI.
+
+Link 4: https://www.cs.mcgill.ca/people/faculty/
+Description: Faculty Lecturers Giulia Alberini David Becerra Bioinformatics Artificial Intelligence Algorithms
+
+Link 5: https://www.cs.mcgill.ca/~jpineau/
+Description: Joelle Pineau is the VP AI Research at Meta, leading its Fundamental AI Research (FAIR) team, with labs across Canada, US and Europe. She is also a Professor at the School of Computer Science at McGill University and core member of Mila.
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+I have a set of relevant URLs related to McGill University professors and AI research. First, I should fetch the content from these links to extract detailed information about professors working on AI alignment or closely related AI safety topics. I will start with the faculty pages and research group pages, especially those from Mila - Quebec AI Institute and McGill's computer science department, since AI alignment research is often associated with AI institutes and computer science faculties. I will focus on names, departments, and descriptions of research projects or interests related to AI alignment.
+</thinking>
+<text>
+I will begin by gathering detailed information from the team pages of the McGill Electrical and Computer Engineering department and associated Mila researchers, as well as the McGill Computer Science faculty page to identify professors involved in AI alignment or related AI safety research.
+</text>
+<tool_use>
+{
+  "name": "fetch_content",
+  "args": {
+    "url": "https://ismart.ece.mcgill.ca/team/"
+  }
+}
+</tool_use>
+
+
+
+DevTools listening on ws://127.0.0.1:59161/devtools/browser/e4e4d400-0e64-472c-a45e-cc410d14cfe3
+
+
+TOOL CALL RES:
+Here is the text content for https://ismart.ece.mcgill.ca/team/:
+
+Toggle navigation
+iSMART Lab
+Home
+Team
+Publications
+Knowledge Transfer
+Repository
+Collaborate
+Contact Us
+Founder and Principal Investigator
+Prof. Narges Armanfard (Ph.D., P.Eng.)
+Dr. Armanfard is the founder and principal investigator of the iSMART Lab. She holds the position of Associate Professor (tenured) in the Department of Electrical and Computer Engineering at McGill University, as well as at Mila - Quebec AI Institute. She is also affiliated with McGill Centre for Intelligent Machines (CIM), McGill initiative in Computational Medicine (MiCM), and McGill Institute for Aerospace Engineering (MIAE). She earned her Ph.D. and Postdoctoral in Artificial Intelligence from McMaster University and the University of Toronto in Canada. Her contributions to the field of AI have been acknowledged through numerous awards from institutions, including the Natural Sciences and Engineering Research Council of Canada, AgeWell, Vanier-Banting, the Fonds de recherche du Québec, McMaster University, McGill University, the University of Toronto, the Canadian Institutes of Health Research, Scale AI, National Research Council Canada, and Canada Foundation for Innovation, among others. Narges’s academic accomplishments extend to the publication of over fifty AI-focused articles across distinguished platforms, including AAAI, WACV, ECAI, BMVC, ECML PKDD, TPAMI, TNNLS, TSMC, TIFS, and more.
+Research Team Members
+Sareh Soleimani
+AI Researcher (Postdoctoral)
+Sareh received the M.Sc. and Ph.D. degrees in electrical and computer engineering from the University of Ottawa, Ontario, Canada, both with the prestigious University of Ottawa admission scholarships. She subsequently joined Queen’s University as a postdoctoral fellow focusing on privacy-preservation audio classification for resource-constrained devices. Her research at the iSMART lab focuses on computer vision towards industrial automation.
+Bahareh Nikpour
+AI Researcher (PhD)
+Bahareh completed her PhD at the iSMART Lab in December 2024 and continues to collaborate with the iSMART team and its partners on advancing AI for industrial automation. She was awarded the prestigious McGill Engineering Doctoral Award (MEDA) and the Fonds de recherche du Québec – Nature et technologies (FRQNT). Her research focuses on attention discovery in few-shot learning scenarios, leveraging deep reinforcement learning techniques with applications in computer vision.
+Thi Kieu Khanh Ho
+AI Researcher (PhD)
+Khanh received her Master’s degree at Gwangju Institute of Science and Technology (GIST), South Korea. She was a researcher at Seoul National University Hospital (SNUH), South Korea, before moving to Montreal for her PhD. She has received the prestigious McGill Engineering Doctoral Award (MEDA), the GREAT Award, and the highly prestigious Vanier Scholarship. Her research focuses on time-series anomaly detection using generative models and graphs.
+Hadi Hojjati
+AI Researcher (PhD)
+Hadi received his Bachelor’s degree in Electrical Engineering from Sharif University of Technology, Iran. He started as an MSc student at the iSMART Lab. and fast-tracked to PhD. He has received the Graduate Excellence Fellowship Award (GEF), McGill Engineering Doctoral Award (MEDA), GREAT Award, and AGE-WELL Award. He is currently doing research on multi-modal data analysis and anomaly detection employing lightweight multimodal large language models.
+Dimitrios Sinodinos
+AI Researcher (PhD)
+Dimitrios completed his Bachelor’s degree in Electrical Engineering at McGill University and was awarded the British Association Medal for graduating with the highest CGPA in the department. Shortly after starting his Master’s, Dimitrios fast-tracked into a PhD, where he received the MEDA Award and was selected into the prestigious Vadasz Scholars program. His research involves multi-task learning learning employing lightweight multimodal large language models.
+Thomas Lai
+AI Researcher (PhD)
+Thomas received his Bachelor of Engineering (B.Eng.) from McGill University. He joined the iSMART Lab in the summer of 2023 and subsequently pursued an MSc, focusing on open-set anomaly detection. A year after starting his Master’s at the iSMART Lab, Thomas fast-tracked into a PhD.  He is a recipient of the MEUSMA and FRQ awards. His research is on open-set anomaly detection leveraging LLM models.
+Alexander Koran
+AI Researcher (PhD)
+Alex earned a Bachelor’s degree in Computer Engineering with minors in Mathematics and Artificial Intelligence in Fall 2023. He joined the iSMART Lab in the summer of 2023 and subsequently pursued an MSc, focusing on time series anomaly detection. In January 2025, Alex began his PhD at the iSMART Lab. He is a recipient of the GEF Award and the prestigious Vadasz Engineering Fellowship. His research focuses on leveraging vision language models (VLMs) for video anomaly detection.
+Navid Hassan Zadeh
+AI Researcher (PhD)
+Navid received his Bachelor’s degree in Joint Honours in Mathematics and Computer Science from McGill University. He pursued an MSc at the Computer Science Department of the University of Montreal. He is currently an RA at the iSMART Lab. He will begin his Ph.D. studies at the iSMART Lab in September 2025. His research interests include theories of Machine Learning and its applications.
+Dario Morle
+AI Researcher (PhD)
+Dario completed his Bachelor’s in Electrical Engineering from the University of Windsor. During his undergrad, Dario assisted in research at both the Center for Computer Vision and Deep Learning, and the Human Systems Lab. After graduating in 2022, he joined IFIVEO CANADA INC. where he worked on developing and deploying computer vision solutions for industrial applications. His research interests include neural architecture design, energy-based models, and applications to industrial processes.
+Jack Wei
+AI Researcher (MSc)
+Jack (Yi) Wei received his Bachelor’s degree in Computer Engineering with a minor in Mathematics from McGill University. He is the recipient of the McGill Engineering Undergraduate Student Award (MEUSMA). His interest lies in tabular data analysis.
+Zihan Wang
+AI Researcher (MSc)
+Zihan received his Bachelor’s degree in Electrical and Computer Engineering from the University of Alberta, Canada. He is now an MSc student at the iSMART Lab. He is the recipient of the Graduate Excellence Fellowship Award. His research at the iSMART Lab is focused on continual learning with large language models for anomaly detection.
+Cormac Cureton
+AI Researcher (MSc)
+Cormac is pursuing a Master’s of Science at the iSMART lab. He obtained his Bachelor of Applied Science in Systems Design Engineering at the University of Waterloo. His research interests include multi-modality, reinforcement learning, and explainability.
+Abhijeet Praveen
+AI Researcher (MSc)
+Abhijeet is pursuing a Master’s of Science at the iSmart Lab in September 2024. He completed his Bachelor’s in Computer Engineering with a minor in Applied Artificial Intelligence from McGill University. His academic background encompasses machine learning, computer vision and software development. His research interests lie in representation learning and machine learning applications.
+Brian MacDonald
+AI Researcher (MSc)
+Brian is pursuing an MSc at the iSMART lab beginning in September 2025. He earned his Bachelor of Science in Sustainable Design Engineering with a focus on mechatronics from the University of Prince Edward Island in 2024, receiving distinctions each year for achieving the highest academic average in his class. Brian was also a McCall MacBain Scholarship finalist. His research interests lie within computer vision and pattern recognition, with an emphasis on real-world applications.
+Aman Sidhu
+AI Researcher (MSc)
+Aman earned his Bachelor’s degree in Honours Electrical Engineering from McGill University. Following a research assistantship at the iSMART Lab in Fall 2024, he began pursuing his MSc at the iSMART Lab in January 2025. His research explores the application of reinforcement learning and computer vision in smart infrastructure and robotics.
+Amirmohammad Naeini
+Research Assistant (MSc)
+Amir received his Bachelor’s degree in Electrical Engineering from Amirkabir University of Technology in Tehran, Iran, and his Master’s degree in Computer Science from York University in Toronto, ON, Canada. He is currently a Research Assistant at the iSMART Lab, focusing on software development and AI-related projects, particularly in the context of machine learning applications.
+Théophile Soulié
+Research Assistant (BSc)
+Made in France, assembled in Morocco, shipped to Canada, Théophile is pursuing a Bachelor’s in Electrical Engineering at McGill University as a James McGill Scholar. Passionate about AI and machine learning, he is particularly interested in their applications in signal processing and intelligent systems. As the founder of McGill H2, he is also engaged in sustainable energy solutions. With a strong foundation in hardware and software, Théophile is eager to contribute to cutting-edge research at the iSMART Lab.
+Benjamin Curis-Friedman
+Research Assistant (BSc)
+Benjamin Curis-Friedman is a Software Engineering CO-OP student at McGill University with software-development experience and a strong interest in machine learning and mathematics. As a research assistant in the iSMART Lab, he will develop programs to turn raw video and sensor data into analysis-ready structured datasets.
+Alexander Wyrstiuk
+Research Assistant (BSc)
+Alexander is currently enrolled in McGill’s Electrical Engineering BSs program and has added minors in Math and Computer Science upon developing a newfound curiosity in those fields. While at the forefront of cutting-edge technology as well as the intersection of Computer Science and Applied Mathematics, AI and Machine Learning are inevitably of great interest to Alexander.
+Ahmad Al-Jabi
+Research Assistant (BSc)
+Ahmad Al-Jabi is an undergraduate student in Electrical Engineering at McGill University. His interests lie in machine learning and its real-world applications, particularly in intelligent systems, automation, and robotics. At the iSMART Lab, he supports projects involving data collection, software tools, and applied AI research.
+Alumni
+Graduate Researchers
+Bahareh Nipour (PhD, Sept 2019- Dec 2024)
+Moved on to (TBA)
+Mohammadreza Sadeghi (PhD, Sept 2019- Dec 2024)
+Moved on to Machine Learning Engineer, Huawei Noah’s Ark Lab, Montreal
+Ali Karami (MSc-Thesis, Sept 2022- Aug 2024)
+Moved on to Machine Learning Engineer, Instacart, Montreal
+Alexnder Koran (MSc-Thesis,Jan-Dec 2024)
+Moved on to PhD program at McGill University
+Sushant Sinha (MSc-Thesis, Co-supervised, Sept 2022-Aug 2024)
+Moved on to PhD program at Max Planck Institute, Germany
+Thomas Lai (MSc-Thesis, Sept 2023- Aug 2024)
+Moved on to PhD program at McGill University
+Jiahao Lu (PhD Visitor Scholar, March 2023 - Feb 2024)
+Moved on to the University of Copenhagen
+Damien Gengler (MSc-Thesis; March-Aug 2023)
+Moved on to Gravite.io as Machine Learning Engineer
+Denzel Guy (MSc-Thesis Student, Co-Supervised, Sept 2021 - Aug 2023)
+Moved on to Kingston Process Metallurgy Inc. (KPM) as Project Manager
+Dimitrios Sinodinos (MSc-Thesis Student, Sept 2022- Aug 2023)
+Moved on to PhD program at McGill University
+Hadi Hojjati (MSc-Thesis Student, Jan-Dec 2021)
+Moved on to PhD program at McGill University
+Tri-tin Truong (MSc-Thesis Student, 2021)
+Moved on to Amazon in Vancouver
+Shuhong Shen (MSc-Thesis Student, Co-Supervised, 2020)
+Moved on to Hatch in Toronto
+Undergraduate Reserachers
+Alex Koran
+Moved on to MSc-Thesis Student, McGill University
+Thomas Lai
+Moved on to MSc-Thesis Student, McGill University
+Amal Koodoruth
+Moved on to Data Scientist at SFJ Technologies LLC, New York, NY
+Dimitrios Sinodinos
+Moved on to MSc-Thesis Student, McGill University
+Tri-tin Truong
+Moved on to MSc-Thesis Student, McGill University
+William Zhang
+Moved on to Google, Seattle
+Michael Li
+Moved on to Google, Toronto
+Zice Tang
+Moved on to MSc-Thesis Student, McGill University
+Ziwen Jiang
+Moved on to MSc-Thesis Student, Hong Kong University of Science and Technology
+Yeseul Lee
+Hailey Kang
+© 2022 iSMART Lab. Powered by
+Jekyll
+.
+We are part of
+McGill University
+and
+MILA - Quebec AI Institute
+.
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+From the iSMART Lab team page, the main professor is Dr. Narges Armanfard, Associate Professor in Electrical and Computer Engineering and affiliated with Mila. Her research is AI-focused, but there is no explicit mention of AI alignment or related terms like AI safety or robust AI. The other team members mostly focus on AI applications such as anomaly detection, computer vision, reinforcement learning, and large language models, but none explicitly mention AI alignment or AI safety. This page does not show direct AI alignment research involvement or professor names with AI alignment as a primary focus.
+
+Next, I should examine other URLs, especially Mila's directory and McGill's computer science faculty pages, since AI alignment experts might be affiliated primarily with computer science or Mila. I will fetch content from the Mila directory for Blake Richards and the McGill CS faculty page next.
+</thinking>
+<text>
+Reviewed the iSMART Lab team information. The lead professor, Narges Armanfard, works on AI research in Electrical and Computer Engineering with applications mostly in anomaly detection, vision, and reinforcement learning. No clear indication of AI alignment focus. I will now check the Mila directory page for Blake Richards, who is a core academic member of Mila and McGill, to see if his work includes AI alignment.
+</text>
+<tool_use>
+{
+  "name": "fetch_content",
+  "args": {
+    "url": "https://mila.quebec/en/directory/blake-richards"
+  }
+}
+</tool_use>
+
+
+
+DevTools listening on ws://127.0.0.1:59188/devtools/browser/f1c72571-09dc-446d-80d4-433091d77357
+
+
+TOOL CALL RES:
+Here is the text content for https://mila.quebec/en/directory/blake-richards:
+
+Skip to main content
+Top menu
+Directory
+Insights
+News
+Careers
+Français
+Learning
+AI Advantage
+Learn how to leverage generative AI to support and improve your productivity at work. The next cohort will take place online on August 26 and 28, 2025.
+Register now
+Mila AI for Climate Studio
+Leveraging AI for a Sustainable Future
+Mila’s AI for Climate Studio aims to bridge the gap between technology and impact to unlock the potential of AI in tackling the climate crisis rapidly and on a massive scale.
+Get involved
+AI Governance
+Mila AI Policy Fellowship
+The program recently published its first policy brief, titled "Policy Considerations at the Intersection of Quantum Technologies and Artificial Intelligence," authored by Padmapriya Mohan.
+Read the brief
+Learning
+AI Advantage
+Learn how to leverage generative AI to support and improve your productivity at work. The next cohort will take place online on August 26 and 28, 2025.
+Register now
+Mila AI for Climate Studio
+Leveraging AI for a Sustainable Future
+Mila’s AI for Climate Studio aims to bridge the gap between technology and impact to unlock the potential of AI in tackling the climate crisis rapidly and on a massive scale.
+Get involved
+Main menu (EN)
+Research
+Column2
+Core Expertise
+Core Academic Members
+Blog
+Speed Science Contest
+Publications
+Open Source Software
+Column1
+Strategic Priorities
+AI and Health
+Responsible AI
+Environment and Energy
+AI4Science
+Language and Image
+Robotics
+Prospective Students
+Column1
+Research Master's and PhD
+Supervision Requests
+Professional Master's and Graduate Diploma
+Research Internships
+Postdoctoral Fellowships
+Column2
+Student Life and Resources
+Lab Representatives
+Ombudsman
+TRAIL Research
+Courses and Schedule
+FAQ
+AI4Humanity
+Column1
+Applied Projects
+AI against Modern Slavery
+AI Alignment for Inclusion
+AI Recap
+Antenna
+Biasly
+Data-driven Insights for Sustainable Agriculture
+First Languages AI Reality
+Infrared
+SAIGE
+Column2
+AI Governance, Policy and Inclusion
+AI4Good Lab
+AI Insights for Policymakers
+Indigenous Pathfinders in AI
+Mila AI Policy Fellowship
+AI Professional Development
+Column1
+AI Advantage
+AI Policy Compass
+Column2
+Summer School in Responsible AI and Human Rights
+TRAIL for Professionals
+Industry
+Column1
+Partnerships
+Industrial Partners
+Impulse Program by Mila
+Column2
+Mila Entrepreneurship Lab
+Applied Research Projects for Industry
+Consulting Services
+About
+Column1
+About Mila
+Leadership Team
+Board of Directors
+Contact
+Column2
+Impact Reports
+Impact Report 2023-24
+Impact Report 2022-23
+Impact Report 2021-22
+2021-22 Summary of AI Adoption Activities
+Impact Report 2020-21
+Annual Report 2019-20
+Annual Report 2018-19
+Toggle mobile menu
+Main menu (EN)
+Research
+Back
+Column2
+Core Expertise
+Core Academic Members
+Blog
+Speed Science Contest
+Publications
+Open Source Software
+Column1
+Strategic Priorities
+AI and Health
+Responsible AI
+Environment and Energy
+AI4Science
+Language and Image
+Robotics
+Prospective Students
+Back
+Column1
+Research Master's and PhD
+Supervision Requests
+Professional Master's and Graduate Diploma
+Research Internships
+Postdoctoral Fellowships
+Column2
+Student Life and Resources
+Lab Representatives
+Ombudsman
+TRAIL Research
+Courses and Schedule
+FAQ
+AI4Humanity
+Back
+Column1
+Applied Projects
+AI against Modern Slavery
+AI Alignment for Inclusion
+AI Recap
+Antenna
+Biasly
+Data-driven Insights for Sustainable Agriculture
+First Languages AI Reality
+Infrared
+SAIGE
+Column2
+AI Governance, Policy and Inclusion
+AI4Good Lab
+AI Insights for Policymakers
+Indigenous Pathfinders in AI
+Mila AI Policy Fellowship
+AI Professional Development
+Back
+Column1
+AI Advantage
+AI Policy Compass
+Column2
+Summer School in Responsible AI and Human Rights
+TRAIL for Professionals
+Industry
+Back
+Column1
+Partnerships
+Industrial Partners
+Impulse Program by Mila
+Column2
+Mila Entrepreneurship Lab
+Applied Research Projects for Industry
+Consulting Services
+About
+Back
+Column1
+About Mila
+Leadership Team
+Board of Directors
+Contact
+Column2
+Impact Reports
+Impact Report 2023-24
+Impact Report 2022-23
+Impact Report 2021-22
+2021-22 Summary of AI Adoption Activities
+Impact Report 2020-21
+Annual Report 2019-20
+Annual Report 2018-19
+Top menu
+Directory
+Insights
+News
+Careers
+Français
+What are you looking for?
+Popular keywords:
+AI for humanity
+Yoshua Bengio
+AI
+We use cookies to analyze the browsing and usage of our website and to personalize your experience. You can disable these technologies at any time, but this may limit certain functionalities of the site. Read our
+Privacy Policy
+for more information.
+Set cookies
+Refuse cookies
+Accept cookies
+Setting cookies
+You can enable and disable the types of cookies you wish to accept. However certain choices you make could affect the services offered on our sites (e.g. suggestions, personalised ads, etc.).
+Essential cookies
+These cookies are necessary for the operation of the site and cannot be deactivated. (Still active)
+Toggle
+Analytics cookies
+Do you accept the use of cookies to measure the audience of our sites?
+Toggle
+Multimedia Player
+Do you accept the use of cookies to display and allow you to watch the video content hosted by our partners (YouTube, etc.)?
+Toggle
+Save
+Breadcrumb
+Home
+Directory
+Blake Richards
+Blake Richards
+Core Academic Member
+blake.richards@mila.quebec
+Canada CIFAR AI Chair
+Associate Professor, McGill University, School of Computer Science and Department of Neurology and Neurosurgery
+Google
+Research Topics
+Computational Neuroscience
+Generative Models
+Reinforcement Learning
+Representation Learning
+Website
+Google Scholar
+X
+Biography
+Blake Richards is an associate professor at the School of Computer Science and in the Department of Neurology and Neurosurgery at McGill University, and a core academic  member of Mila – Quebec Artificial Intelligence Institute.
+Richards’ research lies at the intersection of neuroscience and AI. His laboratory investigates universal principles of intelligence that apply to both natural and artificial agents.
+He has received several awards for his work, including the NSERC Arthur B. McDonald Fellowship in 2022, the Canadian Association for Neuroscience Young Investigator Award in 2019, and a Canada CIFAR AI Chair in 2018. Richards was a Banting Postdoctoral Fellow at SickKids Hospital from 2011 to 2013.
+He obtained his PhD in neuroscience from the University of Oxford in 2010, and his BSc in cognitive science and AI from the University of Toronto in 2004.
+Current Students
+Aliya Affdal
+Research Intern - Université de Montréal
+Benjamin Alsbury-Nealy
+PhD - McGill University
+benjamin@silicolabs.ca
+Website
+Github
+Google Scholar
+Antoine Boudreau LeBlanc
+Postdoctorate - McGill University
+Website
+Google Scholar
+Colin Bredenberg
+Postdoctorate - Université de Montréal
+Principal supervisor :
+Guillaume Lajoie
+Ethan Caballero
+PhD - McGill University
+Co-supervisor :
+Irina Rish
+Website
+Google Scholar
+Nour Chahine
+PhD - McGill University
+Github
+Raymond Chua
+PhD - McGill University
+Principal supervisor :
+Doina Precup
+Website
+Google Scholar
+Erica Cianfarano
+PhD - McGill University
+Jonathan Cornford
+Postdoctorate - McGill University
+Alex Efremov
+PhD - McGill University
+aleksei.efremov@mail.mcgill.ca
+Github
+Google Scholar
+Arna Ghosh
+PhD - McGill University
+Website
+Github
+Google Scholar
+Adel Halawa
+PhD - McGill University
+Danny Han
+Independent visiting researcher - Seoul National University
+Github
+Roy Henha Eyono
+PhD - McGill University
+Github
+Google Scholar
+Ann Huang
+Collaborating Alumni
+Sonia Joseph
+PhD - McGill University
+Website
+Github
+Divyansha Lachi
+Collaborating researcher - Georgia Tech
+Website
+Github
+Google Scholar
+Daniel Levenstein
+Postdoctorate - McGill University
+Github
+Google Scholar
+Zixuan Li Li
+Undergraduate - McGill University
+zixuan.li3@mail.mcgill.ca
+Github
+Dongyan Lin
+PhD - McGill University
+Website
+Github
+Google Scholar
+Matthew Loukine
+PhD - McGill University
+matthew.loukine@mail.mcgill.ca
+Dane Malenfant
+Master's Research - McGill University
+Website
+Github
+Google Scholar
+Abdel Mfougouon Njupoun
+PhD - Université de Montréal
+Principal supervisor :
+Guillaume Lajoie
+Website
+Github
+Google Scholar
+Le Thuy Duong Nguyen
+Collaborating Alumni - McGill University
+Adrien Peyrache
+Independent visiting researcher
+Roman Pogodin
+Collaborating Alumni - McGill University
+Co-supervisor :
+Guillaume Lajoie
+Website
+Github
+Google Scholar
+Alexis Roger
+PhD - McGill University
+Co-supervisor :
+Irina Rish
+Github
+Ali Saheb Pasand
+PhD - McGill University
+Co-supervisor :
+Pablo Samuel Castro
+Mandana Samiei
+PhD - McGill University
+Principal supervisor :
+Doina Precup
+samiemandana@gmail.com
+Website
+Github
+Google Scholar
+Aidan Sirbu
+Master's Research - McGill University
+Co-supervisor :
+Shahab Bakhtiari
+Github
+Google Scholar
+Hiro Tanabe
+Independent visiting researcher - NA
+Github
+Josh Tindall
+Master's Research - McGill University
+Mashbayar Tugsbayar
+PhD - McGill University
+Github
+Charlotte Volk
+Master's Research - McGill University
+Co-supervisor :
+Shahab Bakhtiari
+Github
+Maren Wehrheim
+Independent visiting researcher - York University
+Github
+Google Scholar
+Mohammad Yaghoubi
+PhD - McGill University
+Github
+AmirHossein Zamani
+PhD - Concordia University
+Principal supervisor :
+Eugene Belilovsky
+Website
+Github
+Google Scholar
+Blog Posts
+May 21, 2025
+Machine Learning for the Segmentation of Different Nerve Fibre Activations from Brain-to-body Neural Signals
+by
+Param Raval
+Olivier Tessier-Larivière
+Pascal Fortier-Poisson
+Blake Richards
+Guillaume Lajoie
+Read the article
+June 13, 2024
+What Do Synaptic Weight Distributions Tell Us About Learning in the Brain ?
+by
+Roman Pogodin
+Jonathan Cornford
+Arna Ghosh
+Gauthier Gidel
+Guillaume Lajoie
+Blake Richards
+Read the article
+August 29, 2023
+α-ReQ: Assessing Representation Quality in SSL
+by
+KK Agrawal
+Arnab Kumar-Mondal
+Arna Ghosh
+Blake A. Richards
+Read the article
+Publications
+Search Publications
+Submit
+Learning to combine top-down context and feed-forward representations under ambiguity with apical and basal dendrites
+Nizar Islah
+Guillaume Etter
+Mashbayar Tugsbayar
+Busra Tugce Gurbuz
+Blake Richards
+Eilif Benjamin Muller
+2025-06-23
+Cerebral Cortex (New York, NY) (published)
+doi.org
+arxiv.org
+The challenge of hidden gifts in multi-agent reinforcement learning
+Dane Malenfant
+Blake Richards
+Cooperation between people is not always obvious. Sometimes we benefit from actions that others have taken even when we are unaware that the
+… (
+see more
+)
+y took those actions. For example, if your neighbor chooses not to take a parking spot in front of your house when you are not there, you can benefit, even without being aware that they took this action. These “hidden gifts” represent an interesting challenge for multi-agent reinforcement learning (MARL), since assigning credit to your own actions correctly when the beneficial actions of others are hidden is non-trivial. Here, we study the impact of hidden gifts with a very simple MARL task. In this task, agents in a grid-world environment have individual doors to unlock in order to obtain individual rewards. As well, if all the agents unlock their door the group receives a larger collective reward. However, there is only one key for all of the doors, such that the collective reward can only be obtained when the agents drop the key for others after they use it. Notably, there is nothing to indicate to an agent that the other agents have dropped the key, thus the act of dropping the key for others is a “hidden gift”. We show that several different state-of-the-art RL algorithms, including MARL algorithms, fail to learn how to obtain the collective reward in this simple task. Interestingly, we find that independent model-free policy gradient agents can solve the task when we provide them with information about their action history, but MARL agents still cannot solve the task with action history. Finally, we derive a correction term for these independent agents, inspired by learning aware approaches, which reduces the variance in learning and helps them to converge to collective success more reliably. These results show how credit assignment in multi-agent settings can be particularly challenging in the presence of “hidden gifts”, and demonstrate that learning awareness can benefit these settings
+2025-06-23
+rl-conference.cc/RLC/2025/Workshop/CoCoMARL (poster)
+openreview.net
+openreview.net
+Tracing the representation geometry of language models from pretraining to post-training
+Melody Zixuan Li
+Kumar Krishna Agrawal
+Arna Ghosh
+Komal Kumar Teru
+Guillaume Lajoie
+Blake Richards
+The geometry of representations in a neural network can significantly impact downstream generalization. It is unknown how representation geo
+… (
+see more
+)
+metry changes in large language models (LLMs) over pretraining and post-training. Here, we characterize the evolving geometry of LLM representations using spectral methods (effective rank and eigenspectrum decay). With the OLMo and Pythia model families we uncover a consistent non-monotonic sequence of three distinct geometric phases in pretraining. An initial \warmup phase sees rapid representational compression. This is followed by an "entropy-seeking" phase, characterized by expansion of the representation manifold's effective dimensionality, which correlates with an increase in memorization. Subsequently, a "compression seeking" phase imposes anisotropic consolidation, selectively preserving variance along dominant eigendirections while contracting others, correlating with improved downstream task performance. We link the emergence of these phases to the fundamental interplay of cross-entropy optimization, information bottleneck, and skewed data distribution. Additionally, we find that in post-training the representation geometry is further transformed: Supervised Fine-Tuning (SFT) and Direct Preference Optimization (DPO) correlate with another "entropy-seeking" dynamic to integrate specific instructional or preferential data, reducing out-of-distribution robustness. Conversely, Reinforcement Learning with Verifiable Rewards (RLVR) often exhibits a "compression seeking" dynamic, consolidating reward-aligned behaviors and reducing the entropy in its output distribution. This work establishes the utility of spectral measures of representation geometry for understanding the multiphase learning dynamics within LLMs.
+2025-06-09
+ICML.cc/2025/Workshop/HiLD (poster)
+openreview.net
+openreview.net
+Language Agents Mirror Human Causal Reasoning Biases. How Can We Help Them Think Like Scientists?
+Anthony GX-Chen
+Dongyan Lin
+Mandana Samiei
+Doina Precup
+Blake Richards
+Rob Fergus
+Kenneth Marino
+2025-05-14
+ArXiv (preprint)
+arxiv.org
+arxiv.org
+Language Agents Mirror Human Causal Reasoning Biases. How Can We Help Them Think Like Scientists?
+Anthony GX-Chen
+Dongyan Lin
+Mandana Samiei
+Doina Precup
+Blake Richards
+Rob Fergus
+Kenneth Marino
+Language model (LM) agents are increasingly used as autonomous decision-makers who need to actively gather information to guide their decisi
+… (
+see more
+)
+ons. A crucial cognitive skill for such agents is the efficient exploration and understanding of the causal structure of the world -- key to robust, scientifically grounded reasoning. Yet, it remains unclear whether LMs possess this capability or exhibit systematic biases leading to erroneous conclusions. In this work, we examine LMs' ability to explore and infer causal relationships, using the well-established"Blicket Test"paradigm from developmental psychology. We find that LMs reliably infer the common, intuitive disjunctive causal relationships but systematically struggle with the unusual, yet equally (or sometimes even more) evidenced conjunctive ones. This"disjunctive bias"persists across model families, sizes, and prompting strategies, and performance further declines as task complexity increases. Interestingly, an analogous bias appears in human adults, suggesting that LMs may have inherited deep-seated reasoning heuristics from their training data. To this end, we quantify similarities between LMs and humans, finding that LMs exhibit adult-like inference profiles (but not children-like). Finally, we propose a test-time sampling method which explicitly samples and eliminates hypotheses about causal relationships from the LM. This scalable approach significantly reduces the disjunctive bias and moves LMs closer to the goal of scientific, causally rigorous reasoning.
+2025-05-01
+arXiv (published)
+doi.org
+arxiv.org
+Steering CLIP's vision transformer with sparse autoencoders
+Sonia Joseph
+Praneet Suresh
+Ethan Goldfarb
+Lorenz Hufe
+Yossi Gandelsman
+Robert Graham
+Danilo Bzdok
+Wojciech Samek
+Blake Richards
+While vision models are highly capable, their internal mechanisms remain poorly understood-- a challenge which sparse autoencoders (SAEs) ha
+… (
+see more
+)
+ve helped address in language, but which remains underexplored in vision. We address this gap by training SAEs on CLIP's vision transformer and uncover key differences between vision and language processing, including distinct sparsity patterns for SAEs trained across layers and token types. We then provide the first systematic analysis of the steerability of CLIP's vision transformer by introducing metrics to quantify how precisely SAE features can be steered to affect the model's output. We find that 10-15% of neurons and features are steerable, with SAEs providing thousands more steerable features than the base model. Through targeted suppression of SAE features, we then demonstrate improved performance on three vision disentanglement tasks (CelebA, Waterbirds, and typographic attacks), finding optimal disentanglement in middle model layers, and achieving state-of-the-art performance on defense against typographic attacks. We release our CLIP SAE models and code to support future research in vision transformer interpretability.
+2025-03-30
+thecvf.com/CVPR/2025/Workshop/MIV (poster)
+openreview.net
+openreview.net
+Multi-agent cooperation through learning-aware policy gradients
+Alexander Meulemans
+Seijin Kobayashi
+Johannes Von Oswald
+Nino Scherrer
+Eric Elmoznino
+Blake Richards
+Guillaume Lajoie
+Blaise Aguera y Arcas
+João Sacramento
+Self-interested individuals often fail to cooperate, posing a fundamental challenge for multi-agent learning. How can we achieve cooperation
+… (
+see more
+)
+among self-interested, independent learning agents? Promising recent work has shown that in certain tasks cooperation can be established between learning-aware agents who model the learning dynamics of each other. Here, we present the first unbiased, higher-derivative-free policy gradient algorithm for learning-aware reinforcement learning, which takes into account that other agents are themselves learning through trial and error based on multiple noisy trials. We then leverage efficient sequence models to condition behavior on long observation histories that contain traces of the learning dynamics of other agents. Training long-context policies with our algorithm leads to cooperative behavior and high returns on standard social dilemmas, including a challenging environment where temporally-extended action coordination is required. Finally, we derive from the iterated prisoner's dilemma a novel explanation for how and when cooperation arises among self-interested learning-aware agents.
+2025-01-22
+ICLR.cc/2025/Conference (poster)
+doi.org
+openreview.net
+Multi-session, multi-task neural decoding from distinct cell-types and brain regions
+Mehdi Azabou
+Krystal Xuejing Pan
+Vinam Arora
+Ian Jarratt Knight
+Eva L Dyer
+Blake Richards
+Recent work has shown that scale is important for improved brain decoding, with more data leading to greater decoding accuracy. However, lar
+… (
+see more
+)
+ge-scale decoding across many different datasets is challenging because neural circuits are heterogeneous---each brain region contains a unique mix of cellular sub-types, and the responses to different stimuli are diverse across regions and sub-types. It is unknown whether it is possible to pre-train and transfer brain decoding models between distinct tasks, cellular sub-types, and brain regions. To address these questions, we developed a multi-task transformer architecture and trained it on the entirety of the Allen Institute's Brain Observatory dataset. This dataset contains responses from over 100,000 neurons in 6 areas of the brains of mice, observed with two-photon calcium imaging, recorded while the mice observed different types of visual stimuli. Our results demonstrate that transfer is indeed possible -combining data from different sources is beneficial for a number of downstream decoding tasks. As well, we can transfer the model between regions and sub-types, demonstrating that there is in fact common information in diverse circuits that can be extracted by an appropriately designed model. Interestingly, we found that the model's latent representations showed clear distinctions between different brain regions and cellular sub-types, even though it was never given any information about these distinctions. Altogether, our work demonstrates that training a large-scale neural decoding model on diverse data is possible, and this provides a means of studying the differences and similarities between heterogeneous neural circuits.
+2025-01-22
+ICLR.cc/2025/Conference (spotlight)
+openreview.net
+openreview.net
+The oneirogen hypothesis: modeling the hallucinatory effects of classical psychedelics in terms of replay-dependent plasticity mechanisms
+Colin Bredenberg
+Fabrice Normandin
+Blake Richards
+Guillaume Lajoie
+Classical psychedelics induce complex visual hallucinations in humans, generating percepts that are co-herent at a low level, but which have
+… (
+see more
+)
+surreal, dream-like qualities at a high level. While there are many hypotheses as to how classical psychedelics could induce these effects, there are no concrete mechanistic models that capture the variety of observed effects in humans, while remaining consistent with the known pharmacological effects of classical psychedelics on neural circuits. In this work, we propose the “oneirogen hypothesis”, which posits that the perceptual effects of classical psychedelics are a result of their pharmacological actions inducing neural activity states that truly are more similar to dream-like states. We simulate classical psychedelics’ effects via manipulating neural network models trained on perceptual tasks with the Wake-Sleep algorithm. This established machine learning algorithm leverages two activity phases, a perceptual phase (wake) where sensory inputs are encoded, and a generative phase (dream) where the network internally generates activity consistent with stimulus-evoked responses. We simulate the action of psychedelics by partially shifting the model to the ‘Sleep’ state, which entails a greater influence of top-down connections, in line with the impact of psychedelics on apical dendrites. The effects resulting from this manipulation capture a number of experimentally observed phenomena including the emergence of hallucinations, increases in stimulus-conditioned variability, and large increases in synaptic plasticity. We further provide a number of testable predictions which could be used to validate or invalidate our oneirogen hypothesis.
+2025-01-13
+bioRxiv (preprint)
+doi.org
+Top-down feedback matters: Functional impact of brainlike connectivity motifs on audiovisual integration
+Mashbayar Tugsbayar
+Mingze Li
+Eilif Benjamin Muller
+Blake Richards
+Artificial neural networks (ANNs) are an important tool for studying neural computation, but many features of the brain are not captured by
+… (
+see more
+)
+standard ANN architectures. One notable missing feature in most ANN models is top-down feedback, i.e. projections from higher-order layers to lower-order layers in the network. Top-down feedback is ubiquitous in the brain, and it has a unique modulatory impact on activity in neocortical pyramidal neurons. However, we still do not understand its computational role. Here we develop a deep neural network model that captures the core functional properties of top-down feedback in the neocortex, allowing us to construct hierarchical recurrent ANN models that more closely reflect the architecture of the brain. We use this to explore the impact of different hierarchical recurrent architectures on an audiovisual integration task. We find that certain hierarchies, namely those that mimic the architecture of the human brain, impart ANN models with a light visual bias similar to that seen in humans. This bias does not impair performance on the audiovisual tasks. The results further suggest that different configurations of top-down feedback make otherwise identically connected models functionally distinct from each other, and from traditional feedforward-only models. Altogether our findings demonstrate that modulatory top-down feedback is a computationally relevant feature of biological brains, and that incorporating it into ANNs can affect their behavior and helps to determine the solutions that the network can discover.
+2025-01-08
+bioRxiv (preprint)
+doi.org
+Brain-like learning with exponentiated gradients
+Jonathan Cornford
+Roman Pogodin
+Arna Ghosh
+Kaiwen Sheng
+Brendan A. Bicknell
+Olivier Codol
+Beverley A. Clark
+Guillaume Lajoie
+Blake Richards
+2024-10-26
+bioRxiv (preprint)
+doi.org
+Top-down feedback matters: Functional impact of brainlike connectivity motifs on audiovisual integration
+Mashbayar Tugsbayar
+Mingze Li
+Eilif Benjamin Muller
+Blake Richards
+2024-10-03
+bioRxiv (preprint)
+doi.org
+Pager
+Current page
+1
+Page
+2
+Page
+3
+Page
+4
+Page
+5
+Page
+6
+Page
+7
+Page
+8
+Next page
+6666, St-Urbain, #200 Montreal, Quebec, H2S 3H1
+Contact us
+facebook
+X
+YouTube
+linkedIn
+instagram
+bluesky
+Footer
+Study at Mila
+Work at Mila
+Partner with Mila
+Footer bottom
+Hosting an event
+Media resources
+Privacy
+Events at Mila
+National security
+Set cookies
+6666, St-Urbain, #200 Montreal, Quebec, H2S 3H1
+Contact us
+facebook
+X
+YouTube
+linkedIn
+instagram
+bluesky
+Footer
+Study at Mila
+Work at Mila
+Partner with Mila
+Footer bottom
+Hosting an event
+Media resources
+Privacy
+Events at Mila
+National security
+Set cookies
+Website by Lima Charlie
+Mila
+                                                ©
+                                                2025
+                                                 - All rights reserved
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+Blake Richards is an Associate Professor at McGill University (School of Computer Science and Department of Neurology and Neurosurgery) and a core academic member of Mila – Quebec AI Institute. His research lies at the intersection of neuroscience and AI, investigating universal principles of intelligence that apply to both natural and artificial agents. The content does not specifically mention AI alignment or AI safety, but some research topics such as reinforcement learning, representation learning, and multi-agent cooperation reflect foundational AI research relevant to alignment-related questions.
+
+Next, I will fetch content from the McGill Faculty of Computer Science page to identify other professors that may explicitly work in AI alignment or related safety and alignment research areas, as such researchers often come from computer science faculties.
+
+{
+  "name": "fetch_content",
+  "args": {
+    "url": "https://www.cs.mcgill.ca/people/faculty/"
+  }
+}
+
+
+
+
+LLM CHECK RESULT:
+You didn't include ['thinking', 'text', 'tool_use'] tags in your response. Give your response again but use the proper formatting.
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+The content from Blake Richards' Mila directory page shows that he is an Associate Professor at McGill University and a core member of Mila. His research is at the intersection of neuroscience and AI, focusing on universal principles of intelligence for natural and artificial agents. However, explicit mention of AI alignment or AI safety is not directly stated, though some work on multi-agent cooperation and learning-aware reinforcement learning might be related. Next, I should check the McGill Computer Science faculty page and the page for Joelle Pineau at McGill and Mila, as she is known for fundamental AI research that could include AI alignment topics. I will fetch the Computer Science faculty page content next.
+</thinking>
+<text>
+I have reviewed Blake Richards' research profile, which primarily focuses on computational neuroscience and AI, with some relevant work on multi-agent coordination, which is somewhat related to AI alignment themes. I will now look at the broader McGill Computer Science faculty faculty to identify other professors with AI alignment or related AI safety research.
+</text>
+<tool_use>
+{
+  "name": "fetch_content",
+  "args": {
+    "url": "https://www.cs.mcgill.ca/people/faculty/"
+  }
+}
+</tool_use>
+
+
+
+DevTools listening on ws://127.0.0.1:59210/devtools/browser/973670f1-b183-4595-ae4a-6ccf77e67e9a
+
+
+TOOL CALL RES:
+Here is the text content for https://www.cs.mcgill.ca/people/faculty/:
+
+Inclusivity Statement
+Programs & Admissions
+Undergraduate
+Future Students
+Program Information
+Advising
+Graduate
+Future Students
+Program Information
+Courses
+TA Awards
+Funding
+Research
+Areas
+Tech Reports
+People
+Faculty
+Staff
+Community
+News & Events
+News
+Events
+UCORE
+Docs & Services
+Docs
+CS Accounts
+Public Resources
+Software
+Remote Access
+Tutorials
+Services
+Room Reservation
+Webmail
+Visitor Form
+Open positions
+Faculty
+Course Lecturer
+Research
+Student
+TA
+Donate
+About
+Contact Us
+Facilities
+Equity, Diversity and Inclusivity
+Resources and Groups
+Newsletter
+CS Internal KB
+People
+Faculty
+Director
+Professors
+Faculty Lecturer
+Adjunct Professors
+Associate Members
+Emeritus Professors
+Former Professors
+In Memoriam
+Collaborate@CS
+Staff
+Administrative staff
+System staff
+Community
+Women@socs
+CSUS
+CSGS
+Director of the School
+Mathieu Blanchette
+Bioinformatics
+Computational Biology
+Website
+Office: Trottier 3107; McConnell 318
+Phone: +1-514-398-5209
+Email: blanchem@cs.mcgill.ca
+Professors
+David Adelani
+Natural Language Processing
+Machine Learning
+Speech processing
+Website
+Office: MC 204N
+Email: david.adelani@mcgill.ca
+Oana Balmau
+Computer Systems
+Storage and Persistent Memory
+Storage Systems for Data Science
+Data Management for IoT
+Website
+Office: McConnell 113N
+Email: oana.balmau@cs.mcgill.ca
+Xiao-Wen Chang
+Numerical Linear Algebra
+Numerical Methods for Estimation
+Optimization
+Website
+Office: McConnell 302
+Phone: +1-514-398-8259
+Email: chang@cs.mcgill.ca
+Jackie Chi Kit Cheung
+Computational Linguistics
+Natural Language Processing
+Website
+Office: McConnell 108N
+Phone: 1 (514) 398-5491
+Email: jcheung@cs.mcgill.ca
+Claude Crepeau
+Cryptography
+Quantum Computing
+Website
+Office: McConnell 110N
+Phone: +1-514-398-4716
+Email: crepeau@cs.mcgill.ca
+Luc Devroye
+Probabilistic Analysis of Algorithms
+Website
+Office: McConnell 300N
+Phone: +1-514-398-3738
+Email: lucdevroye@gmail.com
+Christophe Dubach
+Compilers and Programming Languages
+Parallel Hardware (GPUs, FPGAs, ...)
+Machine Learning applied to Computing Systems
+Website
+Office: McConnell 758
+Phone: 514-398-8720
+Email: christophe.dubach@mcgill.ca
+Gregory Dudek
+Internet Technologies
+Swarm Robotics
+Robotics
+Website
+Office: McConnell 419
+Phone: +1-514-398-4325
+Email: dudek@cs.mcgill.ca
+Golnoosh Farnadi
+Artificial Intelligence
+Website
+Office: MC 324
+Email: golnoosh.farnadi@mcgill.ca
+Jin Guo
+Software Engineering
+Website
+Office: McConnell 328
+Phone: +1-514-398-4446
+Email: jin.guo@mcgill.ca
+Hamed Hatami
+Computational Complexity
+Discrete Mathematics
+Website
+Office: McConnell 308
+Phone: +1-514-398-3737
+Email: hatami@cs.mcgill.ca
+Bettina Kemme
+Databases
+Networks
+Parallel and Distributed Systems
+Computer Games
+Website
+Office: McConnell 109N
+Phone: +1-514-398-8930
+Email: kemme@cs.mcgill.ca
+Paul Kry
+Computer Graphics
+Robotics
+Applied Machine Learning
+Computer Games
+Website
+Office: McConnell 423
+Phone: +1-514-398-2577
+Email: kry@cs.mcgill.ca
+Michael Langer
+Computer Graphics
+Computer Vision
+Website
+Office: McConnell 329
+Phone: +1-514-398-3740
+Email: langer@cs.mcgill.ca
+Yue Li
+Applied Machine Learning
+Bioinformatics
+Computational Biology
+Website
+Office: Trottier 3105
+Phone: 514-398-7082 (Beginning Jan 2019)
+Email: yueli@cs.mcgill.ca
+Hsiu-Chin Lin
+Robotics
+Machine Learning for Motor Control
+Motion Control and Optimization
+Legged Robotics
+Website
+Email: hsiu-chin.lin@cs.mcgill.ca
+Xue Liu
+Big Data Applications
+Applied Machine Learning
+Computer Systems
+Networks
+Website
+Office: McConnell 326
+Phone: +1-514-398-6600
+Email: xueliu@cs.mcgill.ca
+Muthucumaru Maheswaran
+Internet Technologies
+Networks
+Parallel and Distributed Systems
+Website
+Office: McConnell 754
+Phone: +1-514-398-1465
+Email: maheswar@cs.mcgill.ca
+David Meger
+Computer Vision
+Machine Learning
+Robotics
+Website
+Office: MC 112N
+Phone: 514-398-3743
+Email: dmeger@cim.mcgill.ca
+Borke Obada
+Human Computer Interaction
+HCI for Development (HCI4D)
+Technology for Good
+Inclusive and Accessible Technology
+Website
+Office: MC 105N
+Email: borke.obada@mcgill.ca
+Elizabeth Patitsas
+Computer Science Education
+End-User Software Engineering
+Science and Technology Studies
+Website
+Office: McConnell 231
+Phone: +1-514-398-7073
+Email: elizabeth.patitsas@mcgill.ca
+Brigitte Pientka
+Logic and Computation
+Programming Language Theory
+Website
+Office: McConnell 107N
+Phone: +1-514-398-2583
+Email: bp@cs.mcgill.ca
+Joelle Pineau
+Bioinformatics
+Computational Biology
+Machine Learning
+Robotics
+Website
+Office: McConnell 104N
+Phone: +1-514-398-5432
+Email: jpineau@cs.mcgill.ca
+Doina Precup
+Machine Learning
+Website
+Office: McConnell 111N
+Phone: +1-514-398-6443
+Email: dprecup@cs.mcgill.ca
+Reihaneh Rabbany
+Network Science
+Data Mining
+Applied Machine Learning
+Website
+Office: McConnell 232
+Email: rrabba@cs.mcgill.ca
+Siamak Ravanbakhsh
+Machine Learning
+Website
+Office: McConnell 325
+Email: siamak@cs.mcgill.ca
+Siva Reddy
+Natural Language Processing
+Machine Learning
+Computational Linguistics
+Website
+Office: McConnell 104N
+Email: siva@cs.mcgill.ca
+Blake Richards
+Machine Learning
+Neuroscience
+Brain Inspired Artificial Intelligence
+Website
+Office: McConnell 104N; Room 765, Penfield Pavillion, Montreal Neurological Institute
+Email: blake.richards@mcgill.ca
+Robert Robere
+Computational Complexity
+Discrete Mathematics
+Logic and Computation
+Proof Complexity
+Website
+Office: McConnell 309
+Phone: TBD
+Email: robere@cs.mcgill.ca
+Martin Robillard
+Software Engineering
+Website
+Office: McConnell 114N
+Phone: +1-514-398-4258
+Email: martin@cs.mcgill.ca
+David Rolnick
+Machine Learning
+Deep Learning Theory
+Climate Change
+Website
+Office: McConnell 206N
+Phone: TBD
+Email: drolnick@cs.mcgill.ca
+Derek Ruths
+Machine Learning
+Data Science
+Computational Social Science
+Website
+Office: McConnell 106N
+Phone: +1-514-398-7079
+Email: druths@cs.mcgill.ca
+Kaleem Siddiqi
+Computer Vision
+Medical Image Analysis
+Pattern Recognition
+Website
+Office: McConnell 420
+Phone: +1-514-398-3371
+Email: siddiqi@cim.mcgill.ca
+Clark Verbrugge
+Compilers and Concurrency
+Computer Games
+Parallel and Distributed Systems
+Website
+Office: McConnell 230
+Phone: +1-514-398-2411
+Email: clump@cs.mcgill.ca
+Adrian Vetta
+Algorithmic Game Theory
+Algorithms
+Discrete Mathematics
+Website
+Office: Burnside 1118
+Phone: +1-514-398-3822
+Email: vetta@cs.mcgill.ca
+Jerome Waldispuhl
+Bioinformatics
+Computational Biology
+Website
+Office: Trottier 3106
+Phone: +1-514-398-5018
+Email: jeromew@cs.mcgill.ca
+Faculty Lecturers
+Giulia Alberini
+Website
+Office: MC233
+Email: giulia.alberini@mail.mcgill.ca
+David Becerra
+Bioinformatics
+Artificial Intelligence
+Algorithms
+Website
+Office: Trottier Building, Room 3107
+Phone: (514) 398-5209
+Email: david.becerra@mcgill.ca
+Mathieu Bérubé-Vallières
+Quantum Computing
+Website
+Email: mathieu.berube-vallieres@mcgill.ca
+Mona ElSaadawy
+Networks
+Distributed Systems
+Data Science
+Website
+Office: MC301
+Email: mona.elsaadawy@mcgill.ca
+Jacob Errington
+Compilers
+Functional Programming
+Programming Languages
+Website
+Office: McConnell 234A
+Email: jerrin@cs.mcgill.ca
+Faten M'hiri
+Machine Learning
+Healthcare Technologies
+Image Analysis
+Teaching and Learning Technologies
+Website
+Office: McConnell 234B
+Email: faten.mhiri@mcgill.ca
+Isabeau Prémont-Schwarz
+Machine Learning
+Reinforcement Learning
+Artificial Intelligence
+Website
+Office: MC 205N
+Email: isabeau.premont-schwarz@mcgill.ca
+Joseph Vybihal
+Brain Inspired Artificial Intelligence
+Societal Impacts of AI
+Multi-Agent Systems
+Internet Technologies
+Website
+Office: McConnell 327
+Phone: +1-514-398-7071 (ext 00092)
+Email: jvybihal@cs.mcgill.ca
+Associate Members
+Louigi Addario-Berry
+(Mathematics and Statistics)
+Website
+Office: Burnside Hall, Room 1005
+Phone: +1-514-398-3831
+Email: louigi@math.mcgill.ca
+Sylvain Baillet
+(Montreal Neurological Institute and Hospital)
+Computational Neuroscience
+Brain Systems
+Website
+Office: NW 107,  Montreal Neurological Institute
+Email: sylvain.baillet@mcgill.ca
+Pouya Bashivan
+(Physiology)
+Website
+Email: pouya.bashivan@mcgill.ca
+Danilo Bzdok
+(Biomedical Engineering)
+Applied Machine Learning
+Neuroscience
+Big Data Applications
+Website
+Email: danilo.bzdok@mcgill.ca
+Louis Collins
+(Biomedical Engineering &  Neurology and Neurosurgery)
+Website
+Email: louis.collins@mcgill.ca
+Jun Ding
+(RI-MUHC, McGill)
+Computational Biology
+Website
+Office: RI-MUHC, Block E, Office EM3.2212
+Email: jun.ding@mcgill.ca
+Benjamin Fung
+(Information Studies)
+Applied Machine Learning
+Data Mining
+Website
+Phone: 514-398-3360
+Email: ben.fung@mcgill.ca
+Simon Gravel
+(Human Genetics)
+Bioinformatics
+Algorithms
+Machine Learning
+Website
+Office: 740 Dr. Penfield – Room 7206
+Phone: 514-398-4400 #0753
+Email: simon.gravel@mcgill.ca
+Derek Nowrouzezahrai
+(Electrical and Computer Engineering)
+Applied Machine Learning
+Computer Graphics
+Computer Vision
+Website
+Office: McConnell 506
+Phone: 514-398-3118
+Email: derek@cim.mcgill.ca
+Timothy O’Donnell
+(Linguistics)
+Computational Linguistics
+Website
+Email: timothy.odonnell@mcgill.ca
+Dirk Schlimm
+(Philosophy)
+Logic and Computation
+Website
+Office: Leacock 916
+Phone: +1-514-398-6059
+Email: dirk.schlimm@mcgill.ca
+Thomas Shultz
+(Psychology)
+Network Dynamics
+Reasoning and Learning
+Website
+Phone: +1-514-398-6139
+Email: thomas.shultz@mcgill.ca
+Morgan Sonderegger
+(Linguistics)
+Computational Linguistics
+Website
+Email: morgan.sonderegger@mcgill.ca
+Yi Yang
+(Mathematics)
+Machine Learning
+Optimization
+Bioinformatics
+Data Mining
+Website
+Email: yi.yang6@mcgill.ca
+Adjunct Professors
+Sheldon Andrews
+(École de technologie supérieure)
+Website
+Office: TBD
+Phone: TBD
+Email: sheldon.andrews@etsmtl.net
+Dzmitry Bahdanau
+(ServiceNow Element AI)
+Website
+Email: dimabgv@gmail.com
+Marc G. Bellemare
+(Google Brain)
+Machine Learning
+Algorithms
+Website
+Email: marc.g.bellemare@gmail.com
+Xi Chen
+(Samsung AI)
+Networks
+Applied Machine Learning
+Website
+Email: xi.chen11@mcgill.ca
+Fernando Diaz
+(Microsoft Research Montreal)
+Fairness
+Societal Impacts of AI
+Information Retrieval
+Website
+Email: diazf@acm.org
+Gintare Karolina Dziugaite
+(Google Brain)
+Deep Learning Theory
+Machine Learning
+Website
+Email: karolina.dziugaite@gmail.com
+Danny Grant
+Website
+Email: dgrant@innovobot.com
+Samira Ebrahimi Kahou
+(École de technologie supérieure)
+Website
+Email: samira.ebrahimi.kahou@gmail.com
+Tei-Wei Kuo
+(City University of Hong Kong)
+Website
+Email: teiwei.kuo@cityu.edu.hk
+Annie Louis
+(University of Edinburgh)
+Computational Linguistics
+Network Dynamics
+Website
+Email: alouis@inf.ed.ac.uk
+Ioannis Rekleitis
+(South Carolina)
+Robotics
+Website
+Email: yiannis@cim.mcgill.ca
+Adriana Romero Soriano
+(Facebook AI Research)
+Website
+Email: no_reply@cs.mcgill.ca
+Xujie Si
+Programming Language Theory
+Software Engineering
+Machine Learning
+Website
+Phone: TBD
+Email: xsi@cs.mcgill.ca
+Attila Szantner
+(Massively Multiplayer Online Science)
+Citizen Science
+Video Games
+Gamification
+Website
+Email: attila.szantner@mcgill.ca
+Danny Tarlow
+(Google Brain)
+Machine Learning
+Programming Language Theory
+Graph Neural Networks
+Website
+Email: dannytarlow@gmail.com
+Adam Trischler
+(Microsoft Research)
+Machine Learning
+Natural Language Processing
+Website
+Email: adam.trischler@microsoft.com
+Emeritus Professors
+David Avis
+Computational Geometry
+Discrete Mathematics
+Quantum Computing
+Website
+Office: McConnell 310
+Email: avis@cs.mcgill.ca
+Renato De Mori
+Spoken Language Processing
+Website
+Office: McConnell 204N
+Phone: +1-514-398-7071
+Email: rdemori@cs.mcgill.ca
+Tim Merrett
+Databases
+Website
+Phone: +1-514-398-7071
+Email: tim@cs.mcgill.ca
+Monty Newborn
+Website
+Email: newborn@cs.mcgill.ca
+Chris Paige
+Numerical Linear Algebra
+Website
+Office: McConnell 205N
+Phone: +1-514-398-3742
+Email: chris@cs.mcgill.ca
+Prakash Panangaden
+Logic and Computation
+Probabilistic Systems
+Machine Learning
+Website
+Office: McConnell 105N
+Phone: +1-514-398-7074
+Email: prakash@cs.mcgill.ca
+Gerald Ratzer
+Website
+Office: McConnell 206N
+Email: ratzer@cs.mcgill.ca
+Denis Therien
+Computational Complexity
+Probabilistic Analysis of Algorithms
+Website
+Office: McConnell 309
+Phone: +1-514-398-7073
+Email: denis@cs.mcgill.ca
+Associate Professors Post-Retirement
+Nathan Friedman
+Website
+Office: McConnell 325
+Phone: +1-514-398-7076
+Email: nathan@cs.mcgill.ca
+Carl Tropper
+Parallel and Distributed Systems
+Website
+Office: McConnell 112N
+Email: carl@cs.mcgill.ca
+Former Professors
+Yang Cai
+Algorithmic Game Theory
+Algorithms
+Discrete Mathematics
+Website
+Office: McConnell 324
+Phone: +1-514-398-7082
+Email: cai@cs.mcgill.ca
+Michael Hallett
+(Concordia)
+Website
+Email: michael.hallett@concordia.ca
+Patrick Hayden
+Quantum Computing
+Website
+Email: phayden@stanford.edu
+Wenbo He
+(McMaster)
+Networks
+Website
+Office: McConnell 232
+Phone: +1-514-398-3281
+Email: wenbohe@cs.mcgill.ca
+Bruce Reed
+Algorithms
+Discrete Mathematics
+Website
+Office: McConnell 301
+Phone: +1-514-398-5913
+Email: breed@cs.mcgill.ca
+Hans Vangheluwe
+Computer Games
+Programming Language Theory
+Software Engineering
+Website
+Office: McConnell 206N
+Phone: +1-514-398-7077
+Email: hv@cs.mcgill.ca
+Sue Whitesides
+Algorithms
+Discrete Mathematics
+Computational Geometry
+Website
+Email: sue@uvic.ca
+In Memoriam
+Laurie Hendren
+Professor
+Compilers and Concurrency
+Programming Language Theory
+Software Engineering
+Website
+Announcement
+Godfried Toussaint
+Professor
+Computational Geometry
+Discrete Mathematics
+Pattern Recognition
+Website
+Announcement
+Internal
+Add Content
+Admin
+Quick Links
+COVID-19
+Room Bookings
+Facilities
+Contact Us
+Explore
+News
+Events
+Careers
+All content related requests should be sent to
+webadmin@cs.mcgill.ca
+© McGill University 2025
+Credits
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+I reviewed the McGill Computer Science faculty page. It lists many professors with research areas including machine learning, artificial intelligence, reinforcement learning, robotics, and neuroscience. Several professors have expertise which could potentially relate to AI alignment, such as Joelle Pineau (machine learning, robotics), Doina Precup (machine learning), Blake Richards (machine learning, neuroscience, brain-inspired AI), David Rolnick (machine learning, deep learning theory, climate change), and Joseph Vybihal (brain-inspired AI and societal impacts of AI). However, the page does not explicitly mention AI alignment or AI safety research directly in these short summaries. Joelle Pineau is a known figure in AI research with a leadership role at Mila and Meta's FAIR, so I should further check her specific page for alignment-related work. I will fetch the content from Joelle Pineau’s faculty page next.
+</thinking>
+<text>
+I reviewed the McGill Computer Science faculty page for professors potentially researching AI alignment. Several professors such as Joelle Pineau, Doina Precup, Blake Richards, and David Rolnick have relevant AI and machine learning expertise, but AI alignment or safety is not explicitly mentioned in their short bios. To identify any direct AI alignment work, I will now check Joelle Pineau’s specific faculty or Mila page for detailed research interests and projects.
+</text>
+<tool_use>
+{
+  "name": "fetch_content",
+  "args": {
+    "url": "https://www.cs.mcgill.ca/~jpineau/"
+  }
+}
+</tool_use>
+
+
+
+DevTools listening on ws://127.0.0.1:59232/devtools/browser/add8156a-f13c-4c4e-8503-689d65c0c0d1
+
+
+TOOL CALL RES:
+Here is the text content for https://www.cs.mcgill.ca/~jpineau/:
+
+Joelle Pineau's webpage at McGill
+Research
+Publications
+Students
+Teaching (old)
+COMP-102
+COMP-424
+COMP-551
+Contact
+News:
+Looking for the
+Machine Learning Reproducibility Checklist
+?
+Use this before your next paper submission to ensure you don't miss important details!
+Current status and openings:
+I currently share my time between McGill and Meta.  I am not currently taking new graduate students at McGill and am not able to host international visitors or interns.  McGill CS undergraduate students who have taken COMP-424 or COMP-551 are invited to contact one of my
+postdocs
+to inquire about possible research projects; contact them 2 weeks before the semester for a 3 or 4 credit research course, and in January for a summer full-time internship (positions are very limited).
+Bio:
+Joelle Pineau is the VP AI Research at Meta, leading its Fundamental AI Research (FAIR) team, with labs across Canada, US and Europe.  She is also a Professor at the School of Computer Science at McGill University and core member of Mila. She holds a BASc in Engineering from the University of Waterloo, and an MSc and PhD in Robotics from Carnegie Mellon University. Dr. Pineau's research focuses on developing new models and algorithms for planning and learning in complex domains. She also works on applying these algorithms to real-world problems in robotics, healthcare, and conversational agents. She is a past President of the International Machine Learning Society, the inaugural Reproducibility Chair of the NeurIPS conference, and is the creator of the ML Reproducibility checklist and the ML Reproducibility challenge. She is a recipient of NSERC's E.W.R. Steacie Memorial Fellowship (2018), the Governor General's Innovation Awards (2019), a CIFAR Canada AI (CCAI) chair-holder, a Fellow of the Association for the Advancement of Artificial Intelligence (AAAI), and a Fellow of the Royal Society of Canada (RSC).
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+Joelle Pineau is a Professor of Computer Science at McGill and a core member of Mila, with a strong leadership role in AI research at Meta. Her research focuses broadly on developing new models and algorithms for planning and learning with applications in robotics, healthcare, and conversational agents, but there is no explicit mention of AI alignment or AI safety in the description. The information from the iSMART lab and Blake Richards does not explicitly reference AI alignment either. The McGill CS faculty list included several other professors with machine learning and AI expertise who might have AI alignment interests, but none explicitly listed that. To be exhaustive, I should check if there are any known AI alignment research initiatives or groups directly affiliated with McGill or Mila that might mention professors specifically in that niche.
+
+Next, I will search for "McGill University AI alignment researchers" and for any AI safety or alignment research groups associated with McGill, to see if there are explicit mentions of professors working on AI alignment.
+</thinking>
+<text>
+I will now perform a search to identify if there are any McGill University professors explicitly working on or researching AI alignment or AI safety, which might not be listed directly in the faculty or lab pages but are mentioned in broader or external sources related to AI alignment.
+</text>
+<tool_use>
+{
+  "name": "search",
+  "args": {
+    "query": "McGill University professors AI alignment research"
+  }
+}
+</tool_use>
+
+
+
+DevTools listening on ws://127.0.0.1:59250/devtools/browser/db480687-4d06-4591-aa0c-503865115f86
+
+
+TOOL CALL RES:
+Link 1: https://ismart.ece.mcgill.ca/team/
+Description: She holds the position of Associate Professor (tenured) in the Department of Electrical and Computer Engineering at McGill University, as well as at Mila - Quebec AI Institute.
+
+Link 2: https://mila.quebec/en/directory/blake-richards
+Description: Blake Richards is an associate professor at the School of Computer Science and in the Department of Neurology and Neurosurgery at McGill University, and a core academic member of Mila - Quebec Artificial Intelligence Institute. Richards' research lies at the intersection of neuroscience and AI.
+
+Link 3: https://www.mcgill.ca/cim/
+Description: Since 1985, CIM has been a world leader in research on intelligent systems. Formed as an inter-departmental, inter-faculty research group between members of Electrical and Computer Engineering, Mechanical Engineering and Computer Science, our members seek to advance the state of knowledge across domains.
+
+Link 4: https://www.cs.mcgill.ca/people/faculty/
+Description: Faculty Lecturers Giulia Alberini David Becerra Bioinformatics Artificial Intelligence Algorithms
+
+Link 5: https://reporter.mcgill.ca/two-mcgill-professors-selected-as-new-canada-cifar-ai-chairs-under-the-pan%E2%80%90canadian-ai-strategy/
+Description: The prestigious program provides university‐affiliated faculty with long‐term, dedicated funding to support cutting‐edge research programs and help them train the next generation of AI leaders in Canada. The McGill researchers selected as Canada CIFAR AI Chairs are: Derek Nowrouzezahrai (Department of Electrical and Computer Engineering)
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+I have reviewed multiple sources related to McGill University professors connected to AI research, including the iSMART Lab, Mila directory, and McGill Computer Science faculty page. None explicitly mentioned professors specifically focused on AI alignment or AI safety research. Based on major known AI alignment experts and common affiliations, it appears McGill may not have professors publicly emphasizing AI alignment as a core research area, at least in the mainstream faculty profiles or Mila directory. However, I see from a new link mentioning Canada CIFAR AI Chairs at McGill, which could be leading AI researchers potentially tangentially related to AI alignment. I should fetch the content of the last link from McGill Reporter on Canada CIFAR AI Chairs to check if any of the professors selected are working in areas related to AI alignment.
+</thinking>
+<text>
+I will now check the details of McGill professors who have Canada CIFAR AI Chairs titles under the Pan-Canadian AI Strategy to identify any alignment-relevant research or projects.
+</text>
+<tool_use>
+{
+  "name": "fetch_content",
+  "args": {
+    "url": "https://reporter.mcgill.ca/two-mcgill-professors-selected-as-new-canada-cifar-ai-chairs-under-the-pan%E2%80%90canadian-ai-strategy/"
+  }
+}
+</tool_use>
+
+
+
+DevTools listening on ws://127.0.0.1:59278/devtools/browser/1c4b1116-cf38-48b3-8eb5-8d4c242154b9
+
+
+TOOL CALL RES:
+Here is the text content for https://reporter.mcgill.ca/two-mcgill-professors-selected-as-new-canada-cifar-ai-chairs-under-the-pan%E2%80%90canadian-ai-strategy/:
+
+Skip to content
+mcgill.ca
+fr
+All News
+Research
+Kudos
+Sustainability
+Indigenous
+Equity, Diversity & Inclusion
+mcgill.ca
+Two McGill professors selected as new Canada CIFAR AI Chairs under the Pan‐Canadian AI Strategy
+Professors Derek Nowrouzezahrai (Department of Electrical and Computer Engineering) and Adriana Romero Soriano (School of Computer Science) are among the newest cohort of Canada’s AI leaders
+By Junji Nishihata
+Senior Communications Adviser, Office of Research and Innovation
+May 2, 2023
+Adriana Romero-Soriano and Derek Nowrouzezahra
+La version française suit le texte anglais
+The Canadian Institute for Advanced Research (CIFAR) and Canada’s three National AI Institutes today announced the appointment of eight outstanding researchers as Canada CIFAR AI Chairs, as well as the first cohort of Chairs to be renewed under the second phase of the Pan‐Canadian AI Strategy at CIFAR. Two McGill University researchers were among those named to these prestigious appointments, demonstrating the Institution’s continued strength in AI.
+“Artificial intelligence is becoming a central point of discussion not just in multiple industries but in everyday society,” said Benoit Boulet, Associate Vice-Principal, Innovation + Partnerships, McGill University. “These appointments demonstrate the leadership of McGill researchers at helping shape these discussions.”
+“With the rapid development and deployment of artificial intelligence, it has never been more important to ensure that we are supporting our best and brightest minds, their research programs and work to train the next generation of research leaders,” said the Honourable François‐Philippe Champagne, Minister of Innovation, Science and Industry. “On behalf of the Government of Canada, my congratulations to all the well‐deserving recipients.”
+“We’re excited about the contributions of these new and renewed Chairs, who will continue to advance Canada’s global leadership in AI, a technology that when used responsibly holds terrific potential to address some of humanity’s greatest challenges,” added Elissa Strome, Executive Director, Pan‐Canadian AI Strategy at CIFAR.
+The Canada CIFAR AI Chairs program remains a cornerstone of the Pan‐Canadian AI Strategy, recruiting the world’s top AI researchers to Canada while retaining existing talent. The prestigious program provides university‐affiliated faculty with long‐term, dedicated funding to support cutting‐edge research programs and help them train the next generation of AI leaders in Canada. The McGill researchers selected as Canada CIFAR AI Chairs are:
+Derek Nowrouzezahrai
+(Department of Electrical and Computer Engineering)
+Professor Nowrouzezahrai is devising new mathematical models of visual phenomena and dynamics, solving problems in diverse applications including light transport, fluid dynamics and control, reinforcement and representation learning, robotics, augmented reality, digital manufacturing, computational optics and imaging, and image and geometry processing. His work has been adopted in feature films, video games, autonomous vehicles, amusement parks and consumer products.
+Adriana Romero Soriano
+(School of Computer Science)
+Professor Romero Soriano’s research focuses on developing machine learning models which can learn from multi‐modal data, reason about conceptual relations, and leverage active and adaptive data acquisition strategies. The goal of her research is to enable interactive and immersive experiences of content creation and reconstruction that work for everyone. Her most recent work intersects generative modeling, active sensing, and responsible AI.
+___________________
+Deux professeurs de McGill sélectionnés comme nouveaux titulaires de chaires CIFAR d’IA au Canada dans le cadre de la stratégie pancanadienne en matière d’IA
+Derek Nowrouzezahrai (Département de génie électrique et de génie informatique) et Adriana Romero Soriano (l’École d’informatique) font partie de la nouvelle cohorte de leaders canadiens en matière d’IA.
+Adriana Romero-Soriano et Derek Nowrouzezahra
+L’Institut canadien de recherches avancées (CIFAR) et les trois instituts nationaux d’IA du Canada ont annoncé aujourd’hui la nomination de huit chercheuses et chercheurs exceptionnels en tant que titulaires de chaires en IA Canada-CIFAR, ainsi que le renouvellement de la première cohorte de chaires dans le cadre de la deuxième phase de la
+Stratégie pancanadienne en matière d’IA
+du CIFAR. Deux chercheurs de l’Université McGill figurent parmi les lauréats de ces nominations prestigieuses, ce qui témoigne de la force continue de l’institution dans le domaine de l’IA.
+« Alors que le développement et le déploiement de l’IA sont plus rapides que jamais, il n’a jamais été aussi important de soutenir nos plus brillants cerveaux, leurs programmes de recherche et leur travail pour former la prochaine génération de chefs de file de la recherche » a dit  l’honorable François-Philippe Champagne, ministre de l’Innovation, des Sciences et de l’Industrie « Au nom du gouvernement du Canada, j’adresse mes félicitations à toutes les personnes lauréates, qui l’ont bien mérité. »
+« L’intelligence artificielle est en train de devenir un sujet de discussion central, non seulement dans de nombreuses industries, mais aussi dans la société de tous les jours, » a déclaré Benoit Boulet, vice-principal associé, Innovation + Partenariats, de l’Université McGill. « Ces nominations démontrent le leadership des chercheurs de McGill qui contribuent à façonner ces discussions. »
+« Nous sommes enthousiastes quant aux contributions de ces titulaires de chaires, qui continueront à faire progresser le leadership mondial du Canada en matière d’IA, une technologie qui, lorsqu’elle est utilisée de manière responsable, présente un potentiel formidable pour relever certains des plus grands défis de l’humanité, » a ajouté Elissa Strome, directrice générale, Stratégie pancanadienne en matière d’IA du CIFAR.
+Le
+programme des titulaires de chaires en IA Canada-CIFAR
+demeure une pierre angulaire de la Stratégie pancanadienne en matière d’IA. Il veille à recruter au Canada les meilleurs chercheuses et chercheurs en IA du monde, tout en retenant les talents déjà en place. Ce programme prestigieux offre aux membres du corps professoral affiliés à une université un financement spécialisé à long terme pour soutenir des programmes de recherche de pointe et les aider à former la prochaine génération de chefs de file de l’IA au Canada. Les chercheurs de McGill sélectionnés en tant que chaires CIFAR AI du Canada sont les suivants :
+Derek Nowrouzezahrai (Department of Electrical and Computer Engineering)
+Le groupe de Derek Nowrouzezahrai conçoit de nouveaux modèles mathématiques des phénomènes et dynamiques visuels. Il résout des problèmes dans diverses applications, dont le transport de la lumière, la dynamique et le contrôle des fluides, l’apprentissage par renforcement, l’apprentissage des représentations, la robotique, la réalité augmentée, la fabrication numérique, l’optique et l’imagerie augmentées par ordinateur, ainsi que le traitement de l’image et de la géométrie. Son travail a été adopté dans des longs métrages, des jeux vidéo, des véhicules autonomes, des parcs d’attractions et des produits de consommation.
+Adriana Romero-Soriano
+(
+School of Computer Science
+)
+Les recherches d’Adriana Romero Soriano portent sur le développement de modèles d’apprentissage automatique capables d’apprendre à partir de données multimodales, de raisonner sur des relations conceptuelles et de tirer parti de stratégies d’acquisition de données actives et adaptatives. L’objectif de ses recherches est de permettre des expériences interactives et immersives de création et de reconstruction de contenu qui fonctionnent pour tout le monde. Ses travaux les plus récents recoupent la modélisation générative, la détection active et l’IA responsable.
+You might also enjoy...
+Sustainability
+‘Lean into what feels right’
+July 14, 2025
+All News
+Ensuring AI plays a positive role in climate action
+October 8, 2024
+All News
+Using AI to help cancer patients
+May 27, 2024
+Research
+Sustainable Data Science Training Program awarded $1.65 M from...
+May 16, 2024
+Load more
+The McGill Reporter is
+McGill University
+‘s journal of record.
+About the Reporter
+Cookie notice
+Looking for more news, videos and expert opinions? Try the
+McGill Newsroom
+.
+Looking for our archives? Visit the
+McGill Reporter archives
+.
+Want to contribute an item to what’snew@mcgill?
+Submit your item through our online form
+.
+Have an idea for a Reporter article? Email us at
+whatsnew.cer@mcgill.ca
+.
+We use cookies to help improve the usability of our websites.
+What are you comfortable with?
+Essential cookies that allow our website to function
+Performance cookies that collect usability data
+Marketing cookies that can personalize your web experiences
+Accept all
+Only selected
+
+
+
+
+LLM RESULT (AgentType.WORKER):
+<thinking>
+I reviewed the article on McGill's recent appointments to Canada CIFAR AI Chairs. Two professors were highlighted: Derek Nowrouzezahrai (Electrical and Computer Engineering) and Adriana Romero Soriano (Computer Science). Derek focuses on diverse applications including reinforcement learning and robotics but no explicit AI alignment mention. Adriana's work includes generative modeling, active sensing, and responsible AI, which overlaps somewhat with AI safety or alignment themes. Given this, she may be involved in AI alignment-related research. Past fetched content showed several other professors with AI-related interests (e.g., Joelle Pineau, Blake Richards, Doina Precup) but none explicitly listed AI alignment. I did not find explicit titles using "AI alignment" but there are overlaps with responsible AI and safety-related research. Thus, I can summarize professors working in AI and adjacent areas potentially related to AI alignment, but no clear explicit AI alignment specialists were found.
+</thinking>
+<text>
+Here are McGill University professors currently working on AI-related areas relevant or adjacent to AI alignment:
+
+1. Adriana Romero Soriano
+   - Department: School of Computer Science
+   - Relevant Research: Machine learning models for multi-modal data, conceptual reasoning, active and adaptive data acquisition, generative modeling, and responsible AI. Her work on responsible AI suggests involvement in AI safety and alignment adjacent topics.
+
+2. Blake Richards
+   - Departments: School of Computer Science; Department of Neurology and Neurosurgery
+   - Relevant Research: Neuroscience and AI intersection, brain-inspired AI, reinforcement learning, multi-agent cooperation, and learning-aware algorithms which can relate to AI alignment themes.
+
+3. Joelle Pineau
+   - Department: School of Computer Science
+   - Relevant Research: Planning and learning in complex domains, robotics, healthcare, conversational agents; leader at Mila and Meta FAIR. While no explicit AI alignment mention, her role involves fundamental AI research.
+
+4. Doina Precup
+   - Department: School of Computer Science
+   - Relevant Research: Machine learning, particularly reinforcement learning, a field closely tied with AI alignment research.
+
+5. Derek Nowrouzezahrai
+   - Department: Electrical and Computer Engineering
+   - Relevant Research: Mathematical models in reinforcement learning, robotics, and control. His work includes reinforcement learning, which can be related to alignment.
+
+Although none of the professors explicitly list "AI alignment" as their primary focus, several engage in research areas such as reinforcement learning, responsible AI, and multi-agent systems which are relevant to AI alignment themes.
+
+Narges Armanfard from the Department of Electrical and Computer Engineering and Mila is an AI-focused professor, but her research centers on applied computer vision and anomaly detection rather than AI alignment.
+
+In summary, McGill University has several AI researchers whose work touches on areas relevant to AI alignment, but explicit concentrated AI alignment research or professors designated specifically as AI alignment researchers does not appear evident in publicly available information.
+</text>
+<tool_use>
+  {}
+</tool_use>
+
+
+
+
+TOOL CALL RES:
+('Here are McGill University professors currently working on AI-related areas relevant or adjacent to AI alignment:\n\n1. Adriana Romero Soriano  \n   - Department: School of Computer Science  \n   - Relevant Research: Machine learning models for multi-modal data, conceptual reasoning, active and adaptive data acquisition, generative modeling, and responsible AI. Her work on responsible AI suggests involvement in AI safety and alignment adjacent topics.\n\n2. Blake Richards  \n   - Departments: School of Computer Science; Department of Neurology and Neurosurgery  \n   - Relevant Research: Neuroscience and AI intersection, brain-inspired AI, reinforcement learning, multi-agent cooperation, and learning-aware algorithms which can relate to AI alignment themes.\n\n3. Joelle Pineau  \n   - Department: School of Computer Science  \n   - Relevant Research: Planning and learning in complex domains, robotics, healthcare, conversational agents; leader at Mila and Meta FAIR. While no explicit AI alignment mention, her role involves fundamental AI research.\n\n4. Doina Precup  \n   - Department: School of Computer Science   \n   - Relevant Research: Machine learning, particularly reinforcement learning, a field closely tied with AI alignment research.\n\n5. Derek Nowrouzezahrai  \n   - Department: Electrical and Computer Engineering  \n   - Relevant Research: Mathematical models in reinforcement learning, robotics, and control. His work includes reinforcement learning, which can be related to alignment.\n\nAlthough none of the professors explicitly list "AI alignment" as their primary focus, several engage in research areas such as reinforcement learning, responsible AI, and multi-agent systems which are relevant to AI alignment themes.\n\nNarges Armanfard from the Department of Electrical and Computer Engineering and Mila is an AI-focused professor, but her research centers on applied computer vision and anomaly detection rather than AI alignment.\n\nIn summary, McGill University has several AI researchers whose work touches on areas relevant to AI alignment, but explicit concentrated AI alignment research or professors designated specifically as AI alignment researchers does not appear evident in publicly available information.', {'uid': 'bd0f6a36a11e4437867907d367f9231a', 'type': <AgentType.WORKER: 'worker'>, 'model': 'gpt-4.1-mini', 'health': 0.018067, 'total_cost': 0.04107720000000001, 'num_tool_calls': 7})
+
+
+
+
+LLM RESULT (AgentType.ORCHESTRATOR):
+<thinking>
+The information obtained lists several professors at McGill University involved in AI-related research areas that are relevant or adjacent to AI alignment, such as reinforcement learning, responsible AI, multi-agent cooperation, and brain-inspired AI. However, none explicitly focus solely on AI alignment. The list includes their departments, research interests, and an evaluation of how their work relates to AI alignment themes.
+</thinking>
+<text>
+Here is a list of McGill University professors currently working on AI-related areas relevant or adjacent to AI alignment:
+
+1. Adriana Romero Soriano
+   - Department: School of Computer Science
+   - Relevant Research: Machine learning models for multi-modal data, conceptual reasoning, active and adaptive data acquisition, generative modeling, and responsible AI. Her work on responsible AI suggests involvement in AI safety and alignment adjacent topics.
+
+2. Blake Richards
+   - Departments: School of Computer Science; Department of Neurology and Neurosurgery
+   - Relevant Research: Neuroscience and AI intersection, brain-inspired AI, reinforcement learning, multi-agent cooperation, and learning-aware algorithms which can relate to AI alignment themes.
+
+3. Joelle Pineau
+   - Department: School of Computer Science
+   - Relevant Research: Planning and learning in complex domains, robotics, healthcare, conversational agents; leader at Mila and Meta FAIR. While no explicit AI alignment mention, her role involves fundamental AI research.
+
+4. Doina Precup
+   - Department: School of Computer Science
+   - Relevant Research: Machine learning, particularly reinforcement learning, a field closely tied with AI alignment research.
+
+5. Derek Nowrouzezahrai
+   - Department: Electrical and Computer Engineering
+   - Relevant Research: Mathematical models in reinforcement learning, robotics, and control. His work includes reinforcement learning, which can be related to alignment.
+
+Although none of these professors explicitly list "AI alignment" as their primary focus, their research touches on themes relevant to AI alignment. There does not appear to be professors dedicated explicitly to AI alignment at McGill University based on publicly available information.
+</text>
+<tool_use>
+{}
+</tool_use>
+
+
+
+
+OA res in System:
+Here is a list of McGill University professors currently working on AI-related areas relevant or adjacent to AI alignment:
+
+1. Adriana Romero Soriano
+   - Department: School of Computer Science
+   - Relevant Research: Machine learning models for multi-modal data, conceptual reasoning, active and adaptive data acquisition, generative modeling, and responsible AI. Her work on responsible AI suggests involvement in AI safety and alignment adjacent topics.
+
+2. Blake Richards
+   - Departments: School of Computer Science; Department of Neurology and Neurosurgery
+   - Relevant Research: Neuroscience and AI intersection, brain-inspired AI, reinforcement learning, multi-agent cooperation, and learning-aware algorithms which can relate to AI alignment themes.
+
+3. Joelle Pineau
+   - Department: School of Computer Science
+   - Relevant Research: Planning and learning in complex domains, robotics, healthcare, conversational agents; leader at Mila and Meta FAIR. While no explicit AI alignment mention, her role involves fundamental AI research.
+
+4. Doina Precup
+   - Department: School of Computer Science
+   - Relevant Research: Machine learning, particularly reinforcement learning, a field closely tied with AI alignment research.
+
+5. Derek Nowrouzezahrai
+   - Department: Electrical and Computer Engineering
+   - Relevant Research: Mathematical models in reinforcement learning, robotics, and control. His work includes reinforcement learning, which can be related to alignment.
+
+Although none of these professors explicitly list "AI alignment" as their primary focus, their research touches on themes relevant to AI alignment. There does not appear to be professors dedicated explicitly to AI alignment at McGill University based on publicly available information.
+
+
+{'uid': '39afdd14b8e541ff920d27f5a27d6549', 'type': <AgentType.ORCHESTRATOR: 'orchestrator'>, 'model': 'gpt-4.1-mini', 'health': 0.002031, 'total_cost': 0.04353600000000001, 'num_tool_calls': 8}
